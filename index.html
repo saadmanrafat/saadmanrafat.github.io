@@ -1,86 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Saadman Rafat - Software Engineer</title>
     <meta name="description" content="Official website of Saadman Rafat, an expert Python developer specializing in scalable solutions, serverless architecture, Docker, and Kubernetes.">
-    <meta name="keywords" content="Saadman Rafat, saadmanrafat, Python Developer, Software Engineer, Open-Source, Serverless Architecture, DevOps, Docker, Kubernetes">
+    <meta name="keywords" content="Saadman Rafat, Python Developer, Software Engineer, Serverless Architecture, DevOps, Docker, Kubernetes">
     <meta name="author" content="Saadman Rafat">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4.png" type="image/png">
-
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Saadman Rafat - Software Engineer">
     <meta property="og:description" content="Discover the work and expertise of Saadman Rafat in Python development, open-source contributions, and scalable system design.">
     <meta property="og:url" content="https://saadman.dev">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4.png">
-
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:title" content="Saadman Rafat - Software Engineer">
     <meta name="twitter:description" content="Official website of Saadman Rafat, specializing in Python, serverless architecture, and scalable solutions.">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4.png">
-
-    <!-- Canonical Link -->
     <link rel="canonical" href="https://saadman.dev">
 
-    <!-- IBM Plex Mono font -->
+    <!-- Favicon -->
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4.png" type="image/png">
+
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 
-    <!-- Structured Data (JSON-LD) for SEO -->
+    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Saadman Rafat",
-        "url": "https://saadman.dev",
-        "sameAs": [
-            "https://x.com/saadmanrafat_",
-            "https://github.com/saadmanrafat",
-            "mailto:saadmanhere@gmail.com"
-        ],
-        "jobTitle": "Software Engineer",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Open-Source Community"
-        },
-        "knowsAbout": ["Python", "DevOps", "Serverless Architecture", "Docker", "Kubernetes"]
-    }
+        {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Saadman Rafat",
+            "url": "https://saadman.dev",
+            "sameAs": [
+                "https://x.com/saadmanrafat_",
+                "https://github.com/saadmanrafat",
+                "mailto:saadmanhere@gmail.com"
+            ],
+            "jobTitle": "Software Engineer",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Daphne Solutions"
+            },
+            "knowsAbout": ["Python", "DevOps", "Serverless Architecture", "Docker", "Kubernetes"]
+        }
     </script>
 
+    <!-- Styles -->
     <style>
         body {
             margin: 0;
-            background-color: #000;
+            background-color: #333;
             color: #fff;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 16px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centers the container horizontally */
+            align-items: center;
         }
+
         .container {
-            width: 40%; /* Sets the container to 40% of the viewport width */
-            max-width: 800px; /* Ensures the container doesn't exceed 800px on larger screens */
+            width: 40%;
+            max-width: 800px;
             padding: 0 20px;
-            margin-top: 40px; /* Increased margin at the top to move it two rows down */
+            margin-top: 40px;
         }
 
         .navbar, .footer {
             width: 100%;
         }
+
         .navbar {
             padding: 20px 0;
             font-size: 20px;
             font-weight: bold;
         }
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-        }
+
         .navbar a {
             color: #fff;
             text-decoration: none;
@@ -106,28 +101,26 @@
             width: 100%;
             margin-top: 20px;
         }
+
+        .content p {
+            max-width: 600px;
+            line-height: 1.5;
+            text-align: justify;
+            font-size: 1rem;
+            padding: 0.5em;
+        }
+
         .footer {
             padding: 20px 0;
-            font-size: 12px;
+            font-size: 14px;
             margin-top: 40px;
-            text-align: left; /* Aligns the footer to the left */
-        }
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px; /* Slightly increased the footer link size */
-        }
-        .footer .link-symbol {
-            margin: 0 10px;
-        }
-        .footer a:hover {
-            color: #ff5722;
+            text-align: left;
         }
 
         .footer a {
             color: #fff;
             text-decoration: none;
-            font-size: 16px; /* Footer link size */
+            font-size: 14px;
             position: relative;
         }
 
@@ -136,71 +129,88 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background-color: #ff5722; /* Accent color for the underline */
+            background-color: #fff;
             left: 0;
             bottom: -3px;
             transition: width 0.3s ease;
         }
 
         .footer a:hover::after {
-            width: 100%; /* Expands underline on hover */
+            width: 100%;
         }
 
         .footer a:hover {
-            color: #ff5722; /* Changes the text color on hover */
+            color: #fff;
         }
-        
+
         h1 {
             margin-bottom: 20px;
             font-size: 42px;
             text-align: left;
-        }
-        .content p {
-            max-width: 600px;
-            line-height: 1.8;
-            text-align: left;
-            font-size: 15px; /* Reduced font size from 16px to 14px */
-            margin: 0;
         }
 
         @media (max-width: 800px) {
             .container {
                 width: 80%;
             }
+
             h1 {
                 font-size: 36px;
             }
+
             .content p {
-                font-size: 14px;
+                font-size: 0.9rem;
+                line-height: 1.3;
             }
         }
+
         @media (max-width: 600px) {
             body {
                 font-size: 14px;
             }
-            .navbar, .footer {
-                font-size: 9px;
+
+            .navbar {
+                font-size: 16px; /* Adjust navbar font size for smaller screens */
                 padding: 15px 0;
             }
+
+            .navbar a {
+                font-size: 14px; /* Make the navbar links more responsive */
+            }
+
+            .footer {
+                font-size: 12px;
+                padding: 15px 0;
+            }
+
             h1 {
                 font-size: 28px;
             }
+
             .content p {
-                font-size: 9px;
-                line-height: 1;
+                font-size: 0.9rem;
+                line-height: 1.3;
             }
+
             .container {
                 width: 90%;
             }
         }
+
         .copyright {
             font-size: 12px;
             margin-top: 20px;
             color: #888;
-            text-align: left; /* Aligns copyright text to the left */
+            text-align: left;
         }
     </style>
+
+    <!-- Minified JS -->
+    <script async>
+        /* Your JavaScript code goes here, minified */
+    </script>
 </head>
+
 <body>
     <div class="container">
         <div class="navbar">
@@ -214,9 +224,9 @@
         </div>
         <div class="footer">
             <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X</a>
-            <span class="link-symbol">🔗</span>
+            <span class="link-symbol">➚</span>
             <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span class="link-symbol">🔗</span>
+            <span class="link-symbol">➚</span>
             <a href="mailto:saadmanhere@gmail.com">Contact</a>
         </div>
         <div class="copyright">
@@ -224,4 +234,5 @@
         </div>
     </div>
 </body>
+
 </html>
