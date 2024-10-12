@@ -20,10 +20,12 @@
     <link rel="canonical" href="https://saadman.dev">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4.png" type="image/png">
+    <link rel="preload" href="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4.png" as="image">
 
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet"></noscript>
+
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -48,162 +50,9 @@
 
     <!-- Styles -->
     <style>
-        body {
-            margin: 0;
-            background-color: #0d1117;
-            color: #fff;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            width: 40%;
-            max-width: 800px;
-            padding: 0 20px;
-            margin-top: 40px;
-        }
-
-        .navbar, .footer {
-            width: 100%;
-        }
-
-        .navbar {
-            padding: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: #fff;
-            left: 0;
-            bottom: -3px;
-            transition: width 0.3s ease;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-        }
-
-        .content {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .content p {
-            max-width: 600px;
-            line-height: 1.5;
-            text-align: justify;
-            font-size: 1rem;
-            padding: 0.5em;
-        }
-
-        .footer {
-            padding: 20px 0;
-            font-size: 14px;
-            margin-top: 40px;
-            text-align: left;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .footer a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: #fff;
-            left: 0;
-            bottom: -3px;
-            transition: width 0.3s ease;
-        }
-
-        .footer a:hover::after {
-            width: 100%;
-        }
-
-        .footer a:hover {
-            color: #fff;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 42px;
-            text-align: left;
-        }
-
-        @media (max-width: 800px) {
-            .container {
-                width: 80%;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .content p {
-                font-size: 0.9rem;
-                line-height: 1.3;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-
-            .navbar {
-                font-size: 16px; /* Adjust navbar font size for smaller screens */
-                padding: 15px 0;
-            }
-
-            .navbar a {
-                font-size: 14px; /* Make the navbar links more responsive */
-            }
-
-            .footer {
-                font-size: 12px;
-                padding: 15px 0;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            .content p {
-                font-size: 0.9rem;
-                line-height: 1.3;
-            }
-
-            .container {
-                width: 90%;
-            }
-        }
-
-        .copyright {
-            font-size: 12px;
-            margin-top: 20px;
-            color: #888;
-            text-align: left;
-        }
+        body{margin:0;background-color:#0d1117;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:16px;display:flex;flex-direction:column;align-items:center}.container{width:40%;max-width:800px;padding:0 20px;margin-top:40px}.navbar,.footer{width:100%}.navbar{padding:20px 0;font-size:20px;font-weight:bold}.navbar a{color:#fff;text-decoration:none;position:relative}.navbar a::after{content:'';position:absolute;width:0;height:2px;background-color:#fff;left:0;bottom:-3px;transition:width .3s ease}.navbar a:hover::after{width:100%}.content{width:100%;margin-top:20px}.content p{max-width:600px;line-height:1.5;text-align:justify;font-size:1rem;padding:.5em}.footer{padding:20px 0;font-size:14px;margin-top:40px;text-align:left}.footer a{color:#fff;text-decoration:none;font-size:14px;position:relative}.footer a::after{content:'';position:absolute;width:0;height:2px;background-color:#fff;left:0;bottom:-3px;transition:width .3s ease}.footer a:hover::after{width:100%}.footer a:hover{color:#fff}h1{margin-bottom:20px;font-size:42px;text-align:left}@media (max-width:800px){.container{width:80%}h1{font-size:36px}.content p{font-size:.9rem;line-height:1.3}}@media (max-width:600px){body{font-size:14px}.navbar{font-size:16px;padding:15px 0}.navbar a{font-size:14px}.footer{font-size:12px;padding:15px 0}h1{font-size:28px}.content p{font-size:.9rem;line-height:1.3}.container{width:90%}}.copyright{font-size:12px;margin-top:20px;color:#888;text-align:left}
     </style>
+    
 
     <!-- Minified JS -->
     <script async>
