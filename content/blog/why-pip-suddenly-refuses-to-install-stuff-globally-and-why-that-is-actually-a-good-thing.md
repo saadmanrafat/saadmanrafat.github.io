@@ -4,7 +4,7 @@ description: "PEP 668 and the New Era of Python Package Management"
 date: 2024-10-15T10:30:00Z
 author: "Saadman Rafat"
 updated: 2024-10-16T14:22:00Z
-image: ""
+image: "PEP668.png"
 imageAlt: ""
 tags: ["Python", "PEP668"]
 readTime: 3
