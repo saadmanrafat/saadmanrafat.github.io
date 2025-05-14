@@ -278,23 +278,33 @@
         .author-bio {
             display: flex;
             align-items: center;
+            gap: 20px; /* Add spacing between image and text */
         }
         .author-image {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            margin-right: 20px;
+            flex-shrink: 0; /* Prevent the image from shrinking */
         }
         .author-info {
             flex: 1;
+        }
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            flex-shrink: 0; /* Prevent the image from shrinking */
+        }
+        .author-info {
+            flex: 1;
+        }
+        .related-posts {
+            margin-top: 60px;
         }
         .author-name {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
-        }
-        .related-posts {
-            margin-top: 60px;
         }
         .related-posts-title {
             font-size: 24px;
@@ -433,6 +443,16 @@
             margin-top: 20px;
             color: #888;
             text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            .author-bio {
+                gap: 15px; /* Slightly smaller gap on mobile */
+            }
+            .author-image {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>
