@@ -10,12 +10,15 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook - FIXED IMAGE URLS FOR SOCIAL SHARING -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{siteUrl}}/blog/{{post.slug}}/">
     <meta property="og:title" content="{{post.title}} - Saadman Rafat">
     <meta property="og:description" content="{{post.description}}">
+    <!-- IMPORTANT: Using absolute URL with full domain for social media sharing -->
     <meta property="og:image" content="{{siteUrl}}/assets/images/blog/{{post.image}}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="article:published_time" content="{{post.date}}">
     {{#if post.updated}}
     <meta property="article:modified_time" content="{{post.updated}}">
@@ -26,12 +29,14 @@
     <meta property="article:tag" content="{{this}}">
     {{/each}}
 
-    <!-- Twitter -->
+    <!-- Twitter Card - FIXED IMAGE URLS FOR SOCIAL SHARING -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{siteUrl}}/blog/{{post.slug}}/">
     <meta name="twitter:title" content="{{post.title}} - Saadman Rafat">
     <meta name="twitter:description" content="{{post.description}}">
+    <!-- IMPORTANT: Using absolute URL with full domain for social media sharing -->
     <meta name="twitter:image" content="{{siteUrl}}/assets/images/blog/{{post.image}}">
+    <meta name="twitter:image:alt" content="{{post.imageAlt}}">
 
     <link rel="canonical" href="{{siteUrl}}/blog/{{post.slug}}/">
 
@@ -52,35 +57,32 @@
     <!-- Structured Data for Blog Post -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "{{post.title}}",
-        "description": "{{post.description}}",
-        "image": "{{siteUrl}}/assets/images/blog/{{post.image}}",
-        "datePublished": "{{post.date}}",
-        {{#if post.updated}}
-        "dateModified": "{{post.updated}}",
-        {{else}}
-        "dateModified": "{{post.date}}",
-        {{/if}}
-        "author": {
-            "@type": "Person",
-            "name": "Saadman Rafat",
-            "url": "{{siteUrl}}"
-        },
-        "publisher": {
-            "@type": "Person",
-            "name": "Saadman Rafat",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4"
-            }
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{siteUrl}}/blog/{{post.slug}}/"
-        },
-        "keywords": "{{post.keywords}}"
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{post.title}}",
+      "description": "{{post.description}}",
+      "image": "{{siteUrl}}/assets/images/blog/{{post.image}}",
+      "datePublished": "{{post.date}}",
+      "dateModified": "{{#if post.updated}}{{post.updated}}{{else}}{{post.date}}{{/if}}",
+      "author": {
+        "@type": "Person",
+        "name": "Saadman Rafat",
+        "url": "{{siteUrl}}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Saadman Rafat",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4",
+          "width": 144,
+          "height": 144
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{siteUrl}}/blog/{{post.slug}}/"
+      }
     }
     </script>
 
@@ -278,33 +280,25 @@
         .author-bio {
             display: flex;
             align-items: center;
-            gap: 20px; /* Add spacing between image and text */
+            gap: 20px; /* Added gap for better spacing */
         }
         .author-image {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            flex-shrink: 0; /* Prevent the image from shrinking */
+            flex-shrink: 0; /* Prevent image from shrinking */
+            margin-right: 0; /* Remove default margin */
         }
         .author-info {
             flex: 1;
-        }
-        .author-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            flex-shrink: 0; /* Prevent the image from shrinking */
-        }
-        .author-info {
-            flex: 1;
-        }
-        .related-posts {
-            margin-top: 60px;
         }
         .author-name {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
+        }
+        .related-posts {
+            margin-top: 60px;
         }
         .related-posts-title {
             font-size: 24px;
@@ -392,12 +386,7 @@
                 line-height: 1.4;
             }
             .author-bio {
-                flex-direction: column;
-                text-align: center;
-            }
-            .author-image {
-                margin-right: 0;
-                margin-bottom: 15px;
+                gap: 15px; /* Smaller gap on tablet */
             }
         }
         @media (max-width: 600px) {
@@ -437,32 +426,16 @@
             .share-buttons {
                 flex-wrap: wrap;
             }
+            .author-image {
+                width: 60px;
+                height: 60px;
+            }
         }
         .copyright {
             font-size: 12px;
             margin-top: 20px;
             color: #888;
             text-align: left;
-        }
-
-        @media (max-width: 600px) {
-            .author-bio {
-                gap: 15px; /* Slightly smaller gap on mobile */
-            }
-            .author-image {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        .author-bio {
-            display: flex;
-            align-items: center;
-            gap: 20px !important;
-        }
-        .author-image {
-            flex-shrink: 0 !important;
-            margin-right: 0 !important; /* Remove any existing margin */
         }
     </style>
 </head>
@@ -483,15 +456,23 @@
                         {{{post.tagsHtml}}}
                     </div>
                 </div>
-                <img src="{{siteUrl}}/assets/images/blog/{{post.image}}" alt="{{post.imageAlt}}" class="post-featured-image" width="800" height="400" loading="eager">
+                <!-- Important: Adding width, height, and alt attributes for better SEO and accessibility -->
+                <img src="{{siteUrl}}/assets/images/blog/{{post.image}}"
+                     alt="{{post.imageAlt}}"
+                     class="post-featured-image"
+                     width="1200"
+                     height="630"
+                     loading="eager">
             </header>
 
+            {{#if post.toc}}
             <div class="table-of-contents">
                 <div class="table-of-contents-title">Table of Contents</div>
                 <ul>
                     {{{post.tocHtml}}}
                 </ul>
             </div>
+            {{/if}}
 
             <div class="post-content">
                 {{{post.content}}}
@@ -518,7 +499,7 @@
                 <h3 class="related-posts-title">Related Posts</h3>
                 {{#each post.related}}
                 <div class="related-post-item">
-                    <a href="{{siteUrl}}/blog/{{this}}/" class="related-post-link">{{this}}</a>
+                    <a href="{{../siteUrl}}/blog/{{this}}/" class="related-post-link">{{this}}</a>
                 </div>
                 {{/each}}
             </section>
