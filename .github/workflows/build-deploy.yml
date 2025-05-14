@@ -1,4 +1,88 @@
-- name: Build blog from markdown
-  run: |
-    echo "🔨 Running build script..."
-    node .github/scripts/build-blog.js
+name: Build and Deploy Site
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for potential timestamps
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Create directory structure for build
+        run: |
+          mkdir -p .github/scripts
+          mkdir -p content/blog
+          mkdir -p templates
+          mkdir -p assets/images/blog
+          touch .nojekyll
+      
+      - name: Display project structure before build
+        run: |
+          echo "📁 Project structure before build:"
+          find . -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | sort
+      
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm install marked@4.3.0 gray-matter@4.0.3 handlebars@4.7.8 fs-extra@11.1.1
+      
+      - name: Build blog from markdown
+        run: node .github/scripts/build-blog.js
+      
+      - name: Display output structure after build
+        run: |
+          echo "📁 Output structure after build:"
+          find ./dist -type f | sort
+          
+          echo "📄 Checking specific important files:"
+          test -f ./dist/blog/index.html && echo "✅ Blog index exists" || echo "❌ Blog index missing!"
+          test -f ./dist/.nojekyll && echo "✅ .nojekyll file exists" || echo "❌ .nojekyll file missing!"
+          test -f ./dist/blog/test.html && echo "✅ Test file exists" || echo "❌ Test file missing!"
+          
+          echo "📄 Content of blog directory:"
+          ls -la ./dist/blog/
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
+      - name: Output deployment URL
+        run: |
+          echo "🌐 Site deployed to: ${{ steps.deployment.outputs.page_url }}"
+          echo "📝 Blog should be available at: ${{ steps.deployment.outputs.page_url }}blog/"
