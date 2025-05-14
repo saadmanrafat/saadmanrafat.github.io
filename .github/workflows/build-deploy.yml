@@ -31,8 +31,24 @@ jobs:
           npm init -y
           npm install marked gray-matter handlebars fs-extra
 
+      - name: Display project structure for debugging
+        run: |
+          echo "📁 Project structure before build:"
+          find . -type f -not -path "*/node_modules/*" -not -path "*/\.*" | sort
+
       - name: Build blog from markdown
-        run: node .github/scripts/build-blog.js
+        run: |
+          echo "🔨 Running build script..."
+          mkdir -p .github/scripts
+          cat > .github/scripts/build-blog.js << 'EOL'
+          # The build script will be inserted here by the deployment process
+          EOL
+          node .github/scripts/build-blog.js
+
+      - name: Display output structure for debugging
+        run: |
+          echo "📁 Output structure after build:"
+          find ./dist -type f | sort
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

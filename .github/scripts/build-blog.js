@@ -19,15 +19,21 @@ const templatesDir = path.join(process.cwd(), 'templates');
 const outputDir = path.join(process.cwd(), 'dist');
 const assetsDir = path.join(process.cwd(), 'assets');
 
-// Create the output directory if it doesn't exist
+// Clear and recreate the output directory
+console.log('🧹 Cleaning output directory...');
+fs.removeSync(outputDir);
 fs.ensureDirSync(outputDir);
 fs.ensureDirSync(path.join(outputDir, 'blog'));
 fs.ensureDirSync(path.join(outputDir, 'assets'));
 
 // Copy assets
-fs.copySync(assetsDir, path.join(outputDir, 'assets'));
+console.log('📁 Copying assets...');
+if (fs.existsSync(assetsDir)) {
+  fs.copySync(assetsDir, path.join(outputDir, 'assets'));
+}
 
 // Copy static files from root directly to dist
+console.log('📄 Copying static files...');
 const staticFiles = ['index.html', 'robots.txt', 'CNAME'];
 staticFiles.forEach(file => {
   if (fs.existsSync(path.join(process.cwd(), file))) {
@@ -39,14 +45,22 @@ staticFiles.forEach(file => {
 });
 
 // Load templates
-const postTemplate = fs.readFileSync(
-  path.join(templatesDir, 'post.html'),
-  'utf8'
-);
-const blogIndexTemplate = fs.readFileSync(
-  path.join(templatesDir, 'blog-index.html'),
-  'utf8'
-);
+console.log('📝 Loading templates...');
+let postTemplate, blogIndexTemplate;
+
+try {
+  postTemplate = fs.readFileSync(
+    path.join(templatesDir, 'post.html'),
+    'utf8'
+  );
+  blogIndexTemplate = fs.readFileSync(
+    path.join(templatesDir, 'blog-index.html'),
+    'utf8'
+  );
+} catch (error) {
+  console.error('❌ Error loading templates:', error);
+  process.exit(1);
+}
 
 // Compile templates
 const compilePost = Handlebars.compile(postTemplate);
@@ -58,15 +72,31 @@ Handlebars.registerHelper('formatDate', function(date) {
   return new Date(date).toLocaleDateString('en-US', options);
 });
 
+Handlebars.registerHelper('encodeURIComponent', function(text) {
+  return encodeURIComponent(text);
+});
+
+Handlebars.registerHelper('concat', function() {
+  return Array.prototype.slice.call(arguments, 0, -1).join('');
+});
+
+Handlebars.registerHelper('current_year', function() {
+  return new Date().getFullYear();
+});
+
 // Parse and process all blog posts
+console.log('🔍 Finding and processing blog posts...');
 const postsDir = path.join(contentDir, 'blog');
 const posts = [];
 
 if (fs.existsSync(postsDir)) {
   fs.readdirSync(postsDir).forEach(file => {
     if (path.extname(file) === '.md') {
+      console.log(`  Processing: ${file}`);
       const filePath = path.join(postsDir, file);
       const content = fs.readFileSync(filePath, 'utf8');
+
+      // Parse frontmatter and content
       const { data, content: markdownContent } = matter(content);
 
       // Generate HTML from markdown
@@ -93,24 +123,11 @@ if (fs.existsSync(postsDir)) {
         content: html,
         toc,
         tocHtml: toc.map(h => `<li><a href="#${h.slug}">${h.title}</a></li>`).join('\n'),
-        tagsHtml: data.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('\n')
+        tagsHtml: data.tags ? data.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('\n') : ''
       };
 
       // Add to posts array
       posts.push(post);
-
-      // Create directory for this post if it doesn't exist
-      const postDir = path.join(outputDir, 'blog', slug);
-      fs.ensureDirSync(postDir);
-
-      // Write post HTML file
-      fs.writeFileSync(
-        path.join(postDir, 'index.html'),
-        compilePost({
-          post,
-          siteUrl: 'https://saadman.dev'
-        })
-      );
     }
   });
 }
@@ -118,16 +135,38 @@ if (fs.existsSync(postsDir)) {
 // Sort posts by date (newest first)
 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+// Process each post and save it to the correct location
+console.log('💾 Saving blog posts...');
+posts.forEach(post => {
+  // IMPORTANT: Save to /blog/slug/ directory, NOT /content/blog/
+  const postOutputDir = path.join(outputDir, 'blog', post.slug);
+  fs.ensureDirSync(postOutputDir);
+
+  // Write post HTML file as index.html in the post directory
+  fs.writeFileSync(
+    path.join(postOutputDir, 'index.html'),
+    compilePost({
+      post,
+      siteUrl: 'https://saadman.dev'
+    })
+  );
+
+  console.log(`  Saved: /blog/${post.slug}/`);
+});
+
 // Generate blog index
+console.log('📑 Generating blog index...');
 fs.writeFileSync(
   path.join(outputDir, 'blog', 'index.html'),
   compileBlogIndex({
     posts,
-    siteUrl: 'https://saadman.dev'
+    siteUrl: 'https://saadman.dev',
+    has_more_pages: posts.length > 10
   })
 );
 
 // Generate RSS feed
+console.log('📡 Generating RSS feed...');
 const rssItems = posts.map(post => `
   <item>
     <title>${post.title}</title>
@@ -135,13 +174,13 @@ const rssItems = posts.map(post => `
     <guid isPermaLink="true">https://saadman.dev/blog/${post.slug}/</guid>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
     <dc:creator>Saadman Rafat</dc:creator>
-    ${post.tags.map(tag => `<category>${tag}</category>`).join('\n    ')}
+    ${post.tags ? post.tags.map(tag => `<category>${tag}</category>`).join('\n    ') : ''}
     <description>${post.description}</description>
     <content:encoded><![CDATA[
       ${post.content.substring(0, 500)}...
       <p><a href="https://saadman.dev/blog/${post.slug}/">Continue reading →</a></p>
     ]]></content:encoded>
-    <enclosure url="https://saadman.dev/assets/images/blog/${post.image}" length="0" type="image/jpeg" />
+    ${post.image ? `<enclosure url="https://saadman.dev/assets/images/blog/${post.image}" length="0" type="image/jpeg" />` : ''}
   </item>
 `).join('');
 
@@ -171,6 +210,7 @@ const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 fs.writeFileSync(path.join(outputDir, 'rss.xml'), rssFeed);
 
 // Generate sitemap
+console.log('🗺️ Generating sitemap...');
 const sitemapEntries = [
   `<url>
     <loc>https://saadman.dev/</loc>
@@ -193,11 +233,11 @@ posts.forEach(post => {
     <lastmod>${new Date(lastMod).toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
+    ${post.image ? `<image:image>
       <image:loc>https://saadman.dev/assets/images/blog/${post.image}</image:loc>
       <image:title>${post.title}</image:title>
       <image:caption>${post.description}</image:caption>
-    </image:image>
+    </image:image>` : ''}
   </url>`);
 });
 
@@ -208,4 +248,11 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 
 fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemap);
 
-console.log('✅ Site built successfully!');
+// List all generated files
+console.log('\n✅ Build complete! Generated files:');
+console.log('  /blog/index.html (Blog Index)');
+posts.forEach(post => {
+  console.log(`  /blog/${post.slug}/index.html`);
+});
+console.log('  /rss.xml');
+console.log('  /sitemap.xml');
