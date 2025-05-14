@@ -199,45 +199,100 @@
         .publication-link {
             color: #9ecbff;
         }
+
+        .link-symbol {
+            color: #58a6ff;
+            margin: 0 5px;
+        }
+        .skills-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .skill-tag {
+            background-color: #21262d;
+            color: #c9d1d9;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .papers-section article {
+            margin-bottom: 25px;
+            border-left: 3px solid #58a6ff;
+            padding-left: 15px;
+        }
+        .section-heading {
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="navbar">
-            — <a href="https://saadman.dev">saadman.dev</a>
-        </div>
-        <div class="content">
+        <nav class="navbar" aria-label="Main Navigation">
+            <div>
+                — <a href="https://saadman.dev" aria-label="Homepage">saadman.dev</a>
+            </div>
+
+        </nav>
+
+        <header class="content">
             <h1>Saadman Rafat</h1>
+
             <p>
                 As an expert in Python with a strong commitment to open-source, I specialize in building scalable solutions. My skills include serverless architecture, Docker containerization, and Kubernetes orchestration. By leveraging DevOps best practices, I deliver efficient, secure, and production-ready systems with a focus on high-performance APIs and long-term stability.
             </p>
-        </div>
 
-        <!-- Papers Section -->
-        <div class="content">
-            <h2>Papers</h2>
-            <p>
-                Khan, Niaz Ashraf, and A. M. Saadman Rafat. 2024. <span class="bold-text">“Pruning Convolution Neural Networks Using Filter Clustering Based on Normalized Cross-Correlation Similarity.”</span> <em>Journal of Information and Telecommunication</em>, October, 1–19. doi: <a href="https://doi.org/10.1080/24751839.2024.2415008" target="_blank" class="publication-link">10.1080/24751839.2024.2415008</a>.
-            </p>
-        </div>
-        <div class="content">
-            <p>
-                Khan, Niaz Ashraf, and A. M. Saadman Rafat. <span class="bold-text">"Optimizing Deep Learning Models for Resource‐Constrained Environments With Cluster‐Quantized Knowledge Distillation."</span> <em>Engineering Reports 7, no. 5 (2025): e70187.</em> doi: <a href="https://doi.org/10.1002/eng2.70187" target="_blank" class="publication-link">10.1002/eng2.70187</a>.
-            </p>
-        </div>
+            <div class="skills-section" aria-label="Technical Skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Serverless</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">DevOps</span>
+                <span class="skill-tag">AI/ML</span>
+                <span class="skill-tag">CNNs</span>
+                <span class="skill-tag">System Architecture</span>
+            </div>
+        </header>
 
-        <div class="footer">
-            <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X</a>
-            <span class="link-symbol">➚</span>
-            <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span class="link-symbol">➚</span>
-            <a href="mailto:saadmanhere@gmail.com">Contact</a>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Saadman Rafat. All rights reserved.
-        </div>
+        <section class="content papers-section" aria-labelledby="papers-heading">
+            <h2 id="papers-heading" class="section-heading">Recent Publications</h2>
+
+            <article>
+                <p>
+                    Khan, Niaz Ashraf, and A. M. Saadman Rafat. 2024. <span class="bold-text">"Pruning Convolution Neural Networks Using Filter Clustering Based on Normalized Cross-Correlation Similarity."</span> <em>Journal of Information and Telecommunication</em>, October, 1–19. doi: <a href="https://doi.org/10.1080/24751839.2024.2415008" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="Read paper on Pruning Convolution Neural Networks">10.1080/24751839.2024.2415008</a>.
+                </p>
+            </article>
+
+            <article>
+                <p>
+                    Khan, Niaz Ashraf, and A. M. Saadman Rafat. <span class="bold-text">"Optimizing Deep Learning Models for Resource‐Constrained Environments With Cluster‐Quantized Knowledge Distillation."</span> <em>Engineering Reports 7, no. 5 (2025): e70187.</em> doi: <a href="https://doi.org/10.1002/eng2.70187" target="_blank" rel="noopener noreferrer" class="publication-link" aria-label="Read paper on Optimizing Deep Learning Models">10.1002/eng2.70187</a>.
+                </p>
+            </article>
+        </section>
+
+        <footer class="footer" aria-label="Social Links and Contact Information">
+            <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer" aria-label="X Profile" style="margin-right: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X Logo" style="height: 20px; filter: brightness(0) invert(1);">
+            </a>
+
+            <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <img src="/assets/github-mark.svg" alt="GitHub Logo" style="height: 25px; filter: brightness(0) invert(1);">
+            </a>
+            <div class="copyright">
+                &copy; 2025 Saadman Rafat. All rights reserved.
+            </div>
+        </footer>
     </div>
+   <script>
+        // Add structured event tracking when implemented
+        document.addEventListener('DOMContentLoaded', function() {
+            // Future analytics code
+        });
+    </script>
 </body>
 
 </html>

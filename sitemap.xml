@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+                            http://www.google.com/schemas/sitemap-image/1.1
+                            http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
     <url>
         <loc>https://saadman.dev/</loc>
-        <lastmod>2024-10-22</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-05-14</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://avatars.githubusercontent.com/u/13638758?s=400&amp;u=2b3265acd3fa799a558f8b95d147053cbf4e7767&amp;v=4</image:loc>
+            <image:title>Saadman Rafat</image:title>
+        </image:image>
     </url>
+
 </urlset>
