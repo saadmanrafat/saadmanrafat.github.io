@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog - Saadman Rafat</title>
+    <meta name="description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
+    <meta name="keywords" content="Saadman Rafat Blog, Python Development, Serverless Architecture, DevOps, Docker, Kubernetes, AI Research, CNNs">
+    <meta name="author" content="Saadman Rafat">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{siteUrl}}/blog/">
+    <meta property="og:title" content="Blog - Saadman Rafat">
+    <meta property="og:description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
+    <meta property="og:image" content="{{siteUrl}}/assets/images/blog/blog-cover.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{siteUrl}}/blog/">
+    <meta name="twitter:title" content="Blog - Saadman Rafat">
+    <meta name="twitter:description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
+    <meta name="twitter:image" content="{{siteUrl}}/assets/images/blog/blog-cover.jpg">
+
+    <link rel="canonical" href="{{siteUrl}}/blog/">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4" type="image/png">
+
+    <!-- Font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Structured Data (JSON-LD) for Blog -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "headline": "Saadman Rafat's Blog",
+        "description": "Insights on Python development, serverless architecture, Docker, Kubernetes, and AI research",
+        "url": "{{siteUrl}}/blog/",
+        "author": {
+            "@type": "Person",
+            "name": "Saadman Rafat",
+            "url": "{{siteUrl}}"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Saadman Rafat",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4"
+            }
+        }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{siteUrl}}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "{{siteUrl}}/blog/"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Styles -->
+    <style>
+        body {
+            margin: 0;
+            background-color: #0d1117;
+            color: #fff;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+        .container {
+            width: 40%;
+            max-width: 800px;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+        .navbar, .footer {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: #0d1117;
+            z-index: 10;
+        }
+        .navbar {
+            padding: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar a {
+            color: #58a6ff;
+            text-decoration: none;
+            position: relative;
+            margin-right: 20px;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #58a6ff;
+            left: 0;
+            bottom: -3px;
+            transition: width .3s ease;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+        }
+        .content {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .content p {
+            max-width: 600px;
+            line-height: 1.5;
+            font-size: 1rem;
+            padding: .5em;
+            text-align: left;
+        }
+        .footer {
+            padding: 20px 0;
+            font-size: 14px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 14px;
+            position: relative;
+        }
+        .footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #58a6ff;
+            left: 0;
+            bottom: -3px;
+            transition: width .3s ease;
+        }
+        .footer a:hover::after {
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 42px;
+            text-align: left;
+        }
+        .blog-list {
+            margin-top: 30px;
+        }
+        .blog-card {
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+        .blog-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .blog-title a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .blog-meta {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 15px;
+        }
+        .blog-excerpt {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .read-more {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .blog-tag {
+            background-color: #1f1f22;
+            color: #58a6ff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .pagination a {
+            color: #58a6ff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #30363d;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .pagination a:hover {
+            background-color: #1f6feb;
+            color: #fff;
+        }
+        .pagination .active {
+            background-color: #1f6feb;
+            color: #fff;
+        }
+        @media (max-width: 800px) {
+            .container {
+                width: 80%;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .content p {
+                font-size: .9rem;
+                line-height: 1.3;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+            .navbar {
+                font-size: 16px;
+                padding: 15px 0;
+            }
+            .navbar a {
+                font-size: 14px;
+            }
+            .footer {
+                font-size: 12px;
+                padding: 15px 0;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .content p {
+                font-size: .9rem;
+                line-height: 1.3;
+            }
+            .container {
+                width: 90%;
+            }
+            .blog-title {
+                font-size: 20px;
+            }
+        }
+        .copyright {
+            font-size: 12px;
+            margin-top: 20px;
+            color: #888;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            — <a href="{{siteUrl}}">saadman.dev</a>
+            <a href="{{siteUrl}}/blog/">Blog</a>
+        </div>
+        <div class="content">
+            <h1>Blog</h1>
+            <p>
+                Explore my thoughts and insights on Python development, serverless architecture, Docker, Kubernetes, and AI research.
+            </p>
+        </div>
+
+        <div class="blog-list">
+            {{#each posts}}
+            <div class="blog-card">
+                <h2 class="blog-title">
+                    <a href="{{../siteUrl}}/blog/{{this.slug}}/">{{this.title}}</a>
+                </h2>
+                <div class="blog-meta">
+                    Published on {{formatDate this.date}} • {{this.readTime}} min read
+                </div>
+                <div class="blog-excerpt">
+                    {{this.description}}
+                </div>
+                <a href="{{../siteUrl}}/blog/{{this.slug}}/" class="read-more">Read more →</a>
+                <div class="blog-tags">
+                    {{{this.tagsHtml}}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            {{#if has_more_pages}}
+            <a href="#">2</a>
+            <a href="#">Next →</a>
+            {{/if}}
+        </div>
+
+        <div class="footer">
+            <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X</a>
+            <span class="link-symbol">➚</span>
+            <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="link-symbol">➚</span>
+            <a href="mailto:saadmanhere@gmail.com">Contact</a>
+        </div>
+        <div class="copyright">
+            &copy; {{current_year}} Saadman Rafat. All rights reserved.
+        </div>
+    </div>
+</body>
+
+</html>
