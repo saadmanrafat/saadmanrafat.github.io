@@ -1,9 +1,8 @@
 ---
 title: "Why pip Suddenly Refuses to Install Stuff Globally (And Why That’s Actually a Good Thing)"
 description: "PEP 668 and the New Era of Python Package Management"
-date: 2025-05-15T10:30:00Z
+date: 2025-05-14T20:02:47Z
 author: "Saadman Rafat"
-updated: 2025-05-16T14:22:00Z
 image: "pep668.jpg"
 imageAlt: "Illustration of Python system-managed environments related to PEP 668"
 tags: ["Python", "PEP668"]
