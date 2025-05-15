@@ -1,13 +1,12 @@
 ---
 title: "A no nonsense guide to UV (a Python Package Manager)"
 description: "A fast, modern, all-in-one Python package manager that simplifies dependency management, environments, and Python versions."
+readTime: 6
 date: "2025-05-15"
-read
 author: "Saadman Rafat"
 image: "python-package-manager.jpg"
 tags: ["PIP", "Python", "Python Package Manager"]
 category: "Tools"
-readTime: 6
 ---
 
 # A no nonsense guide to UV (a Python Package Manager)
