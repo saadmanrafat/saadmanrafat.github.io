@@ -422,6 +422,65 @@
         .skip-link:focus {
             top: 0;
         }
+        .footer {
+            padding: 20px 0;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: var(--muted-text);
+            text-align: center;
+            font-family: var(--heading-font);
+        }
+
+        @media (max-width: 600px) {
+            .social-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .social-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .copyright {
+                font-size: 11px;
+            }
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -439,7 +498,7 @@
     <div class="container" id="main-content">
         <div class="navbar">
             — <a href="{{siteUrl}}">saadman.dev</a>
-            <a href="{{siteUrl}}/blog/">Blog</a>
+            <a style="visibility: hidden;" href="{{siteUrl}}/blog/">Blog</a>
         </div>
         <div class="content">
             <h1>Blog</h1>
@@ -473,16 +532,28 @@
             {{/if}}
         </div>
 
-        <div class="footer">
-            <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X</a>
-            <span class="link-symbol">➚</span>
-            <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <span class="link-symbol">➚</span>
-            <a href="mailto:saadmanhere@gmail.com">Contact</a>
-        </div>
-        <div class="copyright">
-            &copy; {{current_year}} Saadman Rafat. All rights reserved.
-        </div>
+        <footer class="footer" aria-label="Social Links and Contact Information">
+            <div class="social-links">
+                <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
+                    </svg>
+                </a>
+                <a href="mailto:saadmanhere@gmail.com" class="social-icon" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6.03L12 11.03L22 6.03M2 6.03V18.03C2 19.133 2.895 20.03 4 20.03H20C21.105 20.03 22 19.133 22 18.03V6.03M2 6.03C2 4.927 2.895 4.03 4 4.03H20C21.105 4.03 22 4.927 22 6.03"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Saadman Rafat. All rights reserved.
+            </div>
+        </footer>
     </div>
 </body>
 
