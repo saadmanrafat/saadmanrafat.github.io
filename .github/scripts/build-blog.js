@@ -318,7 +318,7 @@ Replace this with your own content!
         content: html,
         toc,
         tocHtml: toc.map(h => `<li><a href="#${h.slug}">${h.title}</a></li>`).join('\n'),
-        post.tagsHtml = data.tags ? data.tags.map(tag => `<span class="post-tag">${tag}</span>`).join(' ') : '';
+        post.tagsHtml = data.tags ? data.tags.map(tag => `<span class="post-tag">${tag}</span>`).join(' ') : ''
       };
 
       // Add to posts array
