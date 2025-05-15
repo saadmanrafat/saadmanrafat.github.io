@@ -1,4 +1,5 @@
 # robots.txt for saadman.dev
+# Main directives
 User-agent: *
 Allow: /
 Disallow: /search
@@ -8,10 +9,27 @@ Disallow: /cgi-bin/
 Disallow: /temp/
 Disallow: /draft/
 
+# Google-specific crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /assets/images/blog/
+
+# Bing-specific crawler
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
 # Prevent crawling of specific file types
 Disallow: /*.pdf$
 Disallow: /*.doc$
 Disallow: /*.docx$
+Disallow: /*.zip$
+Disallow: /*.tar$
+Disallow: /*.gz$
 
 # Prevent crawling of any backend routes
 Disallow: /api/
@@ -19,8 +37,11 @@ Disallow: /api/
 # Prevent parameter-based URLs
 Disallow: /*?*
 
-# Sitemap
+# Sitemap declaration
 Sitemap: https://saadman.dev/sitemap.xml
 
-# Add crawl delay to prevent server overload
-Crawl-delay: 5
+# RSS feed for blog
+Sitemap: https://saadman.dev/rss.xml
+
+# Host directive (recommended by Google)
+Host: saadman.dev
