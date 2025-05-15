@@ -481,6 +481,58 @@
                 font-size: 11px;
             }
         }
+
+        /* Blog tags spacing fix */
+        .blog-tags, .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .blog-tag, .post-tag {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            font-family: var(--mono-font);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .blog-tag:hover, .post-tag:hover {
+            background-color: #1d2131;
+            transform: translateY(-2px);
+        }
+
+        /* Ensure proper spacing in post.html */
+        .post-tag + .post-tag {
+            margin-left: 0;
+        }
+
+        /* Modify the template's tag generation */
+        .post-tags span {
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .blog-tags, .post-tags {
+                gap: 8px;
+            }
+
+            .blog-tag, .post-tag {
+                font-size: 12px;
+                padding: 5px 10px;
+                margin-right: 6px;
+                margin-bottom: 6px;
+            }
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
