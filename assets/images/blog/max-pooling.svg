@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Max Pooling with 2×2 Window</text>
+  
+  <!-- Input Matrix -->
+  <g transform="translate(100, 120)">
+    <text x="0" y="-30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Input Matrix</text>
+    
+    <!-- Grid lines -->
+    <rect x="0" y="0" width="200" height="200" fill="none" stroke="#333" stroke-width="2"/>
+    <line x1="0" y1="50" x2="200" y2="50" stroke="#333" stroke-width="1"/>
+    <line x1="0" y1="100" x2="200" y2="100" stroke="#333" stroke-width="1"/>
+    <line x1="0" y1="150" x2="200" y2="150" stroke="#333" stroke-width="1"/>
+    <line x1="50" y1="0" x2="50" y2="200" stroke="#333" stroke-width="1"/>
+    <line x1="100" y1="0" x2="100" y2="200" stroke="#333" stroke-width="1"/>
+    <line x1="150" y1="0" x2="150" y2="200" stroke="#333" stroke-width="1"/>
+    
+    <!-- Values -->
+    <text x="25" y="30" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">1</text>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">3</text>
+    <text x="125" y="30" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">2</text>
+    <text x="175" y="30" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">4</text>
+    
+    <text x="25" y="80" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">5</text>
+    <text x="75" y="80" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">9</text>
+    <text x="125" y="80" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">7</text>
+    <text x="175" y="80" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">2</text>
+    
+    <text x="25" y="130" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">3</text>
+    <text x="75" y="130" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">1</text>
+    <text x="125" y="130" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">6</text>
+    <text x="175" y="130" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">8</text>
+    
+    <text x="25" y="180" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">2</text>
+    <text x="75" y="180" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">4</text>
+    <text x="125" y="180" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">5</text>
+    <text x="175" y="180" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#333">2</text>
+    
+    <!-- Highlight first window -->
+    <rect x="0" y="0" width="100" height="100" fill="rgba(135, 206, 250, 0.2)" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5"/>
+    <circle cx="75" cy="80" r="20" fill="rgba(39, 174, 96, 0.3)" stroke="#27ae60" stroke-width="2"/>
+    <text x="75" y="85" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">9</text>
+    
+    <!-- Highlight second window -->
+    <rect x="100" y="0" width="100" height="100" fill="rgba(135, 206, 250, 0.2)" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5"/>
+    <circle cx="175" cy="30" r="20" fill="rgba(39, 174, 96, 0.3)" stroke="#27ae60" stroke-width="2"/>
+    <text x="175" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">7</text>
+    
+    <!-- Highlight third window -->
+    <rect x="0" y="100" width="100" height="100" fill="rgba(135, 206, 250, 0.2)" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5"/>
+    <circle cx="25" cy="130" r="20" fill="rgba(39, 174, 96, 0.3)" stroke="#27ae60" stroke-width="2"/>
+    <text x="25" y="135" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">4</text>
+    
+    <!-- Highlight fourth window -->
+    <rect x="100" y="100" width="100" height="100" fill="rgba(135, 206, 250, 0.2)" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5"/>
+    <circle cx="175" cy="130" r="20" fill="rgba(39, 174, 96, 0.3)" stroke="#27ae60" stroke-width="2"/>
+    <text x="175" y="135" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">8</text>
+  </g>
+  
+  <!-- Arrows -->
+  <path d="M 320 170 L 380 170" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="none" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow Marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Output Matrix -->
+  <g transform="translate(400, 120)">
+    <text x="50" y="-30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Output Matrix</text>
+    
+    <!-- Grid lines -->
+    <rect x="0" y="0" width="100" height="100" fill="none" stroke="#333" stroke-width="2"/>
+    <line x1="0" y1="50" x2="100" y2="50" stroke="#333" stroke-width="1"/>
+    <line x1="50" y1="0" x2="50" y2="100" stroke="#333" stroke-width="1"/>
+    
+    <!-- Values -->
+    <text x="25" y="30" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">9</text>
+    <text x="75" y="30" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">7</text>
+    <text x="25" y="80" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">4</text>
+    <text x="75" y="80" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#27ae60">8</text>
+  </g>
+  
+  <!-- Explanation -->
+  <g transform="translate(550, 120)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#333">2×2 window slides over the input</text>
+    <text x="0" y="25" font-family="Arial, sans-serif" font-size="16" fill="#333">matrix, taking maximum value</text>
+    <text x="0" y="50" font-family="Arial, sans-serif" font-size="16" fill="#333">from each region.</text>
+    
+    <rect x="0" y="70" width="20" height="20" fill="rgba(135, 206, 250, 0.2)" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="30" y="85" font-family="Arial, sans-serif" font-size="14" fill="#333">2×2 Max Pooling Window</text>
+    
+    <circle cx="10" cy="120" r="10" fill="rgba(39, 174, 96, 0.3)" stroke="#27ae60" stroke-width="1"/>
+    <text x="30" y="125" font-family="Arial, sans-serif" font-size="14" fill="#333">Max Value Selected</text>
+  </g>
+  
+  <!-- First window explanation -->
+  <g transform="translate(85, 320)">
+    <rect x="0" y="0" width="50" height="50" fill="none" stroke="#333" stroke-width="1"/>
+    <line x1="0" y1="25" x2="50" y2="25" stroke="#333" stroke-width="0.5"/>
+    <line x1="25" y1="0" x2="25" y2="50" stroke="#333" stroke-width="0.5"/>
+    <text x="12.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">1</text>
+    <text x="37.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">3</text>
+    <text x="12.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">5</text>
+    <text x="37.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">9</text>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" text-anchor="left" fill="#333">→ max(1,3,5,9) = 9</text>
+  </g>
+  
+  <!-- Second window explanation -->
+  <g transform="translate(240, 320)">
+    <rect x="0" y="0" width="50" height="50" fill="none" stroke="#333" stroke-width="1"/>
+    <line x1="0" y1="25" x2="50" y2="25" stroke="#333" stroke-width="0.5"/>
+    <line x1="25" y1="0" x2="25" y2="50" stroke="#333" stroke-width="0.5"/>
+    <text x="12.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">2</text>
+    <text x="37.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">4</text>
+    <text x="12.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">7</text>
+    <text x="37.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">2</text>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" text-anchor="left" fill="#333">→ max(2,4,7,2) = 7</text>
+  </g>
+  
+  <!-- Third window explanation -->
+  <g transform="translate(395, 320)">
+    <rect x="0" y="0" width="50" height="50" fill="none" stroke="#333" stroke-width="1"/>
+    <line x1="0" y1="25" x2="50" y2="25" stroke="#333" stroke-width="0.5"/>
+    <line x1="25" y1="0" x2="25" y2="50" stroke="#333" stroke-width="0.5"/>
+    <text x="12.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">3</text>
+    <text x="37.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">1</text>
+    <text x="12.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">2</text>
+    <text x="37.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">4</text>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" text-anchor="left" fill="#333">→ max(3,1,2,4) = 4</text>
+  </g>
+  
+  <!-- Fourth window explanation -->
+  <g transform="translate(550, 320)">
+    <rect x="0" y="0" width="50" height="50" fill="none" stroke="#333" stroke-width="1"/>
+    <line x1="0" y1="25" x2="50" y2="25" stroke="#333" stroke-width="0.5"/>
+    <line x1="25" y1="0" x2="25" y2="50" stroke="#333" stroke-width="0.5"/>
+    <text x="12.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">6</text>
+    <text x="37.5" y="17" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">8</text>
+    <text x="12.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">5</text>
+    <text x="37.5" y="42" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">2</text>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" text-anchor="left" fill="#333">→ max(6,8,5,2) = 8</text>
+  </g>
+</svg>

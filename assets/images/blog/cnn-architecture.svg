@@ -1,0 +1,97 @@
+<svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="400" fill="#f8f9fa" rx="5" ry="5"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Convolutional Neural Network (CNN) Architecture</text>
+  
+  <!-- Input Image -->
+  <rect x="50" y="100" width="100" height="100" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="5" ry="5"/>
+  <rect x="55" y="105" width="90" height="90" fill="#bbdefb" stroke="#2196f3" stroke-width="1" rx="3" ry="3"/>
+  <text x="100" y="230" font-family="Arial" font-size="16" text-anchor="middle">Input Image</text>
+  <text x="100" y="250" font-family="Arial" font-size="12" text-anchor="middle">(32×32×3)</text>
+  
+  <!-- First Convolutional Layer -->
+  <rect x="190" y="90" width="80" height="80" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="5" ry="5"/>
+  <rect x="200" y="100" width="60" height="60" fill="#c8e6c9" stroke="#4caf50" stroke-width="1" rx="3" ry="3"/>
+  <text x="230" y="195" font-family="Arial" font-size="16" text-anchor="middle">Conv Layer</text>
+  <text x="230" y="215" font-family="Arial" font-size="12" text-anchor="middle">(28×28×32)</text>
+  <text x="230" y="235" font-family="Arial" font-size="12" text-anchor="middle">32 filters (5×5)</text>
+  
+  <!-- First Pooling Layer -->
+  <rect x="310" y="100" width="60" height="60" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5" ry="5"/>
+  <rect x="315" y="105" width="50" height="50" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="3" ry="3"/>
+  <text x="340" y="195" font-family="Arial" font-size="16" text-anchor="middle">Max Pool</text>
+  <text x="340" y="215" font-family="Arial" font-size="12" text-anchor="middle">(14×14×32)</text>
+  <text x="340" y="235" font-family="Arial" font-size="12" text-anchor="middle">2×2 stride 2</text>
+  
+  <!-- Second Convolutional Layer -->
+  <rect x="410" y="90" width="70" height="70" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="5" ry="5"/>
+  <rect x="420" y="100" width="50" height="50" fill="#c8e6c9" stroke="#4caf50" stroke-width="1" rx="3" ry="3"/>
+  <text x="445" y="195" font-family="Arial" font-size="16" text-anchor="middle">Conv Layer</text>
+  <text x="445" y="215" font-family="Arial" font-size="12" text-anchor="middle">(10×10×64)</text>
+  <text x="445" y="235" font-family="Arial" font-size="12" text-anchor="middle">64 filters (5×5)</text>
+  
+  <!-- Second Pooling Layer -->
+  <rect x="520" y="100" width="50" height="50" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5" ry="5"/>
+  <rect x="525" y="105" width="40" height="40" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="3" ry="3"/>
+  <text x="545" y="195" font-family="Arial" font-size="16" text-anchor="middle">Max Pool</text>
+  <text x="545" y="215" font-family="Arial" font-size="12" text-anchor="middle">(5×5×64)</text>
+  <text x="545" y="235" font-family="Arial" font-size="12" text-anchor="middle">2×2 stride 2</text>
+  
+  <!-- Flattening -->
+  <rect x="610" y="100" width="50" height="50" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="5" ry="5"/>
+  <line x1="620" y1="110" x2="650" y2="140" stroke="#9c27b0" stroke-width="1.5"/>
+  <line x1="620" y1="140" x2="650" y2="110" stroke="#9c27b0" stroke-width="1.5"/>
+  <text x="635" y="195" font-family="Arial" font-size="16" text-anchor="middle">Flatten</text>
+  <text x="635" y="215" font-family="Arial" font-size="12" text-anchor="middle">(1600)</text>
+  
+  <!-- Fully Connected Layer -->
+  <rect x="700" y="85" width="40" height="80" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2" rx="5" ry="5"/>
+  <line x1="710" y1="95" x2="730" y2="155" stroke="#03a9f4" stroke-width="1"/>
+  <line x1="710" y1="155" x2="730" y2="95" stroke="#03a9f4" stroke-width="1"/>
+  <line x1="715" y1="95" x2="735" y2="155" stroke="#03a9f4" stroke-width="1"/>
+  <line x1="715" y1="155" x2="735" y2="95" stroke="#03a9f4" stroke-width="1"/>
+  <text x="720" y="195" font-family="Arial" font-size="16" text-anchor="middle">FC</text>
+  <text x="720" y="215" font-family="Arial" font-size="12" text-anchor="middle">(512)</text>
+  
+  <!-- Output Layer -->
+  <rect x="780" y="95" width="70" height="60" fill="#fce4ec" stroke="#e91e63" stroke-width="2" rx="5" ry="5"/>
+  <text x="815" y="135" font-family="Arial" font-size="18" text-anchor="middle" fill="#e91e63">Cat</text>
+  <text x="815" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#e91e63">95%</text>
+  <text x="815" y="195" font-family="Arial" font-size="16" text-anchor="middle">Output</text>
+  <text x="815" y="215" font-family="Arial" font-size="12" text-anchor="middle">(10 classes)</text>
+  
+  <!-- Connecting Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#757575"/>
+    </marker>
+  </defs>
+  <line x1="150" y1="125" x2="190" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="270" y1="125" x2="310" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="370" y1="125" x2="410" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="480" y1="125" x2="520" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="570" y1="125" x2="610" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="660" y1="125" x2="700" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="740" y1="125" x2="780" y2="125" stroke="#757575" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Legend -->
+  <rect x="90" y="300" width="20" height="20" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="3" ry="3"/>
+  <text x="120" y="315" font-family="Arial" font-size="14" text-anchor="start">Input</text>
+  
+  <rect x="190" y="300" width="20" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="3" ry="3"/>
+  <text x="220" y="315" font-family="Arial" font-size="14" text-anchor="start">Convolutional Layer</text>
+  
+  <rect x="390" y="300" width="20" height="20" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="3" ry="3"/>
+  <text x="420" y="315" font-family="Arial" font-size="14" text-anchor="start">Pooling Layer</text>
+  
+  <rect x="550" y="300" width="20" height="20" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="3" ry="3"/>
+  <text x="580" y="315" font-family="Arial" font-size="14" text-anchor="start">Flatten</text>
+  
+  <rect x="650" y="300" width="20" height="20" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2" rx="3" ry="3"/>
+  <text x="680" y="315" font-family="Arial" font-size="14" text-anchor="start">Fully Connected</text>
+  
+  <rect x="800" y="300" width="20" height="20" fill="#fce4ec" stroke="#e91e63" stroke-width="2" rx="3" ry="3"/>
+  <text x="830" y="315" font-family="Arial" font-size="14" text-anchor="start">Output</text>
+</svg>

@@ -1,0 +1,204 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" rx="5" ry="5"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Convolutional Filter Sliding Over Input Image</text>
+  
+  <!-- Input Image Grid (6x6) -->
+  <g id="input-image">
+    <text x="130" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Input Image</text>
+    
+    <!-- Row 1 -->
+    <rect x="50" y="100" width="50" height="50" fill="#d1e8ff" stroke="#333" stroke-width="1"/>
+    <rect x="100" y="100" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="150" y="100" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="200" y="100" width="50" height="50" fill="#d1e8ff" stroke="#333" stroke-width="1"/>
+    <rect x="250" y="100" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="300" y="100" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    
+    <!-- Row 2 -->
+    <rect x="50" y="150" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="100" y="150" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="150" y="150" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    <rect x="200" y="150" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="250" y="150" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="300" y="150" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    
+    <!-- Row 3 -->
+    <rect x="50" y="200" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="100" y="200" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    <rect x="150" y="200" width="50" height="50" fill="#51a7ff" stroke="#333" stroke-width="1"/>
+    <rect x="200" y="200" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="250" y="200" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    <rect x="300" y="200" width="50" height="50" fill="#51a7ff" stroke="#333" stroke-width="1"/>
+    
+    <!-- Row 4 -->
+    <rect x="50" y="250" width="50" height="50" fill="#d1e8ff" stroke="#333" stroke-width="1"/>
+    <rect x="100" y="250" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="150" y="250" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="200" y="250" width="50" height="50" fill="#d1e8ff" stroke="#333" stroke-width="1"/>
+    <rect x="250" y="250" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="300" y="250" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    
+    <!-- Row 5 -->
+    <rect x="50" y="300" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="100" y="300" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="150" y="300" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    <rect x="200" y="300" width="50" height="50" fill="#b1d8ff" stroke="#333" stroke-width="1"/>
+    <rect x="250" y="300" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="300" y="300" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    
+    <!-- Row 6 -->
+    <rect x="50" y="350" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="100" y="350" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    <rect x="150" y="350" width="50" height="50" fill="#51a7ff" stroke="#333" stroke-width="1"/>
+    <rect x="200" y="350" width="50" height="50" fill="#91c7ff" stroke="#333" stroke-width="1"/>
+    <rect x="250" y="350" width="50" height="50" fill="#71b7ff" stroke="#333" stroke-width="1"/>
+    <rect x="300" y="350" width="50" height="50" fill="#51a7ff" stroke="#333" stroke-width="1"/>
+  </g>
+  
+  <!-- Kernel/Filter (3x3) -->
+  <g id="kernel">
+    <text x="130" y="480" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Filter/Kernel (3×3)</text>
+    
+    <!-- Values in the kernel -->
+    <rect x="100" y="430" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="115" y="450" font-family="Arial" font-size="14" text-anchor="middle">1</text>
+    
+    <rect x="130" y="430" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="145" y="450" font-family="Arial" font-size="14" text-anchor="middle">0</text>
+    
+    <rect x="160" y="430" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="175" y="450" font-family="Arial" font-size="14" text-anchor="middle">1</text>
+    
+    <rect x="100" y="460" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="115" y="480" font-family="Arial" font-size="14" text-anchor="middle">0</text>
+    
+    <rect x="130" y="460" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="145" y="480" font-family="Arial" font-size="14" text-anchor="middle">1</text>
+    
+    <rect x="160" y="460" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="175" y="480" font-family="Arial" font-size="14" text-anchor="middle">0</text>
+    
+    <rect x="100" y="490" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="115" y="510" font-family="Arial" font-size="14" text-anchor="middle">1</text>
+    
+    <rect x="130" y="490" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="145" y="510" font-family="Arial" font-size="14" text-anchor="middle">0</text>
+    
+    <rect x="160" y="490" width="30" height="30" fill="#ffceab" stroke="#ff5722" stroke-width="2"/>
+    <text x="175" y="510" font-family="Arial" font-size="14" text-anchor="middle">1</text>
+  </g>
+  
+  <!-- Animated Sliding Filter -->
+  <g id="sliding-filter">
+    <rect id="filter-outline" x="50" y="100" width="150" height="150" fill="none" stroke="#ff5722" stroke-width="3" opacity="0.8">
+      <animate id="filter-x-animation" 
+               attributeName="x" 
+               values="50;50;50;50;200;200;200;200;50" 
+               dur="5s" 
+               repeatCount="indefinite" 
+               begin="0s; filter-y-animation.end" />
+      <animate id="filter-y-animation" 
+               attributeName="y" 
+               values="100;100;100;250;100;100;250;250;100" 
+               dur="5s" 
+               repeatCount="indefinite" 
+               begin="filter-x-animation.end" />
+    </rect>
+  </g>
+  
+  <!-- Output Feature Map -->
+  <g id="output-map">
+    <text x="600" y="90" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Output Feature Map</text>
+    
+    <!-- Output Grid (4x4) -->
+    <rect x="500" y="100" width="50" height="50" fill="#e8f5e9" stroke="#333" stroke-width="1"/>
+    <rect x="550" y="100" width="50" height="50" fill="#d7ecd9" stroke="#333" stroke-width="1"/>
+    <rect x="600" y="100" width="50" height="50" fill="#c6e3c9" stroke="#333" stroke-width="1"/>
+    <rect x="650" y="100" width="50" height="50" fill="#b5dab9" stroke="#333" stroke-width="1"/>
+    
+    <rect x="500" y="150" width="50" height="50" fill="#d7ecd9" stroke="#333" stroke-width="1"/>
+    <rect x="550" y="150" width="50" height="50" fill="#c6e3c9" stroke="#333" stroke-width="1">
+      <animate id="highlight-1" 
+               attributeName="fill" 
+               values="#c6e3c9;#4caf50;#c6e3c9" 
+               dur="5s" 
+               begin="0s" 
+               repeatCount="indefinite"/>
+    </rect>
+    <rect x="600" y="150" width="50" height="50" fill="#b5dab9" stroke="#333" stroke-width="1">
+      <animate id="highlight-2" 
+               attributeName="fill" 
+               values="#b5dab9;#4caf50;#b5dab9" 
+               dur="5s" 
+               begin="1.25s" 
+               repeatCount="indefinite"/>
+    </rect>
+    <rect x="650" y="150" width="50" height="50" fill="#a4d1a9" stroke="#333" stroke-width="1"/>
+    
+    <rect x="500" y="200" width="50" height="50" fill="#c6e3c9" stroke="#333" stroke-width="1">
+      <animate id="highlight-3" 
+               attributeName="fill" 
+               values="#c6e3c9;#4caf50;#c6e3c9" 
+               dur="5s" 
+               begin="2.5s" 
+               repeatCount="indefinite"/>
+    </rect>
+    <rect x="550" y="200" width="50" height="50" fill="#b5dab9" stroke="#333" stroke-width="1">
+      <animate id="highlight-4" 
+               attributeName="fill" 
+               values="#b5dab9;#4caf50;#b5dab9" 
+               dur="5s" 
+               begin="3.75s" 
+               repeatCount="indefinite"/>
+    </rect>
+    <rect x="600" y="200" width="50" height="50" fill="#a4d1a9" stroke="#333" stroke-width="1"/>
+    <rect x="650" y="200" width="50" height="50" fill="#93c899" stroke="#333" stroke-width="1"/>
+    
+    <rect x="500" y="250" width="50" height="50" fill="#b5dab9" stroke="#333" stroke-width="1"/>
+    <rect x="550" y="250" width="50" height="50" fill="#a4d1a9" stroke="#333" stroke-width="1"/>
+    <rect x="600" y="250" width="50" height="50" fill="#93c899" stroke="#333" stroke-width="1"/>
+    <rect x="650" y="250" width="50" height="50" fill="#82bf89" stroke="#333" stroke-width="1"/>
+  </g>
+  
+  <!-- Calculation Display -->
+  <g id="calculation">
+    <rect id="calc-bg" x="450" y="320" width="300" height="130" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    <text id="calc-title" x="600" y="345" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">Convolution Calculation</text>
+    
+    <text id="calc-formula" x="600" y="380" font-family="Arial" font-size="16" text-anchor="middle" opacity="0">
+      <tspan x="600" dy="0">(1×0.8) + (0×0.7) + (1×0.6) +</tspan>
+      <tspan x="600" dy="25">(0×0.7) + (1×0.6) + (0×0.5) +</tspan>
+      <tspan x="600" dy="25">(1×0.6) + (0×0.5) + (1×0.4) = 3.0</tspan>
+      <animate attributeName="opacity" 
+               values="0;0;1;1;0;0;1;1;0" 
+               dur="5s" 
+               repeatCount="indefinite"/>
+    </text>
+  </g>
+  
+  <!-- Connecting Arrow -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+  <line x1="350" y1="225" x2="450" y2="225" stroke="#555" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Explanation -->
+  <g id="explanation">
+    <text x="400" y="440" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">
+      <tspan x="400" dy="0">The 3×3 filter slides across the input image with a stride of 1,</tspan>
+      <tspan x="400" dy="20">computing element-wise multiplication and summing the results</tspan>
+      <tspan x="400" dy="20">to create each pixel in the output feature map.</tspan>
+    </text>
+  </g>
+  
+  <!-- Stride Illustration -->
+  <g id="stride-info">
+    <text x="175" y="425" font-family="Arial" font-size="14" text-anchor="start" fill="#333">Stride = 1</text>
+    <line x1="235" y1="422" x2="275" y2="422" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  </g>
+</svg>

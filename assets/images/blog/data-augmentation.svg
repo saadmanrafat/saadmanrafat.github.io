@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f8f9fa" rx="8" ry="8"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#333">Data Augmentation Techniques</text>
+  
+  <!-- Original Image -->
+  <g transform="translate(385, 160)">
+    <!-- Original Image Border -->
+    <rect x="-80" y="-80" width="190" height="190" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Original Label -->
+    <text x="15" y="-45" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Original Image</text>
+    
+    <!-- Sample Image: A flower-like shape with petals -->
+    <g id="sample-image">
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 1. Horizontal Flip -->
+  <g transform="translate(160, 160)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Horizontal Flip</text>
+    
+    <!-- Transformation -->
+    <g transform="scale(-1, 1) translate(-30, 0)">
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 2. Rotation -->
+  <g transform="translate(610, 160)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Rotation (45°)</text>
+    
+    <!-- Transformation -->
+    <g transform="rotate(45)">
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 3. Scaling/Zoom -->
+  <g transform="translate(160, 360)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Scaling (Zoom)</text>
+    
+    <!-- Transformation -->
+    <g transform="scale(0.8)">
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 4. Translation -->
+  <g transform="translate(385, 360)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Translation</text>
+    
+    <!-- Transformation -->
+    <g transform="translate(-20, 15)">
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 5. Color Jittering -->
+  <g transform="translate(610, 360)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Color Jittering</text>
+    
+    <!-- Transformation - Changed colors -->
+    <g>
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#004d40" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#00796b" stroke="#004d40" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#3f51b5" stroke="#303f9f" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#4caf50" stroke="#388e3c" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#2196f3" stroke="#1976d2" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ff5722" stroke="#e64a19" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 6. Brightness Adjustment -->
+  <g transform="translate(160, 560)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Brightness</text>
+    
+    <!-- Transformation -->
+    <g opacity="0.7">
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+      
+      <!-- Brightness filter -->
+      <rect x="-60" y="-60" width="120" height="120" fill="#fff" opacity="0.3"/>
+    </g>
+  </g>
+  
+  <!-- 7. Random Cutout / Erasing -->
+  <g transform="translate(385, 560)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Random Cutout</text>
+    
+    <!-- Transformation -->
+    <g>
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals - with one erased -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      
+      <!-- Cutout rectangle -->
+      <rect x="-10" y="-53" width="50" height="50" fill="#fff"/>
+      
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- 8. Gaussian Noise -->
+  <g transform="translate(610, 560)">
+    <!-- Border -->
+    <rect x="-80" y="-80" width="160" height="160" fill="#fff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+    
+    <!-- Label -->
+    <text x="0" y="-45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Noise Addition</text>
+    
+    <!-- Transformation -->
+    <g>
+      <!-- Stem -->
+      <line x1="15" y1="30" x2="15" y2="80" stroke="#2e7d32" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Leaf -->
+      <path d="M 15,55 Q 0,40 15,30 Q 30,40 15,55" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+      
+      <!-- Petals -->
+      <circle cx="0" cy="0" r="25" fill="#f44336" stroke="#d32f2f" stroke-width="2"/>
+      <circle cx="30" cy="0" r="25" fill="#e91e63" stroke="#c2185b" stroke-width="2"/>
+      <circle cx="15" cy="-26" r="25" fill="#9c27b0" stroke="#7b1fa2" stroke-width="2"/>
+      <circle cx="15" cy="26" r="25" fill="#ff9800" stroke="#f57c00" stroke-width="2"/>
+      
+      <!-- Center -->
+      <circle cx="15" cy="0" r="15" fill="#ffc107" stroke="#ffa000" stroke-width="2"/>
+      
+      <!-- Noise elements -->
+      <g fill-opacity="0.5">
+        <!-- Random noise dots -->
+        <circle cx="-35" cy="-30" r="2" fill="#000"/>
+        <circle cx="-20" cy="-45" r="1.5" fill="#000"/>
+        <circle cx="5" cy="-35" r="2" fill="#000"/>
+        <circle cx="30" cy="-30" r="1" fill="#000"/>
+        <circle cx="40" cy="-15" r="1.5" fill="#000"/>
+        <circle cx="45" cy="10" r="2" fill="#000"/>
+        <circle cx="35" cy="30" r="1" fill="#000"/>
+        <circle cx="15" cy="45" r="2" fill="#000"/>
+        <circle cx="-10" cy="40" r="1.5" fill="#000"/>
+        <circle cx="-30" cy="25" r="1" fill="#000"/>
+        <circle cx="-40" cy="5" r="2" fill="#000"/>
+        <circle cx="-15" cy="-10" r="1" fill="#000"/>
+        <circle cx="0" cy="15" r="2" fill="#000"/>
+        <circle cx="25" cy="-5" r="1.5" fill="#000"/>
+        <circle cx="-25" cy="-20" r="1" fill="#000"/>
+        <circle cx="15" cy="-40" r="2" fill="#000"/>
+        <circle cx="-20" cy="10" r="1.5" fill="#000"/>
+        <circle cx="30" cy="15" r="1" fill="#000"/>
+        <circle cx="-30" cy="40" r="2" fill="#000"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Legend at the bottom -->
+  <g transform="translate(450, 620)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">
+      These techniques increase dataset diversity and improve model generalization by creating variations of existing images.
+    </text>
+  </g>
+  
+  <!-- Connecting lines -->
+  <line x1="385" y1="160" x2="245" y2="160" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="610" y2="160" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="160" y2="360" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="385" y2="360" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="610" y2="360" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="160" y2="560" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="385" y2="560" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="385" y1="160" x2="610" y2="560" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+</svg>
