@@ -2,9 +2,9 @@
 title: "Seeing the World: A Beginner's Guide to CNNs using PyTorch"
 description: "Learn the fundamentals of Convolutional Neural Networks (CNNs) using PyTorch. A beginner-friendly introduction to how machines see images."
 author: "Saadman Rafat"
-readTime: 5
+readTime: 10
 date: "2025-05-21"
-updated: "2025-05-21T11:34:53.000Z"
+updated: "2025-05-21T15:33:50.000Z"
 image: "cnn.png"
 tags: ["AI", "Machine Learning", "Deep Learning", "Computer Vision", "PyTorch", "Convolutional Neural Network"]
 category: "Deep Learning"
@@ -16,7 +16,7 @@ Welcome to the fascinating world of deep learning! If you've ever wondered how c
 
 These powerful neural networks are specifically designed to handle image data and have revolutionized computer vision over the past decade.
 
-![Visualization of a CNN architecture showing input image, convolutional layers, pooling layers, and output classification](/assets/images/blog/cnn-architecture.svg)
+![Visualization of a CNN architecture showing input image, convolutional layers, pooling layers, and output classification](https://saadman.dev/assets/images/blog/cnn-architecture.svg)
 
 ## How Computers See Images
 
@@ -51,7 +51,7 @@ This is where convolutional layers come in. CNNs use **convolutional layers** as
 
 Instead of connecting every input pixel to every neuron, convolutional layers use small grids of parameters called **filters** (or kernels). These filters slide over the input image (or a feature map from a previous layer), performing a convolution operation at each position.
 
-![Animation showing a convolutional filter sliding over an input image](/assets/images/blog/convolution-animation.svg)
+![Animation showing a convolutional filter sliding over an input image](https://saadman.dev/assets/images/blog/convolution-animation.svg)
 
 The convolution operation is essentially a dot product between the filter and a patch of the input data covered by the filter. The results of this sliding operation at each position are collected to create a **feature map**.
 
@@ -95,7 +95,7 @@ conv_layer = nn.Conv2d(
 
 This operation typically follows convolutional layers. A non-overlapping window slides over the feature map, and at each position, the maximum value within the window is selected.
 
-![Illustration of max pooling with a 2x2 window](/assets/images/blog/max-pooling.svg)
+![Illustration of max pooling with a 2x2 window](https://saadman.dev/assets/images/blog/max-pooling.svg)
 
 Using a 2×2 window, for instance, halves the height and width of the feature map. Max pooling helps to:
 - Reduce the spatial dimensions
@@ -240,7 +240,7 @@ A powerful technique for image data, especially to combat overfitting, is **data
 - **Horizontal Flip**: Simulates different viewpoints
 - **Color Jitter**: Simulates different lighting conditions
 
-![Examples of data augmentation techniques applied to a sample image](/assets/images/blog/data-augmentation.svg)
+![Examples of data augmentation techniques applied to a sample image](https://saadman.dev/assets/images/blog/data-augmentation.svg)
 
 These transformations artificially increase the size and diversity of your training set, making the model more robust to variations found in real-world images.
 
