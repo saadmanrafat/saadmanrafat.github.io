@@ -4,6 +4,7 @@ description: "Learn the fundamentals of Convolutional Neural Networks (CNNs) usi
 author: "Saadman Rafat"
 readTime: 5
 date: "2025-05-21"
+updated: "2025-05-21T11:34:53.000Z"
 image: "cnn.png"
 tags: ["AI", "Machine Learning", "Deep Learning", "Computer Vision", "PyTorch", "Convolutional Neural Network"]
 category: "Deep Learning"
@@ -63,8 +64,6 @@ The convolution operation is essentially a dot product between the filter and a 
 In PyTorch, you define a convolutional layer using `nn.Conv2d`. You specify the number of input and output feature maps (or channels) and the kernel size:
 
 ```python
-from torch 
-
 # 3 input channels (RGB), 32 output feature maps, 3x3 filter size
 conv_layer = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3)
 ```
