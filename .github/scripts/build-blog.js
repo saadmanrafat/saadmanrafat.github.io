@@ -8,6 +8,7 @@ const path = require('path');
 const marked = require('marked');
 const matter = require('gray-matter');
 const Handlebars = require('handlebars');
+const lunr = require('lunr');
 
 // ===== CONFIGURATION =====
 const SITE_URL = 'https://saadman.dev';
@@ -49,6 +50,7 @@ console.log('1. Setting up directory structure...');
 fs.removeSync(OUTPUT_DIR);
 fs.ensureDirSync(OUTPUT_DIR);
 fs.ensureDirSync(path.join(OUTPUT_DIR, 'blog'));
+fs.ensureDirSync(path.join(OUTPUT_DIR, 'search')); // Add search directory
 fs.ensureDirSync(path.join(OUTPUT_DIR, 'assets'));
 fs.ensureDirSync(path.join(OUTPUT_DIR, 'assets', 'images'));
 fs.ensureDirSync(path.join(OUTPUT_DIR, 'assets', 'images', 'blog'));
@@ -87,7 +89,7 @@ staticFiles.forEach(file => {
 
 // ===== LOAD TEMPLATES =====
 console.log('3. Loading HTML templates...');
-let postTemplate, blogIndexTemplate;
+let postTemplate, blogIndexTemplate, searchTemplate;
 
 try {
   if (fs.existsSync(path.join(SOURCE_DIR, 'templates', 'post.html'))) {
@@ -141,6 +143,74 @@ try {
 </body>
 </html>`;
   }
+
+  // Load search template
+  if (fs.existsSync(path.join(SOURCE_DIR, 'templates', 'search.html'))) {
+    searchTemplate = fs.readFileSync(
+      path.join(SOURCE_DIR, 'templates', 'search.html'),
+      'utf8'
+    );
+    console.log('   ✓ Loaded search template');
+  } else {
+    console.error('   ✖ Search template not found at templates/search.html');
+    console.log('   Creating fallback search template');
+    searchTemplate = `<!DOCTYPE html>
+<html>
+<head>
+  <title>Search - Saadman Rafat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/lunr@2.3.9/lunr.js"></script>
+</head>
+<body>
+  <h1>Search</h1>
+  <form action="/search/" method="get">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+  <div id="results"></div>
+  <script>
+    async function search() {
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('q');
+      
+      if (!query) return;
+      
+      document.querySelector('input[name="q"]').value = query;
+      
+      const [indexResponse, postsResponse] = await Promise.all([
+        fetch('/search-index.json'),
+        fetch('/posts-metadata.json')
+      ]);
+      
+      const index = await indexResponse.json();
+      const posts = await postsResponse.json();
+      
+      const idx = lunr.Index.load(index);
+      const results = idx.search(query);
+      const resultsDiv = document.getElementById('results');
+      
+      if (results.length === 0) {
+        resultsDiv.innerHTML = '<p>No results found</p>';
+        return;
+      }
+      
+      const resultsHtml = results.map(result => {
+        const post = posts.find(p => p.slug === result.ref);
+        return \`<div>
+          <h2><a href="/blog/\${post.slug}/">\${post.title}</a></h2>
+          <p>\${post.description}</p>
+        </div>\`;
+      }).join('');
+      
+      resultsDiv.innerHTML = resultsHtml;
+    }
+    
+    document.addEventListener('DOMContentLoaded', search);
+  </script>
+</body>
+</html>`;
+  }
 } catch (error) {
   console.error('Error loading templates:', error);
   process.exit(1);
@@ -149,6 +219,7 @@ try {
 // Compile templates
 const compilePost = Handlebars.compile(postTemplate);
 const compileBlogIndex = Handlebars.compile(blogIndexTemplate);
+const compileSearch = Handlebars.compile(searchTemplate);
 
 // ===== FIND AND PROCESS BLOG POSTS =====
 console.log('4. Finding and processing blog posts...');
@@ -438,6 +509,12 @@ const sitemapEntries = [
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>`,
+  `<url>
+    <loc>${SITE_URL}/search/</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>`
 ];
 
@@ -491,12 +568,73 @@ const notFoundPage = `<!DOCTYPE html>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/blog/">Blog</a></li>
+    <li><a href="/search/">Search</a></li>
   </ul>
 </body>
 </html>`;
 
 fs.writeFileSync(path.join(OUTPUT_DIR, '404.html'), notFoundPage);
 console.log('   ✓ Generated: /404.html');
+
+// ===== GENERATE SEARCH INDEX =====
+console.log('9. Generating search index...');
+
+// Create search index from posts
+const searchIndex = lunr(function() {
+  this.field('title', { boost: 10 });
+  this.field('content');
+  this.field('tags', { boost: 5 });
+  this.field('description', { boost: 7 });
+  this.ref('slug');
+
+  posts.forEach(post => {
+    this.add({
+      title: post.title,
+      content: post.content.replace(/<[^>]*>/g, ''), // Strip HTML
+      description: post.description || '',
+      tags: post.tags ? post.tags.join(' ') : '',
+      slug: post.slug
+    });
+  });
+});
+
+// Create a separate file with post metadata for displaying search results
+const postsMetadata = posts.map(post => ({
+  title: post.title,
+  description: post.description || '',
+  slug: post.slug,
+  date: post.date,
+  readTime: post.readTime || 5,
+  tags: post.tags || [],
+  image: post.image
+}));
+
+// Write the index and metadata to JSON files
+fs.writeFileSync(
+  path.join(OUTPUT_DIR, 'search-index.json'),
+  JSON.stringify(searchIndex)
+);
+
+fs.writeFileSync(
+  path.join(OUTPUT_DIR, 'posts-metadata.json'),
+  JSON.stringify(postsMetadata)
+);
+
+console.log('   ✓ Generated: /search-index.json');
+console.log('   ✓ Generated: /posts-metadata.json');
+
+// ===== GENERATE SEARCH PAGE =====
+console.log('10. Generating search page...');
+const searchHtml = compileSearch({
+  siteUrl: SITE_URL
+});
+
+fs.writeFileSync(
+  path.join(OUTPUT_DIR, 'search', 'index.html'),
+  searchHtml
+);
+
+console.log('   ✓ Generated: /search/index.html');
 
 // ===== FINAL OUTPUT SUMMARY =====
 console.log('\n=== Build Complete! ===');
@@ -509,6 +647,9 @@ console.log('- /blog/test.html (Test file)');
 console.log('- /rss.xml');
 console.log('- /sitemap.xml');
 console.log('- /404.html');
+console.log('- /search/index.html (Search Page)');
+console.log('- /search-index.json');
+console.log('- /posts-metadata.json');
 
 // List the files in the output directory
 console.log('\nFinal output directory structure:');

@@ -41,11 +41,11 @@ jobs:
         run: |
           echo "📁 Project structure before build:"
           find . -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | sort
-      
+
       - name: Install dependencies
         run: |
           npm init -y
-          npm install marked@4.3.0 gray-matter@4.0.3 handlebars@4.7.8 fs-extra@11.1.1
+          npm install marked@4.3.0 gray-matter@4.0.3 handlebars@4.7.8 fs-extra@11.1.1 lunr@2.3.9
       
       - name: Build blog from markdown
         run: node .github/scripts/build-blog.js

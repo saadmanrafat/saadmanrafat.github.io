@@ -69,12 +69,29 @@
                 "@type": "City",
                 "name": "Dhaka"
             },
-            "skills": "Python, DevOps, Docker, Kubernetes, AI Research"
+            "skills": "Python, DevOps, Kubernetes, AI Research, Deep Learning, CNNs"
         },
         "mainEntityOfPage": "https://saadman.dev"
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Saadman Rafat",
+      "url": "https://saadman.dev/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://saadman.dev/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "description": "Personal website of Saadman Rafat, Software Engineer specializing in Python and Deep Learning."
+    }
+</script>
     <!-- Styles -->
     <style>
         :root {
@@ -628,15 +645,15 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984"
      crossorigin="anonymous"></script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K938BJM57L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K938BJM57L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-K938BJM57L');
-</script>
+      gtag('config', 'G-K938BJM57L');
+    </script>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -649,6 +666,7 @@
                 <div class="nav-links">
                     <a href="https://drive.google.com/file/d/1OZydZxG-vNBsHjVmgy1xT5ttw7xIcD8K/view?usp=sharing">resume</a>
                     <a href="/blog/">blog</a>
+                    <a href="/search/">search</a>
                 </div>
             </div>
         </header>

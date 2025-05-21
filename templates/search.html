@@ -1,0 +1,424 @@
+<!-- Create new file: templates/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search - Saadman Rafat</title>
+    <meta name="description" content="Search across articles and content on Saadman Rafat's blog.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{siteUrl}}/search/">
+    <meta property="og:title" content="Search - Saadman Rafat">
+    <meta property="og:description" content="Search across articles and content on Saadman Rafat's blog.">
+
+    <!-- Same CSS styles as your blog-index.html, so I'm using the same styles -->
+    <style>
+        /* Copy all the CSS from your blog-index.html file */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --accent-color: #495057;
+            --accent-hover: #343a40;
+            --soft-text: #495057;
+            --muted-text: #6c757d;
+            --border-color: #dee2e6;
+            --card-bg: #ffffff;
+            --code-bg: #f1f3f5;
+            --max-content-width: 800px;
+            --content-width: 60%;
+            --heading-font: 'IBM Plex Mono', monospace;
+            --body-font: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --mono-font: 'IBM Plex Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: var(--content-width);
+            max-width: var(--max-content-width);
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        .navbar {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            z-index: 10;
+            padding: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: var(--heading-font);
+        }
+
+        .navbar a {
+            color: var(--accent-color);
+            text-decoration: none;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            left: 0;
+            bottom: -3px;
+            transition: width .3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 42px;
+            text-align: left;
+            font-family: var(--heading-font);
+        }
+
+        .blog-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--card-bg);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-title {
+            font-size: 26px;
+            margin-bottom: 15px;
+            font-family: var(--heading-font);
+        }
+
+        .blog-title a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .blog-title a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .blog-meta {
+            font-size: 14px;
+            color: var(--muted-text);
+            margin-bottom: 15px;
+            font-family: var(--mono-font);
+        }
+
+        .blog-excerpt {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-family: var(--body-font);
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: var(--heading-font);
+            transition: color 0.2s ease;
+            display: inline-block;
+        }
+
+        .read-more:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .blog-tag {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-family: var(--mono-font);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .blog-tag:hover {
+            background-color: var(--accent-color);
+            color: var(--card-bg);
+            transform: translateY(-2px);
+        }
+
+        .no-results {
+            padding: 30px;
+            text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        /* Search form styles */
+        .search-form {
+            margin-bottom: 40px;
+            display: flex;
+            width: 100%;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px 0 0 8px;
+            font-family: var(--body-font);
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .search-button {
+            padding: 15px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            font-family: var(--heading-font);
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .search-results-info {
+            margin-bottom: 20px;
+            font-family: var(--mono-font);
+            color: var(--muted-text);
+        }
+
+        .highlight {
+            background-color: rgba(73, 80, 87, 0.15);
+            padding: 2px 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            :root {
+                --content-width: 90%;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-input {
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .search-button {
+                border-radius: 8px;
+            }
+        }
+    </style>
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            — <a href="{{siteUrl}}">saadman.dev</a>
+            <a href="{{siteUrl}}/blog/">blog</a>
+        </div>
+
+        <div class="content">
+            <h1>Search</h1>
+
+            <form id="search-form" class="search-form" action="/search/" method="get">
+                <input type="text" id="search-input" name="q" placeholder="Search articles..." class="search-input" autocomplete="off">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+
+            <div id="search-results-container">
+                <!-- Results will be inserted here by JavaScript -->
+                <div class="search-results-info" id="search-results-info"></div>
+                <div id="search-results"></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2025 Saadman Rafat. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get search query from URL
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+
+            // If there's a query, perform search
+            if (query) {
+                document.getElementById('search-input').value = query;
+                performSearch(query);
+            } else {
+                document.getElementById('search-results-info').textContent = 'Enter a search term to find articles.';
+            }
+
+            // Perform search function
+            async function performSearch(query) {
+                try {
+                    // Get search index and post metadata
+                    const [indexResponse, metadataResponse] = await Promise.all([
+                        fetch('/search-index.json'),
+                        fetch('/posts-metadata.json')
+                    ]);
+
+                    const searchIndex = await indexResponse.json();
+                    const postsMetadata = await metadataResponse.json();
+
+                    // Create lunr index from the serialized index
+                    const idx = lunr.Index.load(searchIndex);
+
+                    // Search the index
+                    const results = idx.search(query);
+
+                    // Display results info
+                    document.getElementById('search-results-info').textContent =
+                        `Found ${results.length} result${results.length === 1 ? '' : 's'} for "${query}"`;
+
+                    // Get results container
+                    const resultsContainer = document.getElementById('search-results');
+                    resultsContainer.innerHTML = '';
+
+                    if (results.length === 0) {
+                        resultsContainer.innerHTML = `
+                            <div class="no-results">
+                                <h2>No results found</h2>
+                                <p>Try different keywords or check for typos.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    // Map results to post metadata and display
+                    results.forEach(result => {
+                        const post = postsMetadata.find(p => p.slug === result.ref);
+                        if (!post) return;
+
+                        const tagsHtml = post.tags ? post.tags.map(tag =>
+                            `<span class="blog-tag">${tag}</span>`).join('') : '';
+
+                        const resultHtml = `
+                            <div class="blog-card">
+                                <h2 class="blog-title">
+                                    <a href="/blog/${post.slug}/">${highlightText(post.title, query)}</a>
+                                </h2>
+                                <div class="blog-meta">
+                                    Published on ${formatDate(post.date)} • ${post.readTime || '5'} min read
+                                </div>
+                                <div class="blog-excerpt">
+                                    ${highlightText(post.description, query)}
+                                </div>
+                                <a href="/blog/${post.slug}/" class="read-more">Read more →</a>
+                                <div class="blog-tags">
+                                    ${tagsHtml}
+                                </div>
+                            </div>
+                        `;
+
+                        resultsContainer.innerHTML += resultHtml;
+                    });
+                } catch (error) {
+                    console.error('Error performing search:', error);
+                    document.getElementById('search-results-info').textContent = 'An error occurred while searching.';
+                }
+            }
+
+            // Helper function to format date
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString('en-US', options);
+            }
+
+            // Helper function to highlight search terms
+            function highlightText(text, query) {
+                if (!query) return text;
+
+                // Split query into individual terms
+                const terms = query.trim().toLowerCase().split(/\s+/);
+
+                // Create regex pattern for all terms
+                const pattern = terms.map(term =>
+                    term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // escape regex special chars
+                ).join('|');
+
+                // Replace matches with highlighted version
+                return text.replace(new RegExp(`(${pattern})`, 'gi'), '<span class="highlight">$1</span>');
+            }
+        });
+    </script>
+
+    <!-- Include lunr.js -->
+    <script src="https://unpkg.com/lunr@2.3.9/lunr.js"></script>
+</body>
+
+</html>
