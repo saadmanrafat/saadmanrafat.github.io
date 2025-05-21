@@ -1,4 +1,4 @@
-gi<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Saadman Rafat's Blog</title>
@@ -6,7 +6,7 @@ gi<?xml version="1.0" encoding="UTF-8" ?>
     <link>https://saadman.dev/blog/</link>
     <atom:link href="https://saadman.dev/rss.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 May 2025 14:24:18 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 May 2025 07:09:50 GMT</lastBuildDate>
     <generator>Saadman.dev Blog Engine</generator>
     <copyright>© 2025 Saadman Rafat</copyright>
     <ttl>60</ttl>
@@ -17,7 +17,28 @@ gi<?xml version="1.0" encoding="UTF-8" ?>
       <width>144</width>
       <height>144</height>
     </image>
-    
+
+  <item>
+    <title>Seeing the World: A Beginner's Guide to CNNs using PyTorch</title>
+    <link>https://saadman.dev/blog/2025-05-21-seeing-the-world-a-beginners-guide-to-convolution-neural-networks-using-pytorch/</link>
+    <guid isPermaLink="true">https://saadman.dev/blog/2025-05-21-seeing-the-world-a-beginners-guide-to-convolution-neural-networks-using-pytorch/</guid>
+    <pubDate>Wed, 21 May 2025 00:00:00 GMT</pubDate>
+    <dc:creator>Saadman Rafat</dc:creator>
+    <category>AI</category>
+    <category>Machine Learning</category>
+    <category>Deep Learning</category>
+    <category>Computer Vision</category>
+    <category>PyTorch</category>
+    <category>Convolutional Neural Network</category>
+    <description>Learn the fundamentals of Convolutional Neural Networks (CNNs) using PyTorch. A beginner-friendly introduction to how machines see images.</description>
+    <content:encoded><![CDATA[
+      <h1 id="seeing-the-world-a-beginners-guide-to-convolutional-neural-networks-using-pytorch">Seeing the World: A Beginner&#39;s Guide to Convolutional Neural Networks using PyTorch</h1>
+<p>Welcome to the fascinating world of deep learning! If you&#39;ve ever wondered how computers can recognize objects in images, distinguish between different types of clouds, or even power automated passport control systems, you&#39;re about to uncover one of the key technologies behind it: <strong>Convolutional N...
+      <p><a href="https://saadman.dev/blog/2025-05-21-seeing-the-world-a-beginners-guide-to-convolution-neural-networks-using-pytorch/">Continue reading →</a></p>
+    ]]></content:encoded>
+    <enclosure url="https://saadman.dev/assets/images/blog/cnn.png" length="0" type="image/jpeg" />
+  </item>
+
   <item>
     <title>Deta Surf: Reclaim Your Digital World</title>
     <link>https://saadman.dev/blog/2025-05-20-deta-surf-reclaim-your-digital-world/</link>

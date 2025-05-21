@@ -2,15 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://saadman.dev/</loc>
-    <lastmod>2025-05-20</lastmod>
+    <lastmod>2025-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://saadman.dev/blog/</loc>
-    <lastmod>2025-05-20</lastmod>
+    <lastmod>2025-05-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://saadman.dev/search/</loc>
+    <lastmod>2025-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://saadman.dev/blog/2025-05-21-seeing-the-world-a-beginners-guide-to-convolution-neural-networks-using-pytorch/</loc>
+    <lastmod>2025-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://saadman.dev/assets/images/blog/cnn.png</image:loc>
+      <image:title>Seeing the World: A Beginner's Guide to CNNs using PyTorch</image:title>
+      <image:caption>Learn the fundamentals of Convolutional Neural Networks (CNNs) using PyTorch. A beginner-friendly introduction to how machines see images.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://saadman.dev/blog/2025-05-20-deta-surf-reclaim-your-digital-world/</loc>
