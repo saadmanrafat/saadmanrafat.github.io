@@ -4,7 +4,7 @@ description: "Learn the fundamentals of Convolutional Neural Networks (CNNs) usi
 author: "Saadman Rafat"
 readTime: 10
 date: "2025-05-21"
-updated: "16:33:26Z"
+updated: "2025-05-27T19:34:11Z"
 image: "cnn.png"
 tags: ["AI", "Machine Learning", "Deep Learning", "Computer Vision", "PyTorch", "Convolutional Neural Network", "tutorial", "guide"]
 category: "Deep Learning"

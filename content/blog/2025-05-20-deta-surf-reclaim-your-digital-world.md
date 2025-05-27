@@ -3,7 +3,7 @@ title: "Deta Surf: Reclaim Your Digital World"
 description: "Explore how a new browser is rethinking the way we organize our digital lives using AI, local-first principles, and spatial design."
 readTime: 7
 date: "2025-05-20"
-updated: "16:33:26Z"
+updated: "2025-05-27T19:34:11Z"
 author: "Saadman Rafat"
 image: "deta_surf.jpg"
 tags: [AI, Productivity, Browser, Deta, Local-first, Surf, UX, Tools]

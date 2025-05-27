@@ -3,7 +3,7 @@ title: "The Reason pip Suddenly Refuses to Install Globally"
 description: "We will discuss Python Enhancement Proposal 668, specifically the error regarding externally managed environments, and elaborate on its benefits."
 readTime: 10
 date: "2025-05-15"
-updated: "16:33:26Z"
+updated: "2025-05-27T19:34:11Z"
 author: "Saadman Rafat"
 image: "pep668.jpg"
 tags: ["python", "pep668", "pip", "linux", "debian", "ubuntu", "best practices", "virtual environments"]
