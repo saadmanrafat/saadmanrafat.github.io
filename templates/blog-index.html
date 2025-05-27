@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <meta name="description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
     <meta name="keywords" content="Saadman Rafat Blog, Python Development, Serverless Architecture, DevOps, Docker, Kubernetes, AI Research, CNNs">
     <meta name="author" content="Saadman Rafat">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Open Graph / Facebook -->
@@ -58,6 +59,42 @@
                 "url": "https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4"
             }
         }
+    }
+    </script>
+
+    <!-- Enhanced CollectionPage Schema for Google AI -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Blog - Saadman Rafat",
+      "description": "Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research",
+      "url": "{{siteUrl}}/blog/",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Saadman Rafat",
+        "url": "{{siteUrl}}"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Software Engineering and AI Research"
+      },
+      "hasPart": [
+        {{#each posts}}
+        {
+          "@type": "Article",
+          "headline": "{{this.title}}",
+          "url": "{{../siteUrl}}/blog/{{this.slug}}/",
+          "datePublished": "{{this.date}}",
+          "image": "{{../siteUrl}}/assets/images/blog/{{#if this.image}}{{this.image}}{{else}}default.jpg{{/if}}",
+          "description": "{{this.description}}",
+          "author": {
+            "@type": "Person",
+            "name": "Saadman Rafat"
+          }
+        }{{#unless @last}},{{/unless}}
+        {{/each}}
+      ]
     }
     </script>
 
@@ -585,11 +622,16 @@
                     <a href="{{../siteUrl}}/blog/{{this.slug}}/">{{this.title}}</a>
                 </h2>
                 <div class="blog-meta">
-                    Published on {{formatDate this.date}} • {{this.readTime}} min read
+                    Published on {{formatDate this.date}} • {{#if this.readTime}}{{this.readTime}}{{else}}5{{/if}} min read
                 </div>
                 <div class="blog-excerpt">
                     {{this.description}}
                 </div>
+                {{#if this.tldr}}
+                <div class="blog-tldr" style="font-style: italic; color: var(--muted-text); margin-bottom: 15px; font-size: 0.95em;">
+                    <strong>TL;DR:</strong> {{this.tldr}}
+                </div>
+                {{/if}}
                 <a href="{{../siteUrl}}/blog/{{this.slug}}/" class="read-more">Read more →</a>
                 <div class="blog-tags">
                     {{{ this.tagsHtml }}}

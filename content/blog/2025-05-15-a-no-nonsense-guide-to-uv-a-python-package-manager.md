@@ -3,10 +3,36 @@ title: "A no nonsense guide to UV (a Python Package Manager)"
 description: "A fast, modern, all-in-one Python package manager that simplifies dependency management, environments, and Python versions."
 readTime: 6
 date: "2025-05-15"
+updated: "16:33:26Z"
 author: "Saadman Rafat"
 image: "python-package-manager.jpg"
-tags: ["PIP", "Python", "Python Package Manager"]
+tags: ["PIP", "Python", "Python Package Manager", "UV", "Rust", "Development Tools", "tutorial", "guide"]
 category: "Tools"
+tldr: "UV is a blazing-fast Python package manager written in Rust that combines pip, virtualenv, pip-tools, and pyenv into one tool, offering 10-100x speed improvements."
+keyPoints:
+  - "UV is 10-100x faster than traditional package managers and written in Rust"
+  - "Single tool replaces pip, virtualenv, pip-tools, pyenv, and parts of Poetry/Conda"
+  - "Handles Python version management seamlessly, even downloading missing versions"
+  - "Offers instant environment creation with deterministic dependency resolution"
+  - "Compatible with existing pip projects and requirements.txt files"
+isHowTo: true
+requirements:
+  - "Command line terminal"
+  - "Basic understanding of Python packages"
+tools:
+  - "UV package manager"
+  - "Terminal/Command line"
+steps:
+  - name: "Install UV"
+    text: "Install UV using Astral's installer with curl -Ls https://astral.sh/uv/install.sh | bash"
+  - name: "Initialize a new project"
+    text: "Run 'uv init' to create pyproject.toml and .venv with your current Python version"
+  - name: "Add dependencies"
+    text: "Use 'uv add requests' to add packages to your project"
+  - name: "Run your project"
+    text: "Execute 'uv run main.py' to run in the virtual environment"
+  - name: "Manage Python versions"
+    text: "Use 'uv venv -p 3.6 .venv' to create environments with specific Python versions"
 ---
 
 # A no nonsense guide to UV (a Python Package Manager)

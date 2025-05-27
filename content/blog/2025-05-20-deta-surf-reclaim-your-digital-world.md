@@ -3,10 +3,22 @@ title: "Deta Surf: Reclaim Your Digital World"
 description: "Explore how a new browser is rethinking the way we organize our digital lives using AI, local-first principles, and spatial design."
 readTime: 7
 date: "2025-05-20"
+updated: "16:33:26Z"
 author: "Saadman Rafat"
 image: "deta_surf.jpg"
 tags: [AI, Productivity, Browser, Deta, Local-first, Surf, UX, Tools]
 category: "productivity"
+tldr: "Deta Surf is a new browser that combines AI, local-first data storage, and spatial interfaces to help users organize and access their digital content more effectively."
+keyPoints:
+  - "Deta Surf introduces 'Stuff' - a central place to collect and manage all types of digital content"
+  - "Smart Contexts help organize different projects with visual, spatial interfaces"
+  - "AI integration allows questioning any content on screen without copy-pasting"
+  - "Local-first approach ensures privacy with data stored on your device"
+isReview: true
+reviewedItem:
+  name: "Deta Surf"
+  category: "Browser"
+rating: 4.5
 ---
 
 # Deta Surf: Reclaim Your Digital World

@@ -4,10 +4,16 @@ description: "Learn the fundamentals of Convolutional Neural Networks (CNNs) usi
 author: "Saadman Rafat"
 readTime: 10
 date: "2025-05-21"
-updated: "2025-05-21T15:33:50.000Z"
+updated: "16:33:26Z"
 image: "cnn.png"
-tags: ["AI", "Machine Learning", "Deep Learning", "Computer Vision", "PyTorch", "Convolutional Neural Network"]
+tags: ["AI", "Machine Learning", "Deep Learning", "Computer Vision", "PyTorch", "Convolutional Neural Network", "tutorial", "guide"]
 category: "Deep Learning"
+tldr: "A comprehensive guide to understanding and implementing Convolutional Neural Networks using PyTorch, covering everything from basic concepts to practical implementation."
+keyPoints:
+  - "CNNs use convolutional layers to efficiently process images by detecting patterns regardless of their location"
+  - "Key components include convolutional layers, pooling layers, and activation functions working together"
+  - "Data augmentation and proper architecture design are crucial for building robust image classification models"
+  - "PyTorch provides intuitive APIs for building CNNs with modules like nn.Conv2d and nn.MaxPool2d"
 ---
 
 # Seeing the World: A Beginner's Guide to Convolutional Neural Networks using PyTorch

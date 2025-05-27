@@ -44,6 +44,10 @@ Handlebars.registerHelper('current_year', function() {
   return new Date().getFullYear();
 });
 
+Handlebars.registerHelper('join', function(array, separator) {
+  return Array.isArray(array) ? array.join(separator) : '';
+});
+
 // ===== CREATE DIRECTORY STRUCTURE =====
 // Clear and recreate the output directory
 console.log('1. Setting up directory structure...');
@@ -86,7 +90,7 @@ staticFiles.forEach(file => {
     }
   }
 });
-
+fs.writeFileSync(path.join(OUTPUT_DIR, '.nojekyll'), '');
 // ===== LOAD TEMPLATES =====
 console.log('3. Loading HTML templates...');
 let postTemplate, blogIndexTemplate, searchTemplate;
@@ -379,6 +383,71 @@ Replace this with your own content!
         }
       });
 
+      // Extract FAQ sections
+      const faqs = data.faqs || [];
+      if (faqs.length === 0) {
+        // Auto-detect FAQs from content
+        const faqLines = markdownContent.split('\n');
+        let currentQuestion = null;
+        let currentAnswer = '';
+
+        for (let i = 0; i < faqLines.length; i++) {
+          const line = faqLines[i];
+
+          // Check if line is a question (heading that ends with ?)
+          if ((line.startsWith('### ') || line.startsWith('## ')) && line.includes('?')) {
+            // Save previous Q&A if exists
+            if (currentQuestion) {
+              faqs.push({
+                question: currentQuestion,
+                answer: currentAnswer.trim()
+              });
+            }
+
+            // Start new question
+            currentQuestion = line.replace(/^#+\s*/, '').trim();
+            currentAnswer = '';
+          } else if (currentQuestion && line.trim()) {
+            // Accumulate answer
+            currentAnswer += line + ' ';
+          }
+        }
+
+        // Don't forget the last Q&A
+        if (currentQuestion) {
+          faqs.push({
+            question: currentQuestion,
+            answer: currentAnswer.trim()
+          });
+        }
+      }
+
+      // Calculate word count
+      const plainText = markdownContent.replace(/[#*`\[\]()]/g, '');
+      const wordCount = plainText.split(/\s+/).filter(word => word.length > 0).length;
+
+      // Detect if this is a tutorial/how-to post
+      const isHowTo = data.isHowTo || (data.tags && (
+        data.tags.includes('tutorial') ||
+        data.tags.includes('how-to') ||
+        data.tags.includes('guide') ||
+        data.title.toLowerCase().includes('how to') ||
+        data.title.toLowerCase().includes('guide')
+      ));
+
+      // Extract steps if it's a how-to
+      const steps = data.steps || [];
+      if (isHowTo && steps.length === 0) {
+        const stepRegex = /(?:Step|##)\s*(\d+)[:\s-]*(.+?)(?=(?:Step|##)\s*\d+|$)/gis;
+        let stepMatch;
+        while ((stepMatch = stepRegex.exec(markdownContent)) !== null) {
+          steps.push({
+            name: `Step ${stepMatch[1]}`,
+            text: stepMatch[2].trim().replace(/\n/g, ' ')
+          });
+        }
+      }
+
       // Generate post slug if not provided
       const slug = data.slug || file.replace('.md', '');
 
@@ -387,6 +456,10 @@ Replace this with your own content!
         ...data,
         slug,
         content: html,
+        wordCount,
+        faqs,
+        isHowTo,
+        steps,
         toc,
         tocHtml: toc.map(h => `<li><a href="#${h.slug}">${h.title}</a></li>`).join('\n'),
         tagsHtml: data.tags ? data.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('\n') : ''
