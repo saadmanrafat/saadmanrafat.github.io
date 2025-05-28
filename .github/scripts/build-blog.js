@@ -333,7 +333,21 @@ Replace this with your own content!
     console.log('   ✓ Created sample blog post');
     files.push('sample.md');
   }
+function decodeHtmlEntities(text) {
+  // Replace URL-encoded spaces with actual spaces
+  text = text.replace(/%20/g, ' ');
 
+  // Replace other common URL-encoded characters
+  text = text.replace(/%3C/g, '<');
+  text = text.replace(/%3E/g, '>');
+  text = text.replace(/%22/g, '"');
+  text = text.replace(/%27/g, "'");
+  text = text.replace(/%60/g, '`');
+  text = text.replace(/%5C/g, '\\');
+  text = text.replace(/%2F/g, '/');
+
+  return text;
+}
   for (const file of files) {
     if (path.extname(file) === '.md') {
       console.log(`   Processing: ${file}`);

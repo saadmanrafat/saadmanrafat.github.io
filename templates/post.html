@@ -880,7 +880,270 @@
                 font-size: 11px;
             }
         }
+    /* Add these improved styles to fix spacing issues and enhance code display */
 
+/* Code block container */
+pre[class*="language-"] {
+    border-radius: 8px;
+    margin: 2em 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--accent-color);
+    max-height: 500px;
+    overflow: auto;
+    position: relative;
+    padding: 2.5em 0 1em 0 !important; /* No left/right padding */
+    background-color: #1e1e1e !important; /* Dark background */
+    tab-size: 4;
+    white-space: pre;
+    width: 100%; /* Full width */
+    margin-left: 0 !important; /* Align to the left */
+}
+
+/* Better handling of whitespace in code */
+code[class*="language-"] {
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
+    text-shadow: none;
+    font-family: var(--mono-font), 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+    direction: ltr;
+    text-align: left;
+    display: block; /* Ensure full width */
+    width: 100%;
+    color: #343a40; /* Light text for dark background */
+}
+
+/* Language label with improved styling */
+pre[class*="language-"]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.2em 0.8em;
+    font-size: 0.75rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 0 0 0 8px;
+    text-transform: uppercase;
+    font-family: var(--mono-font);
+    opacity: 0.9;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Line numbers with improved styling */
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 2.5em;
+    left: 0;
+    width: 2.5em; /* Width for line numbers */
+    letter-spacing: -1px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    user-select: none;
+    font-size: 0.9em;
+    font-family: var(--mono-font);
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+    pointer-events: none;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #858585;
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+/* Add some left padding to the code to avoid line numbers overlap */
+pre.line-numbers > code {
+    margin-left: 3em; /* Give space for line numbers */
+    padding-left: 0.5em;
+    padding-right: 1em;
+}
+
+/* Python-specific syntax colors - Dark theme */
+.language-python .token.keyword {
+    color: #569cd6; /* Blue */
+}
+
+.language-python .token.function {
+    color: #dcdcaa; /* Yellow */
+}
+
+.language-python .token.string {
+    color: #ce9178; /* Red-orange */
+}
+
+.language-python .token.comment {
+    color: #6a9955; /* Green */
+}
+
+.language-python .token.class-name {
+    color: #4ec9b0; /* Teal */
+}
+
+.language-python .token.number {
+    color: #b5cea8; /* Light green */
+}
+
+.language-python .token.operator {
+    color: #d4d4d4; /* Light grey */
+}
+
+.language-python .token.punctuation {
+    color: #d4d4d4; /* Light grey */
+}
+
+.language-python .token.decorator {
+    color: #569cd6; /* Blue */
+}
+
+.language-python .token.builtin {
+    color: #4ec9b0; /* Teal */
+}
+
+/* Fix the self.features and other methods to be properly colored */
+.language-python .token.property {
+    color: #9cdcfe; /* Light blue for properties */
+}
+
+.language-python .token.parameter {
+    color: #9cdcfe; /* Light blue for parameters */
+}
+
+/* Ensure self is properly colored */
+.language-python .token.self {
+    color: #569cd6; /* Blue like keywords */
+    font-style: italic;
+}
+
+/* Bash-specific syntax colors */
+.language-bash .token.function {
+    color: #dcdcaa; /* Yellow */
+}
+
+.language-bash .token.comment {
+    color: #6a9955; /* Green */
+}
+
+.language-bash .token.string {
+    color: #ce9178; /* Red-orange */
+}
+
+.language-bash .token.operator {
+    color: #d4d4d4; /* Light grey */
+}
+
+.language-bash .token.keyword {
+    color: #569cd6; /* Blue */
+}
+
+.language-bash .token.variable {
+    color: #9cdcfe; /* Light blue */
+}
+
+/* Make code block scrollbars more attractive */
+pre[class*="language-"]::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+/* Improved selection highlighting in code blocks */
+pre[class*="language-"] ::selection,
+code[class*="language-"] ::selection {
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: none;
+}
+
+/* Copy button styling - more visible */
+div.code-toolbar > .toolbar {
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 0.3em;
+    right: 3.5em; /* Position to the left of the language label */
+}
+
+div.code-toolbar:hover > .toolbar {
+    opacity: 1;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 0.2em 0.8em;
+    font-family: var(--mono-font);
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Show success message when code is copied */
+div.code-toolbar > .toolbar > .toolbar-item > button.copy-to-clipboard-button[aria-label="Copied!"] {
+    background: #28a745; /* Green */
+    color: white;
+    border-color: #28a745;
+}
+
+/* Better code formatting for inline code blocks */
+:not(pre) > code[class*="language-"] {
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    white-space: normal;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    pre[class*="language-"] {
+        font-size: 0.85em;
+        padding: 2.5em 0 0.6em 0 !important;
+    }
+
+    .line-numbers .line-numbers-rows {
+        font-size: 0.85em;
+    }
+
+    div.code-toolbar > .toolbar {
+        right: 3em;
+    }
+
+    pre.line-numbers > code {
+        margin-left: 2.5em;
+    }
+}
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984"
      crossorigin="anonymous"></script>
@@ -1042,6 +1305,55 @@
             });
         });
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Fix line number alignment and ensure full width
+  function adjustCodeBlocks() {
+    const codeBlocks = document.querySelectorAll('pre[class*="language-"]');
+
+    codeBlocks.forEach(function(pre) {
+      // Add line-numbers class if not already present
+      if (!pre.classList.contains('line-numbers')) {
+        pre.classList.add('line-numbers');
+      }
+
+      // Make sure it's full width of its container
+      pre.style.width = '100%';
+
+      // Remove scrolling
+      pre.style.overflow = 'visible';
+      pre.style.maxHeight = 'none';
+
+      // Calculate padding needed for line numbers
+      const code = pre.querySelector('code');
+      if (code) {
+        // Make sure code has proper left margin for line numbers
+        code.style.marginLeft = '3em';
+      }
+
+      // For long code blocks, add word-wrap to prevent horizontal overflow
+      if (pre.scrollWidth > pre.clientWidth) {
+        code.style.whiteSpace = 'pre-wrap';
+        code.style.wordBreak = 'break-all';
+      }
+
+      // Fix specific spacing issues with line numbers and code
+      const lineNumbers = pre.querySelector('.line-numbers-rows');
+      if (lineNumbers) {
+        lineNumbers.style.paddingTop = '0';
+      }
+    });
+  }
+
+  // Run on page load
+  adjustCodeBlocks();
+
+  // Run when window is resized
+  window.addEventListener('resize', adjustCodeBlocks);
+});
+</script>
+
 </body>
 
 </html>
