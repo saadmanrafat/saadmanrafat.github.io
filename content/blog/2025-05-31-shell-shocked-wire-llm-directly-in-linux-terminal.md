@@ -4,6 +4,7 @@ description: "Turn your terminal into an AI-powered command center that understa
 author: "Saadman Rafat"
 readTime: 5
 date: "2025-05-31"
+updated: "2025-05-31T00:32:46Z"
 image: "arkterm_blog.png"
 tags: ["LLM", "Linux", "CLI", "AI Tools", "Groq", "Terminal Automation", "Developer Tools", "bash", "zsh", "warp.dev"]
 category: "AI Engineering"
@@ -22,7 +23,7 @@ faqs:
   - question: "Does arkterm work with all Linux distributions and shells?"
     answer: "arkterm works with any Linux distribution and shell that supports Python 3.10+. It automatically detects your shell environment (bash, zsh, fish) and adapts accordingly."
 keyPoints:
-  - "Natural Language Revolution: arkterm transforms cryptic command syntax into conversational interactions, making the terminal accessible to developers of all"
+  - "Natural Language Revolution: arkterm transforms cryptic command syntax into conversational interactions, making the terminal accessible to developers of all experience levels"
   - "Context-Aware Intelligence: The tool automatically detects your project type (Node.js, Python, Rust, Go) and current environment to provide relevant, targeted suggestions"
   - "Safety-First Design: Built-in protections prevent destructive operations with disabled execution by default, command explanations, and user confirmation requirements"
   - "Lightning-Fast Performance: Powered by Groq's inference engine for sub-second response times, enabling real-time terminal assistance without workflow interruption"
@@ -41,7 +42,7 @@ Inspired by a [Wrap.dev](https://app.warp.dev/referral/EEGVZM) engineer's descri
 
 Picture this: You're staring at a blank terminal, trying to remember the exact `find` command syntax to locate all Python files modified in the last week. Instead of fumbling through man pages or Stack Overflow, you simply type:
 
-![Arkerm an open-source alternative to Warp.dev](/assets/images/blog/arkterm.gif)
+![Arkterm an open-source alternative to Warp.dev](/assets/images/blog/arkterm.gif)
 
 ```bash
 > find all python files changed in the last 7 days
