@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>{{post.title}} - Saadman Rafat</title>
     <meta name="description" content="{{post.description}}">
     <meta name="keywords" content="{{post.keywords}}, Saadman Rafat, Python Developer">
     <meta name="author" content="Saadman Rafat">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    <!-- Open Graph / Facebook - FIXED IMAGE URLS FOR SOCIAL SHARING -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{siteUrl}}/blog/{{post.slug}}/">
     <meta property="og:title" content="{{post.title}} - Saadman Rafat">
     <meta property="og:description" content="{{post.description}}">
-    <!-- IMPORTANT: Using absolute URL with full domain for social media sharing -->
     <meta property="og:image" content="{{siteUrl}}/assets/images/blog/{{#if post.image}}{{post.image}}{{else}}default.jpg{{/if}}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -29,15 +27,13 @@
     <meta property="article:tag" content="{{this}}">
     {{/each}}
 
-    <!-- Twitter Card - FIXED IMAGE URLS FOR SOCIAL SHARING -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{siteUrl}}/blog/{{post.slug}}/">
     <meta name="twitter:title" content="{{post.title}} - Saadman Rafat">
     <meta name="twitter:description" content="{{post.description}}">
-    <!-- IMPORTANT: Using absolute URL with full domain for social media sharing -->
     <meta name="twitter:image" content="{{siteUrl}}/assets/images/blog/{{#if post.image}}{{post.image}}{{else}}default.jpg{{/if}}">
     <meta name="twitter:image:alt" content="{{#if post.imageAlt}}{{post.imageAlt}}{{else}}{{post.title}}{{/if}}">
-    <meta name="google-adsense-account" content="ca-pub-1069223132626984">
     <link rel="canonical" href="{{siteUrl}}/blog/{{post.slug}}/">
 
     <!-- Preconnect to external domains -->
@@ -47,11 +43,11 @@
     <!-- Favicon -->
     <link rel="icon" href="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4" type="image/png">
 
-    <!-- Font -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Inter Font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Preload key post images -->
+<!-- Preload key post images -->
     <link rel="preload" as="image" href="{{siteUrl}}/assets/images/blog/{{#if post.image}}{{post.image}}{{else}}default.jpg{{/if}}">
 
     <!-- Enhanced Structured Data for Google AI Search -->
@@ -227,292 +223,273 @@
     }
     </script>
 
-    <!-- Styles -->
+
+    <!-- Brutalist Minimalist Styles -->
     <style>
+        /* Base Variables */
         :root {
-            --bg-color: #f8f9fa;       /* Light grey background */
-            --text-color: #212529;     /* Dark grey, almost black text */
-            --accent-color: #495057;   /* Dark grey accent color */
-            --accent-hover: #343a40;   /* Darker grey for hover states */
-            --soft-text: #495057;      /* Soft dark grey text */
-            --muted-text: #6c757d;     /* Medium grey for muted text */
-            --border-color: #dee2e6;   /* Light grey border */
-            --card-bg: #ffffff;        /* White background for cards */
-            --code-bg: #f1f3f5;        /* Very light grey for code background */
-            --max-content-width: 800px;
-            --content-width: 60%;
-            --heading-font: 'IBM Plex Mono', monospace;
-            --body-font: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            --mono-font: 'IBM Plex Mono', monospace;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+            --subtle-color: #999999;
+            --border-color: #000000;
+            --code-bg: #f1f1f1;
+            --main-width: 40rem;
+            --content-padding: clamp(1rem, 5vw, 3rem);
+            --gap: 2rem;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
-        pre {
-            border-left: 3px solid var(--accent-color);
-            color: #343a40; /* Ensure code text is dark enough */
-        }
-
-        blockquote {
-            border-left: 4px solid var(--accent-color);
-            background-color: rgba(73, 80, 87, 0.05); /* Subtle grey background */
-        }
-
-        .btn-primary, .share-button:hover {
-            background-color: var(--accent-color);
-            color: #ffffff; /* White text for contrast */
-        }
-
+        /* Reset and Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: var(--body-font);
-            font-size: 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-            line-height: 1.7;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: var(--main-width);
+            margin: 0 auto;
+            padding: var(--content-padding);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            width: var(--content-width);
-            max-width: var(--max-content-width);
-            padding: 0 20px;
-            margin-top: 40px;
-        }
-
-        .navbar, .footer {
-            width: 100%;
-            position: sticky;
-            top: 0;
-            background-color: var(--bg-color);
-            z-index: 10;
-        }
-
-        .navbar {
-            padding: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-            font-family: var(--heading-font);
-        }
-
-        .navbar a {
-            color: var(--accent-color);
-            text-decoration: none;
-            position: relative;
-            margin-right: 20px;
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            left: 0;
-            bottom: -3px;
-            transition: width .3s ease;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-        }
-
-        .footer {
-            padding: 20px 0;
-            font-size: 14px;
-            margin-top: 40px;
-            text-align: left;
-            font-family: var(--heading-font);
-        }
-
-        .footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .footer a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            left: 0;
-            bottom: -3px;
-            transition: width .3s ease;
-        }
-
-        .footer a:hover::after {
-            width: 100%;
-        }
-
+        /* Typography */
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--heading-font);
-            margin-bottom: 1em;
-            line-height: 1.3;
-            font-weight: 700;
-            position: relative;
+            font-family: var(--font-sans);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
 
         h1 {
-            margin-bottom: 25px;
-            font-size: 42px;
-            text-align: left;
+            font-size: 2.5rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
         }
 
         h2 {
-            font-size: 28px;
-            margin-top: 2em;
-            padding-bottom: 5px;
-        }
-
-        h2 .anchor, h3 .anchor {
-            position: absolute;
-            left: -1em;
-            display: inline-block;
-            padding-right: 0.2em;
-            opacity: 0;
-            text-decoration: none;
-            color: var(--accent-color);
-            transition: opacity 0.2s ease;
-        }
-
-        h2:hover .anchor, h3:hover .anchor {
-            opacity: 1;
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            border-bottom: 4px solid var(--text-color);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         h3 {
-            font-size: 22px;
-            margin-top: 1.8em;
-            margin-bottom: 0.8em;
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            text-transform: uppercase;
         }
 
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 2px solid var(--text-color);
+            transition: background-color 0.2s;
+            padding-bottom: 1px;
+        }
+
+        a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        .site-header {
+            margin-bottom: 4rem;
+            padding-top: 1rem;
+            border-bottom: 5px solid var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+        }
+
+        .site-title {
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+        }
+
+        .site-nav a {
+            margin-left: 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-bottom: none;
+            position: relative;
+        }
+
+        .site-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .site-nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Post Specific */
         .post-header {
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
         }
 
         .post-meta {
-            font-size: 16px;
-            color: var(--muted-text);
-            margin-bottom: 25px;
-            font-family: var(--mono-font);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            color: var(--subtle-color);
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 0.5rem 1rem;
+            justify-content: start;
+        }
+
+        .post-meta-item {
+            display: inline-block;
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border: 3px solid var(--text-color);
         }
 
         .post-tags {
             display: flex;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin: 1rem 0 2rem 0;
+            gap: 0.5rem;
         }
 
         .post-tag {
-            background-color: var(--card-bg);
-            color: var(--accent-color);
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 13px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            font-family: var(--mono-font);
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.25rem 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
-        .post-tag:hover {
-            background-color: #1d2131;
-            transform: translateY(-2px);
-        }
-
-        .post-featured-image {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
+        /* Content Formatting */
         .post-content {
-            margin-bottom: 40px;
+            margin-bottom: 4rem;
         }
 
         .post-content p {
-            margin-bottom: 1.7em;
-            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
         .post-content img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin: 25px 0;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            margin: 2rem 0;
+            border: 3px solid var(--text-color);
         }
 
+        .post-content ul,
+        .post-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code Formatting */
         code {
+            font-family: var(--font-mono);
             background-color: var(--code-bg);
-            padding: 3px 5px;
-            border-radius: 4px;
-            font-family: var(--mono-font);
-            font-size: 0.9em;
+            padding: 0.2rem 0.4rem;
+            font-size: 0.9rem;
         }
 
         pre {
             background-color: var(--code-bg);
-            padding: 25px;
-            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
             overflow-x: auto;
-            margin: 25px 0;
-            border-left: 3px solid var(--accent-color);
+            border-left: 5px solid var(--text-color);
         }
 
         pre code {
             background-color: transparent;
             padding: 0;
-            display: block;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
 
+        /* Blockquotes */
         blockquote {
-            border-left: 4px solid var(--accent-color);
-            padding: 15px 20px;
-            margin: 25px 0;
-            background-color: rgba(88, 166, 255, 0.1);
-            border-radius: 0 8px 8px 0;
-        }
-
-        blockquote p {
-            margin: 0;
+            border-left: 5px solid var(--text-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
             font-style: italic;
-            color: var(--soft-text);
         }
 
-        /* AI Search Optimization Styles */
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* TLDR Section */
         .tldr-section {
+            border: 3px solid var(--text-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
             background-color: var(--code-bg);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent-color);
-            font-size: 1.1em;
         }
 
+        .tldr-title {
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Key Takeaways */
         .key-takeaways {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 40px;
-            border-left: 4px solid var(--accent-color);
+            border: 3px solid var(--text-color);
+            padding: 1.5rem;
+            margin: 3rem 0;
         }
 
         .key-takeaways h2 {
             margin-top: 0;
-            font-size: 1.3em;
-            color: var(--accent-color);
+            border-bottom: none;
+            margin-bottom: 1.5rem;
         }
 
         .key-points {
@@ -522,8 +499,8 @@
 
         .key-point {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 15px;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 500;
         }
 
@@ -531,625 +508,207 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--accent-color);
             font-weight: bold;
         }
 
-        /* Speakable content markers */
-        .speakable-content {
-            /* Marker for voice search optimization */
-        }
-
-        .author-section {
-            margin-top: 60px;
-            padding: 30px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .author-bio {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .author-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            border: 3px solid var(--accent-color);
-        }
-
-        .author-info {
-            flex: 1;
-        }
-
-        .author-name {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-family: var(--heading-font);
-            color: var(--text-color);
-        }
-
-        .author-info p {
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .related-posts {
-            margin-top: 60px;
-            padding: 25px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-        }
-
-        .related-posts-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-            font-family: var(--heading-font);
-        }
-
-        .related-post-item {
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .related-post-item:last-child {
-            border-bottom: none;
-        }
-
-        .related-post-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.2s ease;
-            font-family: var(--heading-font);
-        }
-
-        .related-post-link:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        .share-buttons {
-            margin-top: 40px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .share-button {
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            padding: 12px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 14px;
-            font-family: var(--heading-font);
-            display: inline-flex;
-            align-items: center;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .share-button:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            transform: translateY(-3px);
-        }
-
+        /* Table of Contents */
         .table-of-contents {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            margin: 30px 0 40px 0;
-            border-left: 3px solid var(--accent-color);
+            border: 3px solid var(--text-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
         }
 
         .table-of-contents-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-family: var(--heading-font);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .table-of-contents ul {
-            padding-left: 20px;
             list-style-type: none;
+            padding-left: 0;
         }
 
         .table-of-contents li {
-            margin-bottom: 10px;
+            margin-bottom: 0.75rem;
             position: relative;
+            padding-left: 1.5rem;
         }
 
         .table-of-contents li::before {
             content: "→";
             position: absolute;
-            left: -20px;
-            color: var(--accent-color);
+            left: 0;
         }
 
         .table-of-contents a {
-            color: var(--soft-text);
-            text-decoration: none;
-            transition: color 0.2s ease, padding-left 0.2s ease;
-            display: inline-block;
+            border-bottom: none;
         }
 
         .table-of-contents a:hover {
-            color: var(--accent-color);
-            padding-left: 3px;
+            background-color: transparent;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--text-color);
         }
 
-        ul, ol {
-            padding-left: 25px;
-            margin-bottom: 25px;
+        /* Author Section */
+        .author-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            border: 3px solid var(--text-color);
         }
 
-        li {
-            margin-bottom: 10px;
-            line-height: 1.7;
+        .author-bio {
+            display: flex;
+            gap: 1.5rem;
         }
 
-        /* Improved typography and spacing */
-        p {
-            margin-bottom: 1.7em;
-            line-height: 1.8;
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--text-color);
+            flex-shrink: 0;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 800px) {
-            :root {
-                --content-width: 85%;
-            }
-
-            body {
-                font-size: 16px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            h3 {
-                font-size: 20px;
-            }
-
-            p {
-                line-height: 1.7;
-            }
-
-            .author-bio {
-                gap: 15px;
-            }
+        .author-name {
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
-        @media (max-width: 600px) {
-            :root {
-                --content-width: 92%;
-            }
-
-            body {
-                font-size: 16px;
-            }
-
-            .navbar {
-                font-size: 16px;
-                padding: 15px 0;
-            }
-
-            .navbar a {
-                font-size: 14px;
-            }
-
-            .footer {
-                font-size: 12px;
-                padding: 15px 0;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-
-            h3 {
-                font-size: 18px;
-            }
-
-            p {
-                line-height: 1.6;
-            }
-
-            .post-meta {
-                font-size: 14px;
-            }
-
-            .share-buttons {
-                flex-wrap: wrap;
-            }
-
-            .author-image {
-                width: 60px;
-                height: 60px;
-            }
-
-            pre {
-                padding: 15px;
-            }
-
-            .table-of-contents {
-                padding: 15px;
-            }
+        /* Share Buttons */
+        .share-section {
+            margin-top: 4rem;
         }
 
-        .copyright {
-            font-size: 12px;
-            margin-top: 20px;
-            color: var(--muted-text);
+        .share-title {
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .share-button {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border: none;
+            display: inline-block;
+        }
+
+        .share-button:hover {
+            background-color: var(--subtle-color);
+            color: var(--bg-color);
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 5px solid var(--text-color);
             text-align: left;
         }
 
-        /* Added smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-color);
-            color: var(--bg-color);
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-        /* Updated Footer Styles */
-        .footer {
-            padding: 20px 0;
-            margin-top: 40px;
+        .footer-content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-color);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-3px);
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
-
-        .social-icon svg {
-            width: 20px;
-            height: 20px;
+        .footer-links a {
+            margin-right: 1.5rem;
+            border-bottom: none;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .copyright {
-            font-size: 12px;
-            color: var(--muted-text);
-            text-align: center;
-            font-family: var(--heading-font);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            color: var(--subtle-color);
         }
 
-        @media (max-width: 600px) {
-            .social-icon {
-                width: 36px;
-                height: 36px;
+        /* Utilities */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            html {
+                font-size: 16px;
             }
 
-            .social-icon svg {
-                width: 18px;
-                height: 18px;
+            h1 {
+                font-size: 2rem;
             }
 
-            .copyright {
-                font-size: 11px;
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            .site-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .site-nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .site-nav a {
+                margin-left: 0;
+                margin-right: 1.5rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
-    /* Add these improved styles to fix spacing issues and enhance code display */
 
-/* Code block container */
-pre[class*="language-"] {
-    border-radius: 8px;
-    margin: 2em 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--accent-color);
-    max-height: 500px;
-    overflow: auto;
-    position: relative;
-    padding: 2.5em 0 1em 0 !important; /* No left/right padding */
-    background-color: #1e1e1e !important; /* Dark background */
-    tab-size: 4;
-    white-space: pre;
-    width: 100%; /* Full width */
-    margin-left: 0 !important; /* Align to the left */
-}
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
 
-/* Better handling of whitespace in code */
-code[class*="language-"] {
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    tab-size: 4;
-    hyphens: none;
-    text-shadow: none;
-    font-family: var(--mono-font), 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', monospace;
-    font-size: 0.9em;
-    line-height: 1.4;
-    direction: ltr;
-    text-align: left;
-    display: block; /* Ensure full width */
-    width: 100%;
-    color: #343a40; /* Light text for dark background */
-}
+            h2 {
+                font-size: 1.35rem;
+            }
 
-/* Language label with improved styling */
-pre[class*="language-"]::before {
-    content: attr(data-language);
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.2em 0.8em;
-    font-size: 0.75rem;
-    background: var(--accent-color);
-    color: white;
-    border-radius: 0 0 0 8px;
-    text-transform: uppercase;
-    font-family: var(--mono-font);
-    opacity: 0.9;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
+            h3 {
+                font-size: 1.15rem;
+            }
 
-/* Line numbers with improved styling */
-.line-numbers .line-numbers-rows {
-    position: absolute;
-    pointer-events: none;
-    top: 2.5em;
-    left: 0;
-    width: 2.5em; /* Width for line numbers */
-    letter-spacing: -1px;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    user-select: none;
-    font-size: 0.9em;
-    font-family: var(--mono-font);
-}
-
-.line-numbers-rows > span {
-    display: block;
-    counter-increment: linenumber;
-    pointer-events: none;
-}
-
-.line-numbers-rows > span:before {
-    content: counter(linenumber);
-    color: #858585;
-    display: block;
-    padding-right: 0.8em;
-    text-align: right;
-}
-
-/* Add some left padding to the code to avoid line numbers overlap */
-pre.line-numbers > code {
-    margin-left: 3em; /* Give space for line numbers */
-    padding-left: 0.5em;
-    padding-right: 1em;
-}
-
-/* Python-specific syntax colors - Dark theme */
-.language-python .token.keyword {
-    color: #569cd6; /* Blue */
-}
-
-.language-python .token.function {
-    color: #dcdcaa; /* Yellow */
-}
-
-.language-python .token.string {
-    color: #ce9178; /* Red-orange */
-}
-
-.language-python .token.comment {
-    color: #6a9955; /* Green */
-}
-
-.language-python .token.class-name {
-    color: #4ec9b0; /* Teal */
-}
-
-.language-python .token.number {
-    color: #b5cea8; /* Light green */
-}
-
-.language-python .token.operator {
-    color: #d4d4d4; /* Light grey */
-}
-
-.language-python .token.punctuation {
-    color: #d4d4d4; /* Light grey */
-}
-
-.language-python .token.decorator {
-    color: #569cd6; /* Blue */
-}
-
-.language-python .token.builtin {
-    color: #4ec9b0; /* Teal */
-}
-
-/* Fix the self.features and other methods to be properly colored */
-.language-python .token.property {
-    color: #9cdcfe; /* Light blue for properties */
-}
-
-.language-python .token.parameter {
-    color: #9cdcfe; /* Light blue for parameters */
-}
-
-/* Ensure self is properly colored */
-.language-python .token.self {
-    color: #569cd6; /* Blue like keywords */
-    font-style: italic;
-}
-
-/* Bash-specific syntax colors */
-.language-bash .token.function {
-    color: #dcdcaa; /* Yellow */
-}
-
-.language-bash .token.comment {
-    color: #6a9955; /* Green */
-}
-
-.language-bash .token.string {
-    color: #ce9178; /* Red-orange */
-}
-
-.language-bash .token.operator {
-    color: #d4d4d4; /* Light grey */
-}
-
-.language-bash .token.keyword {
-    color: #569cd6; /* Blue */
-}
-
-.language-bash .token.variable {
-    color: #9cdcfe; /* Light blue */
-}
-
-/* Make code block scrollbars more attractive */
-pre[class*="language-"]::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-pre[class*="language-"]::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-
-pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-pre[class*="language-"]::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-
-/* Improved selection highlighting in code blocks */
-pre[class*="language-"] ::selection,
-code[class*="language-"] ::selection {
-    background: rgba(255, 255, 255, 0.2);
-    text-shadow: none;
-}
-
-/* Copy button styling - more visible */
-div.code-toolbar > .toolbar {
-    opacity: 0;
-    transition: opacity 0.3s;
-    position: absolute;
-    top: 0.3em;
-    right: 3.5em; /* Position to the left of the language label */
-}
-
-div.code-toolbar:hover > .toolbar {
-    opacity: 1;
-}
-
-div.code-toolbar > .toolbar > .toolbar-item > button {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    padding: 0.2em 0.8em;
-    font-family: var(--mono-font);
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-div.code-toolbar > .toolbar > .toolbar-item > button:hover {
-    background: var(--accent-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Show success message when code is copied */
-div.code-toolbar > .toolbar > .toolbar-item > button.copy-to-clipboard-button[aria-label="Copied!"] {
-    background: #28a745; /* Green */
-    color: white;
-    border-color: #28a745;
-}
-
-/* Better code formatting for inline code blocks */
-:not(pre) > code[class*="language-"] {
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    white-space: normal;
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-    pre[class*="language-"] {
-        font-size: 0.85em;
-        padding: 2.5em 0 0.6em 0 !important;
-    }
-
-    .line-numbers .line-numbers-rows {
-        font-size: 0.85em;
-    }
-
-    div.code-toolbar > .toolbar {
-        right: 3em;
-    }
-
-    pre.line-numbers > code {
-        margin-left: 2.5em;
-    }
-}
+            .share-buttons {
+                flex-direction: column;
+            }
+        }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984"
-     crossorigin="anonymous"></script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K938BJM57L"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1158,57 +717,84 @@ div.code-toolbar > .toolbar > .toolbar-item > button.copy-to-clipboard-button[ar
   gtag('config', 'G-K938BJM57L');
 </script>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="visually-hidden">Skip to main content</a>
 
-    <div class="container" id="main-content">
-        <div class="navbar">
-            — <a href="{{siteUrl}}">saadman.dev</a>
-            <a href="{{siteUrl}}/blog/">blog</a>
+    <header class="site-header">
+        <div class="site-title">
+            <a href="{{siteUrl}}">SAADMAN.DEV</a>
         </div>
+        <nav class="site-nav">
+            <a href="{{siteUrl}}/blog/">BLOG</a>
+            <a href="{{siteUrl}}/search/">SEARCH</a>
+        </nav>
+    </header>
 
-        <article class="post-content" itemscope itemtype="https://schema.org/Article">
+    <main id="main-content">
+        <article class="post" itemscope itemtype="https://schema.org/Article">
             <header class="post-header">
                 <h1 itemprop="headline">{{post.title}}</h1>
+
                 <div class="post-meta">
-                    <time datetime="{{post.date}}" itemprop="datePublished">
-                        Published on {{formatDate post.date}}
-                    </time> •
-                    <span itemprop="timeRequired">{{#if post.readTime}}{{post.readTime}}{{else}}5{{/if}} min read</span>
-                    <div class="post-tags">
-                        {{{post.tagsHtml}}}
-                    </div>
+                    <span class="post-meta-item">
+                        <time datetime="{{post.date}}" itemprop="datePublished">
+                            {{formatDate post.date}}
+                        </time>
+                    </span>
+                    <span class="post-meta-item">
+                        {{#if post.readTime}}{{post.readTime}}{{else}}5{{/if}} MIN READ
+                    </span>
+                    {{#if post.category}}
+                    <span class="post-meta-item">
+                        CATEGORY: {{post.category}}
+                    </span>
+                    {{/if}}
+                    {{#if post.author}}
+                    <span class="post-meta-item">
+                        BY: {{post.author}}
+                    </span>
+                    {{/if}}
                 </div>
-                <!-- Important: Adding width, height, and alt attributes for better SEO and accessibility -->
+
                 <img src="{{siteUrl}}/assets/images/blog/{{#if post.image}}{{post.image}}{{else}}default.jpg{{/if}}"
                      alt="{{#if post.imageAlt}}{{post.imageAlt}}{{else}}{{post.title}}{{/if}}"
-                     class="post-featured-image"
+                     class="post-image"
                      width="1200"
                      height="630"
                      loading="eager"
                      itemprop="image">
+
+                <div class="post-tags">
+                    {{#each post.tags}}
+                    <span class="post-tag">{{this}}</span>
+                    {{/each}}
+                </div>
             </header>
+
+            {{#if post.tldr}}
+            <div class="tldr-section">
+                <span class="tldr-title">TL;DR</span>
+                <div>{{post.tldr}}</div>
+            </div>
+            {{/if}}
 
             {{#if post.toc}}
             <div class="table-of-contents">
-                <div class="table-of-contents-title">Table of Contents</div>
+                <div class="table-of-contents-title">Contents</div>
                 <ul>
-                    {{{post.tocHtml}}}
+                    {{#each post.toc}}
+                    <li><a href="#{{this.slug}}">{{this.title}}</a></li>
+                    {{/each}}
                 </ul>
             </div>
             {{/if}}
 
             <div class="post-content" itemprop="articleBody">
-                {{#if post.tldr}}
-                <div class="tldr-section speakable-content">
-                    <strong>TL;DR:</strong> {{post.tldr}}
-                </div>
-                {{/if}}
-
                 {{{post.content}}}
 
                 {{#if post.keyPoints}}
-                <aside class="key-takeaways speakable-content" aria-label="Key Takeaways">
-                    <h2>Key Takeaways</h2>
+                <aside class="key-takeaways" aria-label="Key Takeaways">
+                    <h2>KEY TAKEAWAYS</h2>
                     <ul class="key-points">
                         {{#each post.keyPoints}}
                         <li class="key-point">{{this}}</li>
@@ -1218,93 +804,42 @@ div.code-toolbar > .toolbar > .toolbar-item > button.copy-to-clipboard-button[ar
                 {{/if}}
             </div>
 
-            <div class="share-buttons">
-                <a href="https://twitter.com/intent/tweet?text={{encodeURIComponent post.title}}&url={{encodeURIComponent (concat siteUrl '/blog/' post.slug '/')}}" class="share-button" target="_blank" rel="noopener noreferrer">Share on X</a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{encodeURIComponent (concat siteUrl '/blog/' post.slug '/')}}" class="share-button" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{encodeURIComponent (concat siteUrl '/blog/' post.slug '/')}}" class="share-button" target="_blank" rel="noopener noreferrer">Share on Facebook</a>
-            </div>
+            <section class="share-section">
+                <div class="share-title">SHARE THIS POST</div>
+                <div class="share-buttons">
+                    <a href="https://twitter.com/intent/tweet?text={{encodeURIComponent post.title}}&url={{encodeURIComponent (concat siteUrl '/blog/' post.slug '/')}}" class="share-button" target="_blank" rel="noopener noreferrer">SHARE ON X</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{encodeURIComponent (concat siteUrl '/blog/' post.slug '/')}}" class="share-button" target="_blank" rel="noopener noreferrer">SHARE ON LINKEDIN</a>
+                </div>
+            </section>
 
             <section class="author-section">
                 <div class="author-bio">
                     <img src="https://avatars.githubusercontent.com/u/13638758?s=400&u=2b3265acd3fa799a558f8b95d147053cbf4e7767&v=4" alt="Saadman Rafat" class="author-image" width="80" height="80">
                     <div class="author-info">
-                        <div class="author-name">Saadman Rafat</div>
-                        <p>Software Engineer specializing in Python, serverless architecture, and AI research. Expert in building scalable solutions using Docker and Kubernetes.</p>
+                        <div class="author-name">SAADMAN RAFAT</div>
+                        <p>
+                            Software Engineer specializing in Python, software architecture, and AI research with a passion for building efficient and scalable systems.
+                        </p>
                     </div>
                 </div>
             </section>
-
-            {{#if post.related}}
-            <section class="related-posts">
-                <h3 class="related-posts-title">Related Posts</h3>
-                {{#each post.related}}
-                <div class="related-post-item">
-                    <a href="{{../siteUrl}}/blog/{{this}}/" class="related-post-link">{{this}}</a>
-                </div>
-                {{/each}}
-            </section>
-            {{/if}}
         </article>
+    </main>
 
-        <footer class="footer" aria-label="Social Links and Contact Information">
-            <div class="social-links">
-                <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X (Twitter)">
-                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                </a>
-                <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>
-                    </svg>
-                </a>
-                <a href="mailto:saadmanhere@gmail.com" class="social-icon" aria-label="Email">
-                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 6.03L12 11.03L22 6.03M2 6.03V18.03C2 19.133 2.895 20.03 4 20.03H20C21.105 20.03 22 19.133 22 18.03V6.03M2 6.03C2 4.927 2.895 4.03 4 4.03H20C21.105 4.03 22 4.927 22 6.03"/>
-                    </svg>
-                </a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="{{siteUrl}}">HOME</a>
+                <a href="{{siteUrl}}/blog/">BLOG</a>
+                <a href="{{siteUrl}}/search/">SEARCH</a>
+                <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X/TWITTER</a>
             </div>
-            <div class="copyright">
-                &copy; 2025 Saadman Rafat. All rights reserved.
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add anchor links to headings
-            document.querySelectorAll('h2, h3').forEach(heading => {
-                const id = heading.id || heading.textContent.toLowerCase().replace(/[^\w]+/g, '-');
-                heading.id = id;
-
-                const anchor = document.createElement('a');
-                anchor.setAttribute('href', `#${id}`);
-                anchor.setAttribute('class', 'anchor');
-                anchor.setAttribute('aria-hidden', 'true');
-                anchor.textContent = '#';
-
-                heading.insertBefore(anchor, heading.firstChild);
-            });
-
-            // Highlight the current section in Table of Contents
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        document.querySelectorAll('.table-of-contents a').forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + entry.target.id) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('h2[id], h3[id]').forEach(heading => {
-                observer.observe(heading);
-            });
-        });
-    </script>
+        </div>
+        <div class="copyright">
+            © {{current_year}} SAADMAN RAFAT. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1353,7 +888,5 @@ div.code-toolbar > .toolbar > .toolbar-item > button.copy-to-clipboard-button[ar
   window.addEventListener('resize', adjustCodeBlocks);
 });
 </script>
-
 </body>
-
 </html>
