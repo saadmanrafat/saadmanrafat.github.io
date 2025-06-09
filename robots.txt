@@ -2,12 +2,25 @@
 # Main directives
 User-agent: *
 Allow: /
-Disallow: /search
 Disallow: /assets/raw/
 Disallow: /private/
 Disallow: /cgi-bin/
 Disallow: /temp/
 Disallow: /draft/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /.github/
+
+# Prevent crawling of specific file types
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+Disallow: /*.zip$
+Disallow: /*.tar$
+Disallow: /*.gz$
+
+# Allow search engines to index search page
+Allow: /search/
 
 # Google-specific crawlers
 User-agent: Googlebot
@@ -22,20 +35,6 @@ Allow: /assets/images/blog/
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
-
-# Prevent crawling of specific file types
-Disallow: /*.pdf$
-Disallow: /*.doc$
-Disallow: /*.docx$
-Disallow: /*.zip$
-Disallow: /*.tar$
-Disallow: /*.gz$
-
-# Prevent crawling of any backend routes
-Disallow: /api/
-
-# Prevent parameter-based URLs
-Disallow: /*?*
 
 # Sitemap declaration
 Sitemap: https://saadman.dev/sitemap.xml
