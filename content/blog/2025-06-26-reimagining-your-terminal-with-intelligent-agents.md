@@ -43,7 +43,7 @@ Key Features:
 * Generous Free Tier: 60 requests/minute and 1,000/day—free with a Google account.
 
 
-![https://codeassist.google](1be2c652-10eb-49dc-883e-95bdfb87d3e1.gif)
+![Google Gemini CLI in action](https://saadman.dev/assets/images/blog/1be2c652-10eb-49dc-883e-95bdfb87d3e1.gif)
 
 
 Developers can provide custom context via Model Context Protocol (MCP) to tailor results to a project or company stack. It also shares functionality with Gemini Code Assist in VS Code, enabling multi-step plans, recovery from failures, and more.
