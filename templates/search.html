@@ -1,4 +1,3 @@
-<!-- Create new file: templates/search.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,204 +13,161 @@
     <meta property="og:title" content="Search - Saadman Rafat">
     <meta property="og:description" content="Search across articles and content on Saadman Rafat's blog.">
 
-    <!-- Same CSS styles as your blog-index.html, so I'm using the same styles -->
+    <link rel="canonical" href="{{siteUrl}}/search/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://saadman.dev/" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="https://saadman.dev/assets/images/favicon.jpeg">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Inter Font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Brutalist Minimalist Styles -->
     <style>
-        /* Copy all the CSS from your blog-index.html file */
+        /* Base Variables */
         :root {
-            --bg-color: #f8f9fa;
-            --text-color: #212529;
-            --accent-color: #495057;
-            --accent-hover: #343a40;
-            --soft-text: #495057;
-            --muted-text: #6c757d;
-            --border-color: #dee2e6;
-            --card-bg: #ffffff;
-            --code-bg: #f1f3f5;
-            --max-content-width: 800px;
-            --content-width: 60%;
-            --heading-font: 'IBM Plex Mono', monospace;
-            --body-font: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            --mono-font: 'IBM Plex Mono', monospace;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+            --subtle-color: #999999;
+            --border-color: #000000;
+            --code-bg: #f1f1f1;
+            --main-width: 40rem;
+            --content-padding: clamp(1rem, 5vw, 3rem);
+            --gap: 2rem;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
+        /* Reset and Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: var(--body-font);
-            font-size: 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: left;
-            line-height: 1.7;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: var(--main-width);
+            margin: 0 auto;
+            padding: var(--content-padding);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            width: var(--content-width);
-            max-width: var(--max-content-width);
-            padding: 0 20px;
-            margin-top: 40px;
-        }
-
-        .navbar {
-            width: 100%;
-            position: sticky;
-            top: 0;
-            background-color: var(--bg-color);
-            z-index: 10;
-            padding: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-            font-family: var(--heading-font);
-        }
-
-        .navbar a {
-            color: var(--accent-color);
-            text-decoration: none;
-            position: relative;
-            margin-right: 20px;
-        }
-
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            left: 0;
-            bottom: -3px;
-            transition: width .3s ease;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-        }
-
-        .content {
-            width: 100%;
-            margin-top: 20px;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-sans);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
 
         h1 {
-            margin-bottom: 30px;
-            font-size: 42px;
-            text-align: left;
-            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
         }
 
-        .blog-card {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            background-color: var(--card-bg);
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            border-bottom: 4px solid var(--text-color);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
-        .blog-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        p {
+            margin-bottom: 1.5rem;
         }
 
-        .blog-title {
-            font-size: 26px;
-            margin-bottom: 15px;
-            font-family: var(--heading-font);
-        }
-
-        .blog-title a {
-            color: var(--accent-color);
+        a {
+            color: var(--text-color);
             text-decoration: none;
-            transition: color 0.2s ease;
+            border-bottom: 2px solid var(--text-color);
+            transition: background-color 0.2s;
+            padding-bottom: 1px;
         }
 
-        .blog-title a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
+        a:hover {
+            background-color: #000000;
+            color: #ffffff;
         }
 
-        .blog-meta {
-            font-size: 14px;
-            color: var(--muted-text);
-            margin-bottom: 15px;
-            font-family: var(--mono-font);
-        }
-
-        .blog-excerpt {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-family: var(--body-font);
-        }
-
-        .read-more {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-family: var(--heading-font);
-            transition: color 0.2s ease;
-            display: inline-block;
-        }
-
-        .read-more:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        .blog-tags {
+        /* Navigation */
+        .site-header {
+            margin-bottom: 4rem;
+            padding-top: 1rem;
+            border-bottom: 5px solid var(--text-color);
             display: flex;
-            flex-wrap: wrap;
-            margin-top: 15px;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
         }
 
-        .blog-tag {
-            background-color: var(--card-bg);
-            color: var(--accent-color);
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 13px;
-            font-family: var(--mono-font);
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            border: 1px solid var(--border-color);
+        .site-title {
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
         }
 
-        .blog-tag:hover {
-            background-color: var(--accent-color);
-            color: var(--card-bg);
-            transform: translateY(-2px);
+        .site-nav a {
+            margin-left: 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-bottom: none;
+            position: relative;
         }
 
-        .no-results {
-            padding: 30px;
-            text-align: center;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            margin: 40px 0;
-        }
-
-        /* Search form styles */
-        .search-form {
-            margin-bottom: 40px;
-            display: flex;
+        .site-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
             width: 100%;
+            height: 2px;
+            background-color: var(--text-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .site-nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Search Specific */
+        .search-form {
+            display: flex;
+            margin-bottom: 2rem;
         }
 
         .search-input {
             flex-grow: 1;
-            padding: 15px;
-            font-size: 18px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px 0 0 8px;
-            font-family: var(--body-font);
-            transition: border-color 0.3s ease;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 2px solid var(--text-color);
+            border-right: none;
+            font-family: var(--font-sans);
         }
 
         .search-input:focus {
@@ -220,40 +176,172 @@
         }
 
         .search-button {
-            padding: 15px 25px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 0 8px 8px 0;
-            font-family: var(--heading-font);
-            font-size: 18px;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
+            border: 2px solid var(--text-color);
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
         .search-button:hover {
-            background-color: var(--accent-hover);
+            background-color: var(--subtle-color);
+            border-color: var(--subtle-color);
         }
 
         .search-results-info {
-            margin-bottom: 20px;
-            font-family: var(--mono-font);
-            color: var(--muted-text);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            color: var(--subtle-color);
+        }
+
+        .blog-card {
+            border: 3px solid var(--text-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .blog-title a {
+            border-bottom: none;
+        }
+
+        .blog-meta {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            color: var(--subtle-color);
+        }
+
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-link {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-bottom: none;
+        }
+
+        .read-more-link:hover {
+            background-color: var(--subtle-color);
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+
+        .blog-tag {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.25rem 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .no-results {
+            border: 3px solid var(--text-color);
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .no-results h2 {
+            margin-top: 0;
+            border-bottom: none;
+            margin-bottom: 1rem;
         }
 
         .highlight {
-            background-color: rgba(73, 80, 87, 0.15);
-            padding: 2px 0;
+            background-color: yellow;
+            color: black;
         }
 
-        /* Responsive styles */
+        /* Footer */
+        .site-footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 5px solid var(--text-color);
+            text-align: left;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            margin-right: 1.5rem;
+            border-bottom: none;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .copyright {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            color: var(--subtle-color);
+        }
+
+        /* Utilities */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            :root {
-                --content-width: 90%;
+            html {
+                font-size: 16px;
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 2rem;
+            }
+
+            .site-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .site-nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .site-nav a {
+                margin-left: 0;
+                margin-right: 1.5rem;
             }
 
             .search-form {
@@ -261,164 +349,73 @@
             }
 
             .search-input {
-                border-radius: 8px;
-                margin-bottom: 10px;
+                border-right: 2px solid var(--text-color);
+                margin-bottom: 1rem;
             }
 
-            .search-button {
-                border-radius: 8px;
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
     </style>
-
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Font -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984" crossorigin="anonymous"></script>
 </head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-K938BJM57L');
+</script>
 <body>
-    <div class="container">
-        <div class="navbar">
-            — <a href="{{siteUrl}}">saadman.dev</a>
-            <a href="{{siteUrl}}/blog/">blog</a>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="visually-hidden">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="site-title">
+            <a href="{{siteUrl}}">SAADMAN.DEV</a>
         </div>
+        <nav class="site-nav">
+            <a href="https://drive.google.com/file/d/1OZydZxG-vNBsHjVmgy1xT5ttw7xIcD8K/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
+            <a href="/blog/">BLOG</a>
+            <a href="/search/">SEARCH</a>
+        </nav>
+    </header>
 
-        <div class="content">
-            <h1>Search</h1>
+    <main id="main-content">
+        <h1>SEARCH</h1>
 
-            <form id="search-form" class="search-form" action="/search/" method="get">
-                <input type="text" id="search-input" name="q" placeholder="Search articles..." class="search-input" autocomplete="off">
-                <button type="submit" class="search-button">Search</button>
-            </form>
+        <form id="search-form" class="search-form" action="/search/" method="get">
+            <input type="text" id="search-input" name="q" placeholder="Search articles..." class="search-input" autocomplete="off">
+            <button type="submit" class="search-button">SEARCH</button>
+        </form>
 
-            <div id="search-results-container">
-                <!-- Results will be inserted here by JavaScript -->
-                <div class="search-results-info" id="search-results-info"></div>
-                <div id="search-results"></div>
+        <div id="search-results-container">
+            <div class="search-results-info" id="search-results-info"></div>
+            <div id="search-results"></div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">HOME</a>
+                <a href="/blog/">BLOG</a>
+                <a href="/search/">SEARCH</a>
+                <a href="/privacy-policy/">PRIVACY</a>
+                <a href="/terms-and-conditions/">TERMS</a>
+                <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X/TWITTER</a>
             </div>
         </div>
+        <div class="copyright">
+            © {{current_year}} SAADMAN RAFAT. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
 
-        <footer class="footer">
-            <div class="copyright">
-                &copy; 2025 Saadman Rafat. All rights reserved.
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get search query from URL
-            const params = new URLSearchParams(window.location.search);
-            const query = params.get('q');
-
-            // If there's a query, perform search
-            if (query) {
-                document.getElementById('search-input').value = query;
-                performSearch(query);
-            } else {
-                document.getElementById('search-results-info').textContent = 'Enter a search term to find articles.';
-            }
-
-            // Perform search function
-            async function performSearch(query) {
-                try {
-                    // Get search index and post metadata
-                    const [indexResponse, metadataResponse] = await Promise.all([
-                        fetch('/search-index.json'),
-                        fetch('/posts-metadata.json')
-                    ]);
-
-                    const searchIndex = await indexResponse.json();
-                    const postsMetadata = await metadataResponse.json();
-
-                    // Create lunr index from the serialized index
-                    const idx = lunr.Index.load(searchIndex);
-
-                    // Search the index
-                    const results = idx.search(query);
-
-                    // Display results info
-                    document.getElementById('search-results-info').textContent =
-                        `Found ${results.length} result${results.length === 1 ? '' : 's'} for "${query}"`;
-
-                    // Get results container
-                    const resultsContainer = document.getElementById('search-results');
-                    resultsContainer.innerHTML = '';
-
-                    if (results.length === 0) {
-                        resultsContainer.innerHTML = `
-                            <div class="no-results">
-                                <h2>No results found</h2>
-                                <p>Try different keywords or check for typos.</p>
-                            </div>
-                        `;
-                        return;
-                    }
-
-                    // Map results to post metadata and display
-                    results.forEach(result => {
-                        const post = postsMetadata.find(p => p.slug === result.ref);
-                        if (!post) return;
-
-                        const tagsHtml = post.tags ? post.tags.map(tag =>
-                            `<span class="blog-tag">${tag}</span>`).join('') : '';
-
-                        const resultHtml = `
-                            <div class="blog-card">
-                                <h2 class="blog-title">
-                                    <a href="/blog/${post.slug}/">${highlightText(post.title, query)}</a>
-                                </h2>
-                                <div class="blog-meta">
-                                    Published on ${formatDate(post.date)} • ${post.readTime || '5'} min read
-                                </div>
-                                <div class="blog-excerpt">
-                                    ${highlightText(post.description, query)}
-                                </div>
-                                <a href="/blog/${post.slug}/" class="read-more">Read more →</a>
-                                <div class="blog-tags">
-                                    ${tagsHtml}
-                                </div>
-                            </div>
-                        `;
-
-                        resultsContainer.innerHTML += resultHtml;
-                    });
-                } catch (error) {
-                    console.error('Error performing search:', error);
-                    document.getElementById('search-results-info').textContent = 'An error occurred while searching.';
-                }
-            }
-
-            // Helper function to format date
-            function formatDate(dateString) {
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                return new Date(dateString).toLocaleDateString('en-US', options);
-            }
-
-            // Helper function to highlight search terms
-            function highlightText(text, query) {
-                if (!query) return text;
-
-                // Split query into individual terms
-                const terms = query.trim().toLowerCase().split(/\s+/);
-
-                // Create regex pattern for all terms
-                const pattern = terms.map(term =>
-                    term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // escape regex special chars
-                ).join('|');
-
-                // Replace matches with highlighted version
-                return text.replace(new RegExp(`(${pattern})`, 'gi'), '<span class="highlight">$1</span>');
-            }
-        });
-    </script>
-
-    <!-- Include lunr.js -->
     <script src="https://unpkg.com/lunr@2.3.9/lunr.js"></script>
+    <script src="/assets/search.js"></script>
 </body>
 
 </html>

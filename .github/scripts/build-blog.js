@@ -11,7 +11,7 @@ const Handlebars = require('handlebars');
 const lunr = require('lunr');
 
 // ===== CONFIGURATION =====
-const SITE_URL = 'https://saadman.dev';
+const SITE_URL = process.env.DEV_MODE === 'true' ? 'http://localhost:3000' : (process.env.SITE_URL || 'https://saadman.dev');
 const SOURCE_DIR = process.cwd();
 const OUTPUT_DIR = path.join(SOURCE_DIR, 'dist');
 
@@ -138,7 +138,7 @@ staticFiles.forEach(file => {
 
 // ===== LOAD TEMPLATES =====
 console.log('3. Loading HTML templates...');
-let postTemplate, blogIndexTemplate, searchTemplate;
+let postTemplate, blogIndexTemplate, searchTemplate, privacyPolicyTemplate, termsAndConditionsTemplate;
 
 try {
   // Load post template
@@ -173,6 +173,28 @@ try {
   } else {
     throw new Error('Search template not found at templates/search.html');
   }
+
+  // Load privacy policy template
+  if (fs.existsSync(path.join(SOURCE_DIR, 'templates', 'privacy-policy.html'))) {
+    privacyPolicyTemplate = fs.readFileSync(
+      path.join(SOURCE_DIR, 'templates', 'privacy-policy.html'),
+      'utf8'
+    );
+    console.log('   ✓ Loaded privacy policy template');
+  } else {
+    throw new Error('Privacy policy template not found at templates/privacy-policy.html');
+  }
+
+  // Load terms and conditions template
+  if (fs.existsSync(path.join(SOURCE_DIR, 'templates', 'terms-and-conditions.html'))) {
+    termsAndConditionsTemplate = fs.readFileSync(
+      path.join(SOURCE_DIR, 'templates', 'terms-and-conditions.html'),
+      'utf8'
+    );
+    console.log('   ✓ Loaded terms and conditions template');
+  } else {
+    throw new Error('Terms and conditions template not found at templates/terms-and-conditions.html');
+  }
 } catch (error) {
   console.error('Error loading templates:', error.message);
   process.exit(1);
@@ -182,6 +204,8 @@ try {
 const compilePost = Handlebars.compile(postTemplate);
 const compileBlogIndex = Handlebars.compile(blogIndexTemplate);
 const compileSearch = Handlebars.compile(searchTemplate);
+const compilePrivacyPolicy = Handlebars.compile(privacyPolicyTemplate);
+const compileTermsAndConditions = Handlebars.compile(termsAndConditionsTemplate);
 
 // ===== FIND AND PROCESS BLOG POSTS =====
 console.log('4. Finding and processing blog posts...');
@@ -216,7 +240,7 @@ for (const file of files) {
   try {
     const result = matter(content);
     data = result.data;
-    markdownContent = decodeContent(result.content);
+    markdownContent = result.content;
   } catch (error) {
     console.error(`   ✖ Error parsing frontmatter in ${file}:`, error.message);
     continue;
@@ -337,6 +361,34 @@ fs.writeFileSync(
 
 console.log('   ✓ Generated: /blog/index.html');
 
+// Generate privacy policy page
+console.log('   Generating privacy policy page...');
+const privacyPolicyHtml = compilePrivacyPolicy({
+  siteUrl: SITE_URL
+});
+
+fs.ensureDirSync(path.join(OUTPUT_DIR, 'privacy-policy'));
+fs.writeFileSync(
+  path.join(OUTPUT_DIR, 'privacy-policy', 'index.html'),
+  privacyPolicyHtml
+);
+
+console.log('   ✓ Generated: /privacy-policy/index.html');
+
+// Generate terms and conditions page
+console.log('   Generating terms and conditions page...');
+const termsAndConditionsHtml = compileTermsAndConditions({
+  siteUrl: SITE_URL
+});
+
+fs.ensureDirSync(path.join(OUTPUT_DIR, 'terms-and-conditions'));
+fs.writeFileSync(
+  path.join(OUTPUT_DIR, 'terms-and-conditions', 'index.html'),
+  termsAndConditionsHtml
+);
+
+console.log('   ✓ Generated: /terms-and-conditions/index.html');
+
 // ===== GENERATE RSS FEED =====
 console.log('6. Generating RSS feed...');
 const rssItems = posts.map(post => {
@@ -408,6 +460,18 @@ const sitemapEntries = [
   </url>`,
   `  <url>
     <loc>${SITE_URL}/search/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+  `  <url>
+    <loc>${SITE_URL}/privacy-policy/</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+  `  <url>
+    <loc>${SITE_URL}/terms-and-conditions/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -492,6 +556,7 @@ const notFoundPage = `<!DOCTYPE html>
       margin: 2rem 0;
     }
   </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="error-code">404</div>
