@@ -51,13 +51,30 @@
             "url": "{{siteUrl}}"
         },
         "publisher": {
-            "@type": "Person",
+            "@type": "Organization",
             "name": "Saadman Rafat",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://saadman.dev/assets/images/favicon.jpeg"
             }
-        }
+        },
+        "blogPost": [
+          {{#each posts}}
+          {
+            "@type": "BlogPosting",
+            "mainEntityOfPage": "{{../siteUrl}}/blog/{{this.slug}}/",
+            "headline": "{{this.title}}",
+            "datePublished": "{{this.date}}",
+            "author": {
+              "@type": "Person",
+              "name": "Saadman Rafat",
+              "url": "{{../siteUrl}}"
+            },
+            "image": "{{../siteUrl}}/assets/images/blog/{{#if this.image}}{{this.image}}{{else}}default.jpg{{/if}}",
+            "description": "{{this.description}}"
+          }{{#unless @last}},{{/unless}}
+          {{/each}}
+        ]
     }
     </script>
 
