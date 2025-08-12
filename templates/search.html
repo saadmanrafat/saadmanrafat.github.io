@@ -13,6 +13,13 @@
     <meta property="og:title" content="Search - Saadman Rafat">
     <meta property="og:description" content="Search across articles and content on Saadman Rafat's blog.">
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{siteUrl}}/search/">
+    <meta name="twitter:title" content="Search - Saadman Rafat">
+    <meta name="twitter:description" content="Search across articles and content on Saadman Rafat's blog.">
+    <meta name="twitter:image" content="{{siteUrl}}/assets/images/blog/blog-cover.jpg">
+
     <link rel="canonical" href="{{siteUrl}}/search/">
 
     <!-- Favicon -->
@@ -368,6 +375,28 @@
       gtag('js', new Date());
 
       gtag('config', 'G-P1VF57BQRX');
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{siteUrl}}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Search",
+                "item": "{{siteUrl}}/search/"
+            }
+        ]
+    }
     </script>
 </head>
 <body>
