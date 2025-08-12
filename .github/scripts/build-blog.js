@@ -121,7 +121,7 @@ if (fs.existsSync(path.join(SOURCE_DIR, 'assets'))) {
 }
 
 // Copy static files
-const staticFiles = ['index.html', 'robots.txt', 'CNAME', '.nojekyll', 'sitemap.xml'];
+const staticFiles = ['index.html', 'robots.txt', 'CNAME', '.nojekyll'];
 staticFiles.forEach(file => {
   if (fs.existsSync(path.join(SOURCE_DIR, file))) {
     fs.copySync(
