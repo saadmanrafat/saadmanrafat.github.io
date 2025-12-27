@@ -33,15 +33,18 @@ marked.setOptions({
 const renderer = new marked.Renderer();
 
 // Custom heading renderer to add IDs
-renderer.heading = function(text, level) {
+renderer.heading = function(token) {
+  const text = typeof token === 'string' ? token : token.text;
+  const level = typeof token === 'string' ? arguments[1] : token.depth;
   const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
   return `<h${level} id="${escapedText}">${text}</h${level}>`;
 };
 
 // Custom code renderer to handle language detection
-renderer.code = function(code, lang) {
-  const language = lang || 'plaintext';
-  const escaped = code
+renderer.code = function(token) {
+  const codeText = typeof token === 'string' ? token : token.text;
+  const language = typeof token === 'string' ? arguments[1] : (token.lang || 'plaintext');
+  const escaped = codeText
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')

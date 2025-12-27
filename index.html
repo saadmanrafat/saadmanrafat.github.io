@@ -2,36 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Saadman Rafat - Software Engineer</title>
-    <meta name="description" content="Personal website of A. M. Saadman Rafat, Software Engineer specializing in Python and Deep Learning.">
-    <meta name="keywords" content="Saadman Rafat, Python Developer, Software Engineer, Serverless Architecture, DevOps, Docker, Kubernetes, AI, CNNs">
+    <title>Saadman Rafat - AI Systems Engineer</title>
+    <meta name="description" content="Personal website of A. M. Saadman Rafat, AI Systems Engineer specializing in LLM productionization, Agentic workflows, and modern Python ecosystems.">
+    <meta name="keywords" content="Saadman Rafat, AI Systems Engineer, Python Developer, MCP, Agentic AI, Google Gemini, DevOps, Docker, Kubernetes, Vector Embeddings">
     <meta name="author" content="Saadman Rafat">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Saadman Rafat - Software Engineer">
-    <meta property="og:description" content="Personal website of A. M. Saadman Rafat, Software Engineer specializing in Python and Deep Learning.">
+    <meta property="og:title" content="Saadman Rafat - AI Systems Engineer">
+    <meta property="og:description" content="AI Systems Engineer building the infrastructure for the Agentic web. Specialist in LLM integration and system architecture.">
     <meta property="og:url" content="https://saadman.dev">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://saadman.dev/assets/images/favicon.jpeg">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:title" content="Saadman Rafat - Software Engineer">
-    <meta name="twitter:description" content="Personal website of Saadman Rafat, Software Engineer specializing in Python and Deep Learning.">
+    <meta name="twitter:title" content="Saadman Rafat - AI Systems Engineer">
+    <meta name="twitter:description" content="AI Systems Engineer specializing in Python, Gemini, and Agentic AI infrastructure.">
     <meta name="twitter:image" content="https://saadman.dev/assets/images/favicon.jpeg">
 
     <link rel="canonical" href="https://saadman.dev">
 
-    <!-- Favicon -->
     <link rel="icon" href="/assets/images/favicon.jpeg" type="image/jpeg">
     <link rel="apple-touch-icon" href="/assets/images/favicon.jpeg">
 
-    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Inter Font -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
@@ -57,48 +52,29 @@
             "https://github.com/saadmanrafat",
             "mailto:saadmanhere@gmail.com"
         ],
-        "jobTitle": "Software Engineer",
+        "jobTitle": "AI Systems Engineer",
         "worksFor": {
             "@type": "Organization",
             "name": "Daphne Solutions"
         },
-        "knowsAbout": ["Python", "DevOps", "Serverless Architecture", "Docker", "Kubernetes", "Convolutional Neural Networks", "keras", "open-source", "Pytorch","Reinforcement Learning Agents"],
+        "knowsAbout": ["AI Systems", "Agentic AI", "MCP", "Python", "DevOps", "Google Gemini", "Vector Embeddings", "Docker", "Kubernetes", "Deep Learning"],
         "alumniOf": {
             "@type": "EducationalOrganization",
             "name": "North South University"
         },
         "hasOccupation": {
             "@type": "Occupation",
-            "name": "Software Engineer",
+            "name": "AI Systems Engineer",
             "occupationLocation": {
                 "@type": "City",
                 "name": "Dhaka"
             },
-            "skills": "Python, DevOps, Kubernetes, AI Research, Deep Learning, CNNs"
+            "skills": "AI Systems Architecture, Agentic AI, Python, DevOps, LLM Grounding"
         },
         "mainEntityOfPage": "https://saadman.dev"
     }
     </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Saadman Rafat",
-      "url": "https://saadman.dev/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://saadman.dev/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      },
-      "description": "Personal website of Saadman Rafat, Software Engineer specializing in Python and Deep Learning."
-    }
-</script>
-
-    <!-- Brutalist Minimalist Styles -->
     <style>
         /* Base Variables */
         :root {
@@ -257,14 +233,14 @@
             text-transform: uppercase;
         }
 
-        /* Publications Section */
-        .publication {
+        /* Blocks (Work & Publications) */
+        .block-item {
             border: 3px solid var(--text-color);
             padding: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        .publication-meta {
+        .block-meta {
             display: flex;
             justify-content: space-between;
             font-family: var(--font-mono);
@@ -272,19 +248,19 @@
             margin-bottom: 1rem;
         }
 
-        .publication-year {
+        .block-year {
             font-weight: 700;
         }
 
-        .highlight-author {
+        .highlight-accent {
             font-weight: 700;
         }
 
-        .publication-links {
+        .block-links {
             margin-top: 1rem;
         }
 
-        .publication-link {
+        .block-link {
             display: inline-block;
             background-color: var(--text-color);
             color: var(--bg-color);
@@ -295,53 +271,8 @@
             border-bottom: none;
         }
 
-        .publication-link:hover {
+        .block-link:hover {
             background-color: var(--subtle-color);
-        }
-
-        /* Contact Section */
-        .contact-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .contact-option {
-            border: 3px solid var(--text-color);
-            padding: 1.5rem;
-            transition: transform 0.3s;
-            display: block;
-            text-decoration: none;
-        }
-
-        .contact-option:hover {
-            transform: translateY(-5px);
-            background-color: var(--text-color);
-            color: var(--bg-color);
-        }
-
-        .contact-option:hover h3,
-        .contact-option:hover p {
-            color: var(--bg-color);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-details h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
-            text-transform: uppercase;
-        }
-
-        .contact-details p {
-            margin-bottom: 0;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
         }
 
         /* Footer */
@@ -373,85 +304,19 @@
             color: var(--subtle-color);
         }
 
-        /* Utilities */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            html {
-                font-size: 16px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .site-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .site-nav {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .site-nav a {
-                margin-left: 0;
-                margin-right: 1.5rem;
-            }
-
-            .publication-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .hero-content {
-                font-size: 1.1rem;
-            }
+            html { font-size: 16px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .site-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .site-nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+            .site-nav a { margin-left: 0; margin-right: 1.5rem; }
+            .block-meta { flex-direction: column; gap: 0.5rem; }
         }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984" crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1VF57BQRX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-P1VF57BQRX');
-    </script>
 </head>
 <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="visually-hidden">Skip to main content</a>
-
     <header class="site-header">
         <div class="site-title">
             <a href="/">SAADMAN.DEV</a>
@@ -465,13 +330,13 @@
 
     <main id="main-content">
         <section class="hero">
-            <h1>SAADMAN RAFAT</h1>
+            <h1>SAADMAN RAFAT - AI SYSTEMS ENGINEER</h1>
             <div class="hero-content">
                 <p>
-                    A Software Engineer passionate about building scalable solutions and exploring the intersection of AI and software development.
+                    <strong>AI Systems Engineer</strong> focused on building the infrastructure for the Agentic web. I specialize in productionizing LLMs, architecting MCP servers, and optimizing modern Python ecosystems.
                 </p>
                 <p>
-                    Expert Python developer with a deep commitment to open-source development and building robust, scalable systems. My journey in software engineering has been driven by curiosity and a desire to solve complex problems through elegant code.
+                    From provisioning high-performance VMs to implementing real-time AI grounding with Google Gemini, I build the plumbing that makes intelligent applications scalable and secure.
                 </p>
             </div>
         </section>
@@ -479,91 +344,49 @@
         <section class="skills-section" id="skills">
             <h2>EXPERTISE</h2>
             <div class="skills-grid">
-                <span class="skill-tag">DEEP LEARNING</span>
-                <span class="skill-tag">CNNs</span>
+                <span class="skill-tag">AGENTIC AI (MCP)</span>
+                <span class="skill-tag">GOOGLE GEMINI</span>
                 <span class="skill-tag">SYSTEM ARCHITECTURE</span>
-                <span class="skill-tag">PYTHON</span>
-                <span class="skill-tag">KERAS</span>
-                <span class="skill-tag">PYTORCH</span>
+                <span class="skill-tag">MODERN PYTHON (UV)</span>
+                <span class="skill-tag">VECTOR EMBEDDINGS</span>
                 <span class="skill-tag">DEVOPS</span>
+                <span class="skill-tag">DEEP LEARNING</span>
             </div>
         </section>
 
         <section class="publications-section" id="papers">
             <h2>RESEARCH PUBLICATIONS</h2>
 
-            <article class="publication">
+            <article class="block-item">
                 <h3>Pruning Convolution Neural Networks Using Filter Clustering</h3>
-                <div class="publication-meta">
-                    <span class="authors">Khan, Niaz Ashraf, and <span class="highlight-author">A. M. SAADMAN RAFAT</span></span>
-                    <span class="publication-year">2024</span>
+                <div class="block-meta">
+                    <span class="authors">Khan, Niaz Ashraf, and <span class="highlight-accent">A. M. SAADMAN RAFAT</span></span>
+                    <span class="block-year">2024</span>
                 </div>
-                <p class="publication-details">
+                <p>
                     <strong>"Pruning Convolution Neural Networks Using Filter Clustering Based on Normalized Cross-Correlation Similarity."</strong>
-                    <em>Journal of Information and Telecommunication</em>, October, 1–19.
+                    <em>Journal of Information and Telecommunication</em>.
                 </p>
-                <div class="publication-links">
-                    <a href="https://doi.org/10.1080/24751839.2024.2415008" target="_blank" rel="noopener" class="publication-link" aria-label="View paper on pruning convolution neural networks">
-                        DOI: 10.1080/24751839.2024.2415008
-                    </a>
+                <div class="block-links">
+                    <a href="https://doi.org/10.1080/24751839.2024.2415008" target="_blank" rel="noopener" class="block-link">DOI: 10.1080/2415008</a>
                 </div>
             </article>
 
-            <article class="publication">
+            <article class="block-item">
                 <h3>Optimizing Deep Learning Models for Resource-Constrained Environments</h3>
-                <div class="publication-meta">
-                    <span class="authors">Khan, Niaz Ashraf, and <span class="highlight-author">A. M. SAADMAN RAFAT</span></span>
-                    <span class="publication-year">2025</span>
+                <div class="block-meta">
+                    <span class="authors">Khan, Niaz Ashraf, and <span class="highlight-accent">A. M. SAADMAN RAFAT</span></span>
+                    <span class="block-year">2025</span>
                 </div>
-                <p class="publication-details">
+                <p>
                     <strong>"Optimizing Deep Learning Models for Resource‐Constrained Environments With Cluster‐Quantized Knowledge Distillation."</strong>
-                    <em>Engineering Reports 7, no. 5 (2025): e70187.</em>
+                    <em>Engineering Reports</em>.
                 </p>
-                <div class="publication-links">
-                    <a href="https://doi.org/10.1002/eng2.70187" target="_blank" rel="noopener" class="publication-link" aria-label="View paper on optimizing deep learning models">
-                        DOI: 10.1002/eng2.70187
-                    </a>
+                <div class="block-links">
+                    <a href="https://doi.org/10.1002/eng2.70187" target="_blank" rel="noopener" class="block-link">DOI: 10.1002/eng2.70187</a>
                 </div>
             </article>
         </section>
-
-<!--        <section class="contact-section" id="contact">-->
-<!--            <h2>CONTACT</h2>-->
-<!--            <p>-->
-<!--                Interested in collaboration on Python development, AI research, or serverless architecture projects?-->
-<!--                Feel free to reach out through any of the following channels:-->
-<!--            </p>-->
-
-<!--            <div class="contact-options">-->
-<!--                <a href="mailto:saadmanhere@gmail.com" class="contact-option" aria-label="Email Saadman Rafat">-->
-<!--                    <div class="contact-icon">✉️</div>-->
-<!--                    <div class="contact-details">-->
-<!--                        <h3>EMAIL</h3>-->
-<!--                        <p>saadmanhere@gmail.com</p>-->
-<!--                    </div>-->
-<!--                </a>-->
-
-<!--                <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener" class="contact-option" aria-label="Saadman Rafat on X (Twitter)">-->
-<!--                    <div class="contact-icon">𝕏</div>-->
-<!--                    <div class="contact-details">-->
-<!--                        <h3>X (TWITTER)</h3>-->
-<!--                        <p>@saadmanrafat_</p>-->
-<!--                    </div>-->
-<!--                </a>-->
-
-<!--                <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener" class="contact-option">-->
-<!--                    <div class="contact-icon">-->
-<!--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-<!--                            <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z"/>-->
-<!--                        </svg>-->
-<!--                    </div>-->
-<!--                    <div class="contact-details">-->
-<!--                        <h3>GITHUB</h3>-->
-<!--                        <p>saadmanrafat</p>-->
-<!--                    </div>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </section>-->
     </main>
 
     <footer class="site-footer">
@@ -572,8 +395,6 @@
                 <a href="/">HOME</a>
                 <a href="/blog/">BLOG</a>
                 <a href="/search/">SEARCH</a>
-                <a href="/privacy-policy/">PRIVACY</a>
-                <a href="/terms-and-conditions/">TERMS</a>
                 <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GITHUB</a>
                 <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X/TWITTER</a>
             </div>
@@ -582,17 +403,5 @@
             © 2025 SAADMAN RAFAT. ALL RIGHTS RESERVED.
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add IDs to headings without IDs
-            document.querySelectorAll('h2, h3').forEach(heading => {
-                if (!heading.id) {
-                    const id = heading.textContent.toLowerCase().replace(/[^\w]+/g, '-');
-                    heading.id = id;
-                }
-            });
-        });
-    </script>
 </body>
 </html>
