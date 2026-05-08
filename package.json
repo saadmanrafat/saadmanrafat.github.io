@@ -1,0 +1,28 @@
+{
+  "name": "saadmanrafat.github.io",
+  "version": "1.0.0",
+  "description": "This repository hosts the source code for the personal website hosted at [saadman.dev](https://saadman.dev). The site features a blog built with Markdown posts and includes static assets for JavaScript, CSS, and HTML.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saadmanrafat/saadmanrafat.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/saadmanrafat/saadmanrafat.github.io/issues"
+  },
+  "homepage": "https://github.com/saadmanrafat/saadmanrafat.github.io#readme",
+  "dependencies": {
+    "fs-extra": "^11.3.5",
+    "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.9",
+    "lunr": "^2.3.9",
+    "marked": "^18.0.3"
+  }
+}
