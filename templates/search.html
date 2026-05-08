@@ -34,6 +34,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
+    
     <!-- Brutalist Minimalist Styles -->
     <style>
         /* Base Variables */
@@ -378,25 +379,38 @@
     </script>
 
     <!-- Breadcrumb Schema -->
+
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
             {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "{{siteUrl}}"
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "{{siteUrl}}"
             },
             {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Search",
-                "item": "{{siteUrl}}/search/"
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Search",
+              "item": "{{siteUrl}}/search/"
             }
-        ]
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "{{siteUrl}}/search/#webpage",
+          "url": "{{siteUrl}}/search/",
+          "name": "Search - Saadman Rafat",
+          "author": { "@id": "https://saadman.dev/#person" }
+        }
+      ]
     }
+
     </script>
 </head>
 <body>
