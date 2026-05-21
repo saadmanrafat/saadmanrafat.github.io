@@ -1,464 +1,483 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog - Saadman Rafat</title>
-    <meta name="description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
-    <meta name="keywords" content="Saadman Rafat Blog, Python Development, Serverless Architecture, DevOps, Docker, Kubernetes, AI Research, CNNs">
-    <meta name="author" content="Saadman Rafat">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Blog - Saadman Rafat</title>
+        <meta
+            name="description"
+            content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat."
+        />
+        <meta
+            name="keywords"
+            content="Saadman Rafat Blog, Python Development, Serverless Architecture, DevOps, Docker, Kubernetes, AI Research, CNNs"
+        />
+        <meta name="author" content="Saadman Rafat" />
+        <meta
+            name="robots"
+            content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{siteUrl}}/blog/">
-    <meta property="og:title" content="Blog - Saadman Rafat">
-    <meta property="og:description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
-    <meta property="og:image" content="{{siteUrl}}/assets/images/blog/blog-cover.jpg">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{siteUrl}}/blog/" />
+        <meta property="og:title" content="Blog - Saadman Rafat" />
+        <meta
+            property="og:description"
+            content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat."
+        />
+        <meta
+            property="og:image"
+            content="{{siteUrl}}/assets/images/blog/blog-cover.jpg"
+        />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{siteUrl}}/blog/">
-    <meta name="twitter:title" content="Blog - Saadman Rafat">
-    <meta name="twitter:description" content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat.">
-    <meta name="twitter:image" content="{{siteUrl}}/assets/images/blog/blog-cover.jpg">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="{{siteUrl}}/blog/" />
+        <meta name="twitter:title" content="Blog - Saadman Rafat" />
+        <meta
+            name="twitter:description"
+            content="Explore insights on Python development, serverless architecture, Docker, Kubernetes, and AI research by Saadman Rafat."
+        />
+        <meta
+            name="twitter:image"
+            content="{{siteUrl}}/assets/images/blog/blog-cover.jpg"
+        />
 
-    <link rel="canonical" href="{{siteUrl}}/blog/">
+        <link rel="canonical" href="{{siteUrl}}/blog/" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="https://saadman.dev/" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="https://saadman.dev/assets/images/favicon.jpeg">
+        <!-- Favicon -->
+        <link
+            rel="icon"
+            href="https://saadman.dev/"
+            type="image/png"
+            sizes="32x32"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="https://saadman.dev/assets/images/favicon.jpeg"
+        />
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Preconnect to external domains -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Inter Font -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+        <!-- Inter Font -->
+        <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+            as="style"
+            onload="
+                this.onload = null;
+                this.rel = 'stylesheet';
+            "
+        />
+        <noscript
+            ><link
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+                rel="stylesheet"
+        /></noscript>
 
-    <!-- Structured Data (JSON-LD) for Blog -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "headline": "Saadman Rafat's Blog",
-        "description": "Insights on Python development, serverless architecture, Docker, Kubernetes, and AI research",
-        "url": "{{siteUrl}}/blog/",
-        "author": {
-            "@type": "Person",
-            "name": "Saadman Rafat",
-            "alternateName": [
-                "A. M. Saadman Rafat",
-                "A. M. Sadman Rafat",
-                "saadmanrafat"
-            ],
-            "url": "{{siteUrl}}",
-            "image": "https://avatars.githubusercontent.com/u/13638758",
-            "jobTitle": "AI Systems Engineer",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "Daphne Solutions"
-            },
-            "knowsAbout": [
-                "AI Systems",
-                "Agentic AI",
-                "MCP (Model Context Protocol)",
-                "Python",
-                "DevOps",
-                "Google Gemini",
-                "Vector Embeddings",
-                "Docker",
-                "Kubernetes",
-                "Deep Learning",
-                "LLM Integration",
-                "System Architecture"
-            ],
-            "sameAs": [
-                "https://x.com/saadmanrafat_",
-                "https://github.com/saadmanrafat",
-                "https://linkedin.com/in/saadmanrafat"
-            ]
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Saadman Rafat",
-            "url": "{{siteUrl}}",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://avatars.githubusercontent.com/u/13638758",
-                "width": 144,
-                "height": 144
-            }
-        },
-        "blogPost": [
-          {{#each posts}}
-          {
-            "@type": "BlogPosting",
-            "mainEntityOfPage": "{{../siteUrl}}/blog/{{this.slug}}/",
-            "headline": "{{this.title}}",
-            "datePublished": "{{this.date}}",
-            "author": {
-              "@type": "Person",
-              "name": "Saadman Rafat",
-              "url": "{{../siteUrl}}",
-              "image": "https://avatars.githubusercontent.com/u/13638758",
-              "jobTitle": "AI Systems Engineer",
-              "sameAs": [
-                "https://x.com/saadmanrafat_",
-                "https://github.com/saadmanrafat"
-              ]
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Saadman Rafat",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://avatars.githubusercontent.com/u/13638758"
-              }
-            },
-            "image": "{{../siteUrl}}/assets/images/blog/{{#if this.image}}{{this.image}}{{else}}default.jpg{{/if}}",
-            "description": "{{this.description}}"
-          }{{#unless @last}},{{/unless}}
-          {{/each}}
-        ]
-    }
-    </script>
-
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
+        <!-- Structured Data (JSON-LD) for Blog -->
+        <script type="application/ld+json">
             {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "{{siteUrl}}"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "{{siteUrl}}/blog/"
+                "@context": "https://schema.org",
+                "@type": "Blog",
+                "headline": "Saadman Rafat's Blog",
+                "description": "Insights on Python development, serverless architecture, Docker, Kubernetes, and AI research",
+                "url": "{{siteUrl}}/blog/",
+                "author": { "@id": "https://saadman.dev/#person" },
+                "publisher": { "@id": "https://saadman.dev/#person" },
+                "blogPost": [
+                  {{#each posts}}
+                  {
+                    "@type": "BlogPosting",
+                    "mainEntityOfPage": "{{../siteUrl}}/blog/{{this.slug}}/",
+                    "headline": "{{this.title}}",
+                    "datePublished": "{{this.date}}",
+                    "author": { "@id": "https://saadman.dev/#person" },
+                    "publisher": { "@id": "https://saadman.dev/#person" },
+                    "image": "{{../siteUrl}}/assets/images/blog/{{#if this.image}}{{this.image}}{{else}}default.jpg{{/if}}",
+                    "description": "{{this.description}}"
+                  }{{#unless @last}},{{/unless}}
+                  {{/each}}
+                ]
             }
-        ]
-    }
-    </script>
+        </script>
 
-    <!-- Brutalist Minimalist Styles -->
-    <style>
-        /* Base Variables */
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --accent-color: #000000;
-            --subtle-color: #999999;
-            --border-color: #000000;
-            --code-bg: #f1f1f1;
-            --main-width: 40rem;
-            --content-padding: clamp(1rem, 5vw, 3rem);
-            --gap: 2rem;
+        <!-- Breadcrumb Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "{{siteUrl}}"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "{{siteUrl}}/blog/"
+                    }
+                ]
+            }
+        </script>
 
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-        }
+        <!-- Brutalist Minimalist Styles -->
+        <style>
+            /* Base Variables */
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #000000;
+                --accent-color: #000000;
+                --subtle-color: #999999;
+                --border-color: #000000;
+                --code-bg: #f1f1f1;
+                --main-width: 40rem;
+                --content-padding: clamp(1rem, 5vw, 3rem);
+                --gap: 2rem;
 
-        /* Reset and Base Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+                --font-sans:
+                    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+                --font-mono: "JetBrains Mono", monospace;
+            }
 
-        html {
-            font-size: 18px;
-            scroll-behavior: smooth;
-        }
+            /* Reset and Base Styles */
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-sans);
-            font-weight: 400;
-            line-height: 1.6;
-            max-width: var(--main-width);
-            margin: 0 auto;
-            padding: var(--content-padding);
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-sans);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        h2 {
-            font-size: 1.75rem;
-            margin-top: 3rem;
-            border-bottom: 4px solid var(--text-color);
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-        }
-
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 2px solid var(--text-color);
-            transition: background-color 0.2s;
-            padding-bottom: 1px;
-        }
-
-        a:hover {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        /* Navigation */
-        .site-header {
-            margin-bottom: 4rem;
-            padding-top: 1rem;
-            border-bottom: 5px solid var(--text-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1rem;
-        }
-
-        .site-title {
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-        }
-
-        .site-nav a {
-            margin-left: 1.5rem;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            border-bottom: none;
-            position: relative;
-        }
-
-        .site-nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-color);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s;
-        }
-
-        .site-nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* Blog List */
-        .blog-list {
-            margin-top: 4rem;
-        }
-
-        .blog-post {
-            border: 3px solid var(--text-color);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .blog-post-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .blog-post-title a {
-            border-bottom: none;
-        }
-
-        .blog-post-meta {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            color: var(--subtle-color);
-        }
-
-        .blog-post-excerpt {
-            margin-bottom: 1.5rem;
-        }
-
-        .read-more-link {
-            display: inline-block;
-            background-color: var(--text-color);
-            color: var(--bg-color);
-            padding: 0.5rem 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            border-bottom: none;
-        }
-
-        .read-more-link:hover {
-            background-color: var(--subtle-color);
-        }
-
-        /* Footer */
-        .site-footer {
-            margin-top: 6rem;
-            padding-top: 2rem;
-            border-top: 5px solid var(--text-color);
-            text-align: left;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-links a {
-            margin-right: 1.5rem;
-            border-bottom: none;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .copyright {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            margin-top: 2rem;
-            color: var(--subtle-color);
-        }
-
-        /* Utilities */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
             html {
-                font-size: 16px;
+                font-size: 18px;
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                font-family: var(--font-sans);
+                font-weight: 400;
+                line-height: 1.6;
+                max-width: var(--main-width);
+                margin: 0 auto;
+                padding: var(--content-padding);
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: var(--font-sans);
+                font-weight: 900;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+                letter-spacing: -0.02em;
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+                text-transform: uppercase;
             }
 
+            h2 {
+                font-size: 1.75rem;
+                margin-top: 3rem;
+                border-bottom: 4px solid var(--text-color);
+                padding-bottom: 0.5rem;
+                text-transform: uppercase;
+            }
+
+            p {
+                margin-bottom: 1.5rem;
+            }
+
+            a {
+                color: var(--text-color);
+                text-decoration: none;
+                border-bottom: 2px solid var(--text-color);
+                transition: background-color 0.2s;
+                padding-bottom: 1px;
+            }
+
+            a:hover {
+                background-color: #000000;
+                color: #ffffff;
+            }
+
+            /* Navigation */
             .site-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+                margin-bottom: 4rem;
+                padding-top: 1rem;
+                border-bottom: 5px solid var(--text-color);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 1rem;
             }
 
-            .site-nav {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
+            .site-title {
+                font-weight: 900;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                letter-spacing: -0.05em;
             }
 
             .site-nav a {
-                margin-left: 0;
-                margin-right: 1.5rem;
+                margin-left: 1.5rem;
+                font-weight: 700;
+                font-size: 1rem;
+                text-transform: uppercase;
+                border-bottom: none;
+                position: relative;
+            }
+
+            .site-nav a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -4px;
+                width: 100%;
+                height: 2px;
+                background-color: var(--text-color);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s;
+            }
+
+            .site-nav a:hover::after {
+                transform: scaleX(1);
+            }
+
+            /* Blog List */
+            .blog-list {
+                margin-top: 4rem;
+            }
+
+            .blog-post {
+                border: 3px solid var(--text-color);
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .blog-post-title {
+                font-size: 1.5rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+            }
+
+            .blog-post-title a {
+                border-bottom: none;
+            }
+
+            .blog-post-meta {
+                font-family: var(--font-mono);
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+                color: var(--subtle-color);
+            }
+
+            .blog-post-excerpt {
+                margin-bottom: 1.5rem;
+            }
+
+            .read-more-link {
+                display: inline-block;
+                background-color: var(--text-color);
+                color: var(--bg-color);
+                padding: 0.5rem 1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                border-bottom: none;
+            }
+
+            .read-more-link:hover {
+                background-color: var(--subtle-color);
+            }
+
+            /* Footer */
+            .site-footer {
+                margin-top: 6rem;
+                padding-top: 2rem;
+                border-top: 5px solid var(--text-color);
+                text-align: left;
             }
 
             .footer-content {
-                flex-direction: column;
-                gap: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 2rem;
             }
-        }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984" crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1VF57BQRX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-P1VF57BQRX');
-    </script>
-</head>
-<body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="visually-hidden">Skip to main content</a>
+            .footer-links a {
+                margin-right: 1.5rem;
+                border-bottom: none;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
 
-    <header class="site-header">
-        <div class="site-title">
-            <a href="{{siteUrl}}">SAADMAN.DEV</a>
-        </div>
-        <nav class="site-nav">
-            <a href="https://drive.google.com/file/d/1OZydZxG-vNBsHjVmgy1xT5ttw7xIcD8K/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
-            <a href="/blog/">BLOG</a>
-            <a href="/search/">SEARCH</a>
-        </nav>
-    </header>
+            .copyright {
+                font-family: var(--font-mono);
+                font-size: 0.85rem;
+                margin-top: 2rem;
+                color: var(--subtle-color);
+            }
 
-    <main id="main-content">
-        <h1>BLOG</h1>
+            /* Utilities */
+            .visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
 
-        <div class="blog-list">
-            {{#each posts}}
-            <article class="blog-post">
-                <h2 class="blog-post-title">
-                    <a href="{{../siteUrl}}/blog/{{this.slug}}/">{{this.title}}</a>
-                </h2>
-                <div class="blog-post-meta">
-                    <span>{{formatDate this.date}}</span> | <span>{{#if this.readTime}}{{this.readTime}}{{else}}5{{/if}} MIN READ</span>
-                </div>
-                <p class="blog-post-excerpt">
-                    {{this.description}}
-                </p>
-                <a href="{{../siteUrl}}/blog/{{this.slug}}/" class="read-more-link">READ MORE</a>
-            </article>
-            {{/each}}
-        </div>
-    </main>
+            /* Responsive Adjustments */
+            @media (max-width: 768px) {
+                html {
+                    font-size: 16px;
+                }
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="/">HOME</a>
+                h1 {
+                    font-size: 2rem;
+                }
+
+                .site-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 1rem;
+                }
+
+                .site-nav {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                }
+
+                .site-nav a {
+                    margin-left: 0;
+                    margin-right: 1.5rem;
+                }
+
+                .footer-content {
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+            }
+        </style>
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069223132626984"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-P1VF57BQRX"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-P1VF57BQRX");
+        </script>
+    </head>
+    <body>
+        <!-- Skip Link for Accessibility -->
+        <a href="#main-content" class="visually-hidden">Skip to main content</a>
+
+        <header class="site-header">
+            <div class="site-title">
+                <a href="{{siteUrl}}">SAADMAN.DEV</a>
+            </div>
+            <nav class="site-nav">
+                <a
+                    href="https://drive.google.com/file/d/1OZydZxG-vNBsHjVmgy1xT5ttw7xIcD8K/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener"
+                    >RESUME</a
+                >
                 <a href="/blog/">BLOG</a>
                 <a href="/search/">SEARCH</a>
-                <a href="/privacy-policy/">PRIVACY</a>
-                <a href="/terms-and-conditions/">TERMS</a>
-                <a href="https://github.com/saadmanrafat" target="_blank" rel="noopener noreferrer">GITHUB</a>
-                <a href="https://x.com/saadmanrafat_" target="_blank" rel="noopener noreferrer">X/TWITTER</a>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <h1>BLOG</h1>
+
+            <div class="blog-list">
+                {{#each posts}}
+                <article class="blog-post">
+                    <h2 class="blog-post-title">
+                        <a href="{{../siteUrl}}/blog/{{this.slug}}/"
+                            >{{this.title}}</a
+                        >
+                    </h2>
+                    <div class="blog-post-meta">
+                        <span>{{formatDate this.date}}</span> |
+                        <span
+                            >{{#if
+                            this.readTime}}{{this.readTime}}{{else}}5{{/if}} MIN
+                            READ</span
+                        >
+                    </div>
+                    <p class="blog-post-excerpt">{{this.description}}</p>
+                    <a
+                        href="{{../siteUrl}}/blog/{{this.slug}}/"
+                        class="read-more-link"
+                        >READ MORE</a
+                    >
+                </article>
+                {{/each}}
             </div>
-        </div>
-        <div class="copyright">
-            © {{current_year}} SAADMAN RAFAT. ALL RIGHTS RESERVED.
-        </div>
-    </footer>
-</body>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="/">HOME</a>
+                    <a href="/blog/">BLOG</a>
+                    <a href="/search/">SEARCH</a>
+                    <a href="/privacy-policy/">PRIVACY</a>
+                    <a href="/terms-and-conditions/">TERMS</a>
+                    <a
+                        href="https://github.com/saadmanrafat"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >GITHUB</a
+                    >
+                    <a
+                        href="https://x.com/saadmanrafat_"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >X/TWITTER</a
+                    >
+                </div>
+            </div>
+            <div class="copyright">
+                © {{current_year}} SAADMAN RAFAT. ALL RIGHTS RESERVED.
+            </div>
+        </footer>
+    </body>
 </html>
