@@ -6,7 +6,7 @@
         <meta name="description" content="{{post.description}}" />
         <meta
             name="keywords"
-            content="{{post.keywords}}, Saadman Rafat, Python Developer"
+            content="{{#if post.keywords}}{{post.keywords}}{{else if post.tags}}{{join post.tags ', '}}{{/if}}, Saadman Rafat, Python Developer"
         />
         <meta name="author" content="Saadman Rafat" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -1,0 +1,30 @@
+# Saadman Rafat
+
+> Personal site and technical blog of Saadman Rafat (A. M. Saadman Rafat), a Senior AI Systems & MLOps Architect specializing in LLM productionization, agentic workflows, and Python tooling. Author of [Halfhand](https://halfhand.org), a local-first Rust CLI that records and replays AI coding agent sessions.
+
+Saadman Rafat writes about Python packaging, AI agent tooling, MCP (Model Context Protocol), LLM engineering, and developer infrastructure. All posts are original, dated, and tagged; full-text search and an RSS feed are available.
+
+## Tools
+
+- [Halfhand](https://halfhand.org): A local-first Rust CLI flight recorder for AI coding agents (Claude Code, Claude Desktop, OpenAI Codex CLI, Google Gemini CLI). Records terminal output, file diffs, and structured agent events to a local SQLite database with zero network calls; replay faithfully in a TUI or inspect non-interactively. Source: https://github.com/halfhandorg/halfhand
+- [Arkterm](https://github.com/saadmanrafat/arkterm): An open-source AI-native shell terminal that wires an LLM directly into the Linux command line.
+
+## Blog
+
+- [Halfhand: The Flight Recorder for Your AI Coding Agents](https://saadman.dev/blog/2026-07-23-halfhand-the-flight-recorder-for-your-ai-coding-agents/): Introducing Halfhand (hh), a local-first Rust CLI that records AI coding agent sessions and replays them faithfully, with zero network calls.
+- [The Modern Way to Install Python CLI Tools Globally Without Breaking PEP 668 Compliance](https://saadman.dev/blog/2025-08-10-the-modern-way-to-install-python-cli-tools-globally-without-breaking-pep-668-compliance/): Using pipx, uv, and other modern methods to install Python CLI tools globally while staying PEP 668 compliant.
+- [AI's New Frontier: Reimagining Your Terminal with Intelligent Agents](https://saadman.dev/blog/2025-06-26-reimagining-your-terminal-with-intelligent-agents/): A look at Google Gemini CLI, Arkterm, and Warp.dev, and how AI is transforming the command-line experience.
+- [Ten Actually Useful Open Source LLM Tools You Should Know (2025 Edition)](https://saadman.dev/blog/2025-06-09-ten-actually-useful-open-source-llm-tool-you-should-know-2025-edition/): A curated list of production-ready, privacy-respecting open-source LLM tools, from Langfuse to Continue.
+- [Shell Shocked: Wire an LLM Directly into Your Linux Terminal](https://saadman.dev/blog/2025-05-31-shell-shocked-wire-llm-directly-in-linux-terminal/): Building Arkterm, an AI-powered terminal assistant using Groq's LLM API.
+- [Deta Surf: Reclaim Your Digital World](https://saadman.dev/blog/2025-05-20-deta-surf-reclaim-your-digital-world/): A look at Deta Surf, a browser rethinking digital organization with AI and local-first principles.
+- [Seeing the World: A Beginner's Guide to CNNs using PyTorch](https://saadman.dev/blog/2025-05-21-seeing-the-world-a-beginners-guide-to-convolution-neural-networks-using-pytorch/): An introduction to Convolutional Neural Networks using PyTorch.
+- [The Reason pip Suddenly Refuses to Install Globally](https://saadman.dev/blog/2025-05-15-the-reason-pip-refuses-to-install-globally/): Explaining PEP 668 and externally managed Python environments.
+- [A No-Nonsense Guide to UV (a Python Package Manager)](https://saadman.dev/blog/2025-05-15-a-no-nonsense-guide-to-uv-a-python-package-manager/): An overview of uv, a fast all-in-one Python package and environment manager.
+
+## Optional
+
+- [Full blog index](https://saadman.dev/blog/): All posts, newest first.
+- [RSS feed](https://saadman.dev/rss.xml): Machine-readable feed of all posts.
+- [Sitemap](https://saadman.dev/sitemap.xml): Full site sitemap with per-post images.
+- [Search](https://saadman.dev/search/): Full-text search over all posts.
+- [GitHub](https://github.com/saadmanrafat): Source code and open-source projects.
