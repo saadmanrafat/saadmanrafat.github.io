@@ -466,18 +466,6 @@ const sitemapEntries = [
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>`,
-  `  <url>
-    <loc>${SITE_URL}/privacy-policy/</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>`,
-  `  <url>
-    <loc>${SITE_URL}/terms-and-conditions/</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>`
 ];
 

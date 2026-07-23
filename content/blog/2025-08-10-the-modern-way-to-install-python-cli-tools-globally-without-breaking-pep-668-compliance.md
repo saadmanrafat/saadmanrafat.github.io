@@ -46,7 +46,7 @@ error: externally-managed-environment
     install.
 ```
 
-I wrote a [blog post](https://saadman.dev/blog/2025-05-15-the-reason-pip-refuses-to-install-globally) about this error, explaining why it exists and how to work around it. But today, I want to focus on a more elegant solution that respects PEP 668 compliance while allowing you to install Python CLI tools globally.
+I wrote a [blog post](https://saadman.dev/blog/2025-05-15-the-reason-pip-refuses-to-install-globally/) about this error, explaining why it exists and how to work around it. But today, I want to focus on a more elegant solution that respects PEP 668 compliance while allowing you to install Python CLI tools globally.
 
 ## Welcome to the PEP 668 era.
 
