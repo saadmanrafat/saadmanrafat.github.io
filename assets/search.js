@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let postsMetadata = [];
     let searchIndex = null;
 
+    // Pre-fill the input from ?q= so links (e.g. Google's sitelinks search box) work
+    const queryFromUrl = new URLSearchParams(window.location.search).get('q');
+    if (queryFromUrl) {
+        searchInput.value = queryFromUrl;
+    }
+
     // Fetch the search data
     Promise.all([
         fetch('/posts-metadata.json').then(response => response.json()),

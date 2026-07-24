@@ -125,9 +125,32 @@
                         "@id": "https://saadman.dev/#website",
                         "url": "https://saadman.dev/",
                         "name": "Saadman.dev",
+                        "description": "Personal website of A. M. Saadman Rafat, AI Systems Engineer specializing in LLM productionization, Agentic workflows, and modern Python ecosystems.",
                         "publisher": {
                             "@id": "https://saadman.dev/#person"
+                        },
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": {
+                                "@type": "EntryPoint",
+                                "urlTemplate": "https://saadman.dev/search/?q={search_term_string}"
+                            },
+                            "query-input": "required name=search_term_string"
                         }
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "@id": "https://saadman.dev/blog/#navitem",
+                        "name": "Blog",
+                        "description": "Insights on Python development, serverless architecture, Docker, Kubernetes, and AI research.",
+                        "url": "https://saadman.dev/blog/"
+                    },
+                    {
+                        "@type": "SiteNavigationElement",
+                        "@id": "https://saadman.dev/search/#navitem",
+                        "name": "Search",
+                        "description": "Search across articles and content on Saadman Rafat's blog.",
+                        "url": "https://saadman.dev/search/"
                     }
                 ]
             }
